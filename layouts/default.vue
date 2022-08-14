@@ -41,7 +41,7 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main>
+    <v-main :class="backgroundTheme">
       <v-container>
         <Nuxt />
       </v-container>
@@ -88,5 +88,19 @@ export default {
       title: 'Vuetify.js',
     }
   },
+  computed: {
+    backgroundTheme() {
+      return this.$vuetify.theme.dark ? 'dark-background-color' : 'light-background-color'
+    }
+  }
 }
 </script>
+
+<style scoped lang="scss">
+.light-background-color {
+  background-color: $background-color-light;
+}
+.dark-background-color {
+  background-color: $background-color-dark;
+}
+</style>
