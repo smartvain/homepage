@@ -24,7 +24,7 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
       </v-col>
     </v-row>
     <!-- Skills area -->
-    <v-row justify="center" align="center" name="top-area" class="section-area top-area">
+    <v-row justify="center" align="center" name="top-area" class="section-area">
       
     </v-row>
   </v-container>
