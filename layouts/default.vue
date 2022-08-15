@@ -18,8 +18,8 @@ const backgroundTheme = computed(() => {
   <v-app dark>
     <!-- header -->
     <v-app-bar color="transparent" flat fixed app>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
+      <v-btn icon>
+        <v-icon>mdi-space-invaders</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
     </v-app-bar>
