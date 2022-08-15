@@ -18,6 +18,8 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
         </v-btn>
       </v-col>
       <v-col cols="7" align="center">
+        <img style="width: 25rem" :src="require('@/assets/images/main-satellite.png')" class="satellite-image">
+        <img style="width: 8rem" :src="require('@/assets/images/main-star.png')" class="star-image">
         <img style="width: 70rem" :src="require('@/assets/images/main-astronaut.png')">
       </v-col>
     </v-row>
@@ -31,5 +33,37 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
 <style scoped lang="scss">
 .top-area h1, p {
   text-align: left;
+}
+
+.satellite-image {
+  position: absolute;
+  animation: 4s float infinite;
+}
+
+// float animation
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.star-image {
+  position: absolute;
+  top: 20rem;
+  left: 84rem;
+  animation: 4s sparkle infinite;
+}
+
+// Sparkle animation
+@keyframes sparkle {
+  0%, 100% {
+    transform: rotate(0) scale(0);
+  }
+  50% {
+    transform: rotate(1turn) scale(1);
+  }
 }
 </style>
