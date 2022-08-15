@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import colorModule from '@/assets/scss/module.scss'
-
-const detail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
+import TopSection from '@/components/sections/Top.vue'
+import SkillsSection from '@/components/sections/Skills.vue'
 </script>
 
 <template>
