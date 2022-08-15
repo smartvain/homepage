@@ -83,5 +83,5 @@
   </v-row>
 </template>
 
-<style lang="sass" scoped>
+<style scoped lang="sass">
 </style>
