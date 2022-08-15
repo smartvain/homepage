@@ -60,7 +60,7 @@ const toggleTheme = () => {
       </v-container>
     </v-main>
     <!-- footer -->
-    <v-footer :color="colorModule.FOOTER_BACKGROUND_COLOR" app>
+    <v-footer :color="colorModule.THIRD_COLOR" app>
       <v-col cols="12" class="font-weight-bold" align="center">
         <span :style="{ 'color': colorModule.MAIN_COLOR_LIGHT }">
           &copy; {{ new Date().getFullYear() }} {{ footerMessage }}
