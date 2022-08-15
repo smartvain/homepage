@@ -39,6 +39,10 @@ const toggleTheme = () => {
         <v-icon>mdi-space-invaders</v-icon>
       </v-btn>
       <v-app-bar-title class="pl-0 font-weight-bold" v-text="title" />
+      <v-spacer />
+      <v-btn icon @click.stop="toggleTheme">
+        <v-icon>{{ weatherIconTheme }}</v-icon>
+      </v-btn>
     </v-app-bar>
     <!-- body -->
     <v-main :style="{ 'background-color': backgroundTheme }">
