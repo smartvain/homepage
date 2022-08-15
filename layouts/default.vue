@@ -32,7 +32,7 @@ const toggleTheme = () => {
 </script>
 
 <template>
-  <v-app dark>
+  <v-app dark :style="fontColorTheme">
     <!-- header -->
     <v-app-bar color="transparent" flat fixed app>
       <v-btn icon>
@@ -41,7 +41,7 @@ const toggleTheme = () => {
       <v-app-bar-title class="pl-0 font-weight-bold" v-text="title" />
     </v-app-bar>
     <!-- body -->
-    <v-main :class="backgroundTheme">
+    <v-main :style="{ 'background-color': backgroundTheme }">
       <v-container>
         <Nuxt />
       </v-container>
@@ -56,5 +56,7 @@ const toggleTheme = () => {
 </template>
 
 <style scoped lang="scss">
+* {
+  color: var(--font-color);
 }
 </style>
