@@ -7,6 +7,12 @@ const { $vuetify } = useContext()
 // data
 const title = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
+const headerButtons = [
+  { text: 'Skills' },
+  { text: 'Projects' },
+  { text: 'Contact' },
+  { text: 'Source' },
+]
 
 // computed
 const backgroundTheme = computed(() => {
@@ -40,6 +46,9 @@ const toggleTheme = () => {
       </v-btn>
       <v-app-bar-title class="pl-0 font-weight-bold" v-text="title" />
       <v-spacer />
+      <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" outlined>
+        {{ item.text }}
+      </v-btn>
       <v-btn icon @click.stop="toggleTheme">
         <v-icon>{{ weatherIconTheme }}</v-icon>
       </v-btn>
