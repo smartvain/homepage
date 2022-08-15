@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import { useContext } from '@nuxtjs/composition-api'
+const { $vuetify } = useContext()
+
+// data
+const fixed = ref(false)
+const title = 'Ryuichi Amejima'
+const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
+
+// computed
+const backgroundTheme = computed(() => {
+  return $vuetify.theme.dark ? 'background-color-dark' : 'background-color-light'
+})
+</script>
+
 <template>
   <v-app dark>
     <!-- header -->
@@ -19,24 +35,6 @@
     </v-footer>
   </v-app>
 </template>
-
-<script>
-export default {
-  name: 'DefaultLayout',
-  data() {
-    return {
-      fixed: false,
-      title: 'Vuetify.js',
-      footerMessage: 'Ryuichi Amejima. All Rights Reserved.'
-    }
-  },
-  computed: {
-    backgroundTheme() {
-      return this.$vuetify.theme.dark ? 'background-color-dark' : 'background-color-light'
-    }
-  }
-}
-</script>
 
 <style scoped lang="scss">
 .background-color-light {
