@@ -24,6 +24,11 @@ const weatherIconTheme = computed(() => {
     ? 'mdi-weather-sunny'
     : 'mdi-weather-night'
 })
+
+// methods
+const toggleTheme = () => {
+  $vuetify.theme.dark = !$vuetify.theme.dark
+}
 </script>
 
 <template>
