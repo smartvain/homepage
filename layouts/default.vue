@@ -39,7 +39,7 @@ const toggleTheme = () => {
 
 <template>
   <v-app dark :style="fontColorTheme">
-    <!-- header -->
+    <!-- Header -->
     <v-app-bar color="transparent" flat fixed app>
       <v-btn icon>
         <v-icon>mdi-space-invaders</v-icon>
@@ -53,11 +53,11 @@ const toggleTheme = () => {
         <v-icon>{{ weatherIconTheme }}</v-icon>
       </v-btn>
     </v-app-bar>
-    <!-- body -->
+    <!-- Body -->
     <v-main :style="{ 'background-color': backgroundTheme }">
       <Nuxt />
     </v-main>
-    <!-- footer -->
+    <!-- Footer -->
     <v-footer :color="colorModule.THIRD_COLOR">
       <v-col cols="12" class="font-weight-bold" align="center">
         <span :style="{ 'color': colorModule.MAIN_COLOR_LIGHT }">
