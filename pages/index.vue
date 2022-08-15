@@ -17,7 +17,7 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
           Contact
         </v-btn>
       </v-col>
-      <v-col cols="7" align="center">
+      <v-col cols="7" align="center" style="position: relative">
         <img style="width: 25rem" :src="require('@/assets/images/main-satellite.png')" class="satellite-image">
         <img style="width: 8rem" :src="require('@/assets/images/main-star.png')" class="star-image">
         <img style="width: 70rem" :src="require('@/assets/images/main-astronaut.png')">
@@ -42,8 +42,8 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
 
 .star-image {
   position: absolute;
-  top: 20rem;
-  left: 84rem;
+  top: 35%;
+  left: 70%;
   animation: 4s sparkle infinite;
 }
 
