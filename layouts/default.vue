@@ -14,7 +14,7 @@ const headerButtons = [
   { text: 'Source' },
 ]
 
-// computed
+// dark mode properties
 const backgroundTheme = computed(() => {
   return $vuetify.theme.dark
     ? colorModule.MAIN_COLOR_DARK
