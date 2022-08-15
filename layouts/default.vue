@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useContext } from '@nuxtjs/composition-api'
 const { $vuetify } = useContext()
 
 // data
-const fixed = ref(false)
 const title = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 
@@ -39,10 +38,5 @@ const backgroundTheme = computed(() => {
 </template>
 
 <style scoped lang="scss">
-.background-color-light {
-  background-color: $main-color-light;
-}
-.background-color-dark {
-  background-color: $main-color-dark;
 }
 </style>
