@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useContext } from '@nuxtjs/composition-api'
-import colorModule from '@/assets/module.scss'
+import colorModule from '@/assets/scss/module.scss'
 const { $vuetify } = useContext()
 
 // data
