@@ -40,6 +40,13 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
   animation: 4s float infinite;
 }
 
+.star-image {
+  position: absolute;
+  top: 20rem;
+  left: 84rem;
+  animation: 4s sparkle infinite;
+}
+
 // float animation
 @keyframes float {
   0%, 100% {
@@ -48,13 +55,6 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
   50% {
     transform: translateY(-30px);
   }
-}
-
-.star-image {
-  position: absolute;
-  top: 20rem;
-  left: 84rem;
-  animation: 4s sparkle infinite;
 }
 
 // Sparkle animation
