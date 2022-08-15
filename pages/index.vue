@@ -1,14 +1,35 @@
 <script setup lang="ts">
+import colorModule from '@/assets/scss/module.scss'
+
+const detail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 </script>
 
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-
-    </v-col>
-  </v-row>
+  <v-container fluid style="width: 93%">
+    <!-- Top area -->
+    <v-row justify="center" align="center" name="top-area" class="section-area top-area">
+      <v-col cols="5" align="center">
+        <h1 class="section-title section-title-top-area">
+          I'M <span :style="{ 'color': colorModule.SECONDARY_COLOR }">WEB</span><br>DEVELOPER.
+        </h1>
+        <p v-text="detail" class="section-description section-description-top-area mt-16" />
+        <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-8 py-5" :color="colorModule.THIRD_COLOR">
+          Contact
+        </v-btn>
+      </v-col>
+      <v-col cols="7" align="center">
+        <img style="width: 70rem" :src="require('@/assets/images/main-astronaut.png')">
+      </v-col>
+    </v-row>
+    <!-- Skills area -->
+    <v-row justify="center" align="center" name="top-area" class="section-area top-area">
+      
+    </v-row>
+  </v-container>
 </template>
 
-<style scoped lang="sass">
-
+<style scoped lang="scss">
+.top-area h1, p {
+  text-align: left;
+}
 </style>
