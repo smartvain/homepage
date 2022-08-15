@@ -5,7 +5,7 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
 </script>
 
 <template>
-  <v-container fluid style="width: 93%">
+  <v-container fluid style="width: 93%; max-width: 102rem;">
     <!-- Top area -->
     <v-row justify="center" align="center" name="top-area" class="section-area top-area">
       <v-col cols="5" align="center">
