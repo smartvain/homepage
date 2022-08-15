@@ -41,7 +41,7 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
   animation: 4s sparkle infinite;
 }
 
-// float animation
+// Simple float animation
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
