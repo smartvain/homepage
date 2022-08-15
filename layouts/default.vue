@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useContext } from '@nuxtjs/composition-api'
+import colorModule from '@/assets/module.scss'
 const { $vuetify } = useContext()
 
 // data
@@ -9,7 +10,19 @@ const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 
 // computed
 const backgroundTheme = computed(() => {
-  return $vuetify.theme.dark ? 'background-color-dark' : 'background-color-light'
+  return $vuetify.theme.dark
+    ? colorModule.MAIN_COLOR_DARK
+    : colorModule.MAIN_COLOR_LIGHT
+})
+const fontColorTheme = computed(() => ({
+  '--font-color': $vuetify.theme.dark
+    ? colorModule.MAIN_COLOR_LIGHT
+    : colorModule.MAIN_COLOR_DARK
+}))
+const weatherIconTheme = computed(() => {
+  return $vuetify.theme.dark
+    ? 'mdi-weather-sunny'
+    : 'mdi-weather-night'
 })
 </script>
 
