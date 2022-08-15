@@ -10,7 +10,5 @@ $second-color: #fdb45b;
 
 $footer-background-color: #4e376b;
 
-:export {
-  MAIN_COLOR_LIGHT: $main-color-light;
-  MAIN_COLOR_DARK: $main-color-dark;
-}
+// override variable
+$body-font-family: 'Ubuntu';
