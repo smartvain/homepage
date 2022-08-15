@@ -90,17 +90,17 @@ export default {
   },
   computed: {
     backgroundTheme() {
-      return this.$vuetify.theme.dark ? 'dark-background-color' : 'light-background-color'
+      return this.$vuetify.theme.dark ? 'background-color-dark' : 'background-color-light'
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.light-background-color {
-  background-color: $background-color-light;
+.background-color-light {
+  background-color: $main-color-light;
 }
-.dark-background-color {
-  background-color: $background-color-dark;
+.background-color-dark {
+  background-color: $main-color-dark;
 }
 </style>
