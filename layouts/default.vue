@@ -21,7 +21,7 @@ const backgroundTheme = computed(() => {
       <v-btn icon>
         <v-icon>mdi-space-invaders</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-app-bar-title class="pl-0 font-weight-bold" v-text="title" />
     </v-app-bar>
     <!-- body -->
     <v-main :class="backgroundTheme">
