@@ -13,7 +13,7 @@ const detail = 'I work for a Tokyo-based company as a full-stack web developer a
           I'M <span :style="{ 'color': colorModule.SECONDARY_COLOR }">WEB</span><br>DEVELOPER.
         </h1>
         <p v-text="detail" class="section-description section-description-top-area mt-16" />
-        <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-8 py-5" :color="colorModule.THIRD_COLOR">
+        <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-8 py-5" style="font-size: 1.3rem" :color="colorModule.THIRD_COLOR">
           Contact
         </v-btn>
       </v-col>
