@@ -1,0 +1,15 @@
+.section-area {
+  position: relative;
+  min-height: 715px;
+}
+
+.section-title {
+  font-size: 7.5rem;
+  font-family: $section-title-font-family;
+  line-height: 7rem;
+  transform   : scale(1, 1.3)
+}
+
+.section-description {
+  font-size: 1.4rem;
+}
