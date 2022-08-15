@@ -35,6 +35,7 @@ const cardBackGroundTheme = computed(() => {
 :root {
   --position-right: -10rem;
 }
+
 .skill-space {
   position: absolute;
   top: 0;
