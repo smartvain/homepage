@@ -44,7 +44,7 @@ const toggleTheme = () => {
       <v-btn icon>
         <v-icon>mdi-space-invaders</v-icon>
       </v-btn>
-      <v-app-bar-title class="pl-0 font-weight-bold" v-text="title" />
+      <v-app-bar-title class="pl-0 font-weight-bold" style="font-size: 1.6rem" v-text="title" />
       <v-spacer />
       <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" outlined>
         {{ item.text }}
