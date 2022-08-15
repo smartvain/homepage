@@ -58,7 +58,7 @@ const toggleTheme = () => {
       <Nuxt />
     </v-main>
     <!-- footer -->
-    <v-footer :color="colorModule.THIRD_COLOR" app>
+    <v-footer :color="colorModule.THIRD_COLOR">
       <v-col cols="12" class="font-weight-bold" align="center">
         <span :style="{ 'color': colorModule.MAIN_COLOR_LIGHT }">
           &copy; {{ new Date().getFullYear() }} {{ footerMessage }}
