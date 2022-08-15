@@ -31,7 +31,9 @@ const backgroundTheme = computed(() => {
     </v-main>
     <!-- footer -->
     <v-footer :absolute="!fixed" app>
-      <v-col cols="12" class="font-weight-bold" align="center">&copy; {{ new Date().getFullYear() }} {{ footerMessage }}</v-col>
+      <v-col cols="12" class="font-weight-bold" align="center">
+        &copy; {{ new Date().getFullYear() }} {{ footerMessage }}
+      </v-col>
     </v-footer>
   </v-app>
 </template>
