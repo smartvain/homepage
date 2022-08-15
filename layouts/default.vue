@@ -51,9 +51,11 @@ const toggleTheme = () => {
       </v-container>
     </v-main>
     <!-- footer -->
-    <v-footer :absolute="!fixed" app>
+    <v-footer :color="colorModule.FOOTER_BACKGROUND_COLOR" app>
       <v-col cols="12" class="font-weight-bold" align="center">
-        &copy; {{ new Date().getFullYear() }} {{ footerMessage }}
+        <span :style="{ 'color': colorModule.MAIN_COLOR_LIGHT }">
+          &copy; {{ new Date().getFullYear() }} {{ footerMessage }}
+        </span>
       </v-col>
     </v-footer>
   </v-app>
