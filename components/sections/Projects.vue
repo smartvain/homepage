@@ -7,9 +7,9 @@ interface projectType {
 const sectionTitle = 'PROJECTS'
 const detail = 'These are my temporary projects.'
 const projects: projectType[] = [
-  { title: 'sample1', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  { title: 'sample2', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  { title: 'sample3', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
+  { title: 'My sample project1', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
+  { title: 'My sample project2', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
+  { title: 'My sample project3', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
 ]
 </script>
 
@@ -50,7 +50,7 @@ const projects: projectType[] = [
   opacity: .5;
   height: 100%;
   width: 100%;
-  background: linear-gradient(#af4cbb, #4e376b);
+  background: linear-gradient(#9f44a9, #4e376b);
 }
 
 .text-reveal {
