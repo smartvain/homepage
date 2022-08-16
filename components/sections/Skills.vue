@@ -4,6 +4,7 @@ import { useContext } from '@nuxtjs/composition-api'
 import colorModule from '@/assets/scss/module.scss'
 const { $vuetify } = useContext()
 
+const sectionTitle = 'SKILLS'
 const detail = 'Skills I can handle are listed here.'
 
 const cardBackGroundTheme = computed(() => {
@@ -22,7 +23,7 @@ const cardBackGroundTheme = computed(() => {
       </div>
     </v-col>
     <v-col cols="6" align="center">
-      <h1 class="section-title section-title-top-area">SKILLS</h1>
+      <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
       <p v-text="detail" class="section-description section-description-top-area mt-11" />
       <v-card height="500" width="1000" class="rounded-xl" :color="cardBackGroundTheme" flat>
 
