@@ -15,8 +15,11 @@ const cardBackGroundTheme = computed(() => {
 
 <template>
   <v-row justify="center" align="center" name="contact-area" class="section-area contact-area">
-    <v-col cols="6" align="center">
-
+    <v-col cols="6" align-self="start">
+      <div style="position: relative;">
+        <img style="width: 55rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-astronaut">
+        <img style="width: 17rem" :src="require('@/assets/images/contact-flag.png')" class="contact-flag">
+      </div>
     </v-col>
     <v-col cols="6" align="center">
       <h1 class="section-title section-title-top-area">CONTACT</h1>
@@ -31,4 +34,16 @@ const cardBackGroundTheme = computed(() => {
 </template>
 
 <style scoped lang="scss">
+.contact-flag {
+  position: absolute;
+  top: 12rem;
+  right: .7rem;
+  transform: rotate(24deg);
+}
+
+.contact-astronaut {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+}
 </style>
