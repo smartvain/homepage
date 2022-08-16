@@ -9,10 +9,13 @@ import ContactSection from '@/components/sections/Contact.vue'
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <TopSection />
     <SkillsSection />
-    <ProjectsSection />
-    <ContactSection />
+    <ProjectsSection class="section-top-crevice" />
+    <ContactSection class="section-top-crevice" />
   </v-container>
 </template>
 
 <style scoped lang="scss">
+.section-top-crevice {
+  margin-top: 8rem;
+}
 </style>
