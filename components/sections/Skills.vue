@@ -16,7 +16,7 @@ const cardBackGroundTheme = computed(() => {
 <template>
   <v-row justify="center" align="center" name="skills-area" class="section-area skills-area">
     <v-col cols="6" align-self="start">
-      <div style="position: relative;">
+      <div style="position: relative; top: -5rem;">
         <img style="width: 65rem" :src="require('@/assets/images/skill-space.png')" class="skill-space">
         <img style="width: 65rem" :src="require('@/assets/images/skill-astronaut.png')" class="skill-astronaut">
       </div>
