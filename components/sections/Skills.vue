@@ -32,20 +32,16 @@ const cardBackGroundTheme = computed(() => {
 </template>
 
 <style scope lang="scss">
-:root {
-  --position-right: -10rem;
-}
-
 .skill-space {
   position: absolute;
   top: 0;
-  right: var(--position-right);
+  right: -10rem;
 }
 
 .skill-astronaut {
   position: absolute;
   top: 0;
-  right: var(--position-right);
+  right: -10rem;
   animation: 5s float infinite;
 }
 
