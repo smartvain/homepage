@@ -25,9 +25,9 @@ const starsCount = 10
       <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
       <p v-text="detail" class="section-description section-description-top-area mt-11" />
       <form>
-        <v-text-field solo class="rounded-lg" height="80" placeholder="Your full name" flat />
-        <v-text-field solo class="rounded-lg" height="80" placeholder="Your Email" flat />
-        <v-textarea solo class="rounded-lg" height="300" placeholder="Your message" flat />
+        <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
+        <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
+        <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat />
       </form>
     </v-col>
   </v-row>
