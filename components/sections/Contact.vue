@@ -9,7 +9,7 @@ const detail = 'You can also contact us for work here.'
 const cardBackGroundTheme = computed(() => {
   return $vuetify.theme.dark
     ? colorModule.THIRD_COLOR_DARKEN
-    : false
+    : '#fff'
 })
 </script>
 

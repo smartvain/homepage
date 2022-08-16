@@ -9,7 +9,7 @@ const detail = 'Skills I can handle are listed here.'
 const cardBackGroundTheme = computed(() => {
   return $vuetify.theme.dark
     ? colorModule.THIRD_COLOR_DARKEN
-    : false
+    : '#fff'
 })
 </script>
 
