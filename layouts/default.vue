@@ -54,7 +54,7 @@ const toggleTheme = () => {
       </v-btn>
     </v-app-bar>
     <!-- Body -->
-    <v-main :style="{ 'background-color': backgroundTheme }">
+    <v-main :style="{ 'background-color': backgroundTheme }" class="pb-16">
       <Nuxt />
     </v-main>
     <!-- Footer -->
