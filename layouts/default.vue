@@ -51,7 +51,8 @@ const toggleTheme = () => {
       </v-btn>
       <v-app-bar-title class="pl-0 font-weight-bold" style="font-size: 1.6rem" v-text="title" />
       <v-spacer />
-      <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" @click="item.scroll" outlined>
+      <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
+        <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="require('@/assets/images/icons/Github-Mark-64px.png')" />
         {{ item.text }}
       </v-btn>
       <v-btn icon @click.stop="toggleTheme">
