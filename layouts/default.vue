@@ -46,10 +46,10 @@ const toggleTheme = () => {
   <v-app dark :style="fontColorTheme">
     <!-- Header -->
     <v-app-bar color="transparent" flat fixed app>
-      <v-btn icon>
-        <v-icon>mdi-space-invaders</v-icon>
+      <v-btn plain @click="$vuetify.goTo(0)">
+        <v-icon class="mr-2">mdi-space-invaders</v-icon>
+        <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="title" />
       </v-btn>
-      <v-app-bar-title class="pl-0 font-weight-bold" style="font-size: 1.6rem" v-text="title" />
       <v-spacer />
       <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
         <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="require('@/assets/images/icons/Github-Mark-64px.png')" />
