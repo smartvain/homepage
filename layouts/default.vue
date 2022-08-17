@@ -35,6 +35,11 @@ const weatherIconTheme = computed(() => {
     ? 'mdi-weather-sunny'
     : 'mdi-weather-night'
 })
+const githubLogoTheme = computed(() => {
+  return $vuetify.theme.dark
+    ? require('@/assets/images/icons/Github-Mark-Light-64px.png')
+    : require('@/assets/images/icons/Github-Mark-64px.png')
+})
 
 // methods
 const toggleTheme = () => {
@@ -52,7 +57,7 @@ const toggleTheme = () => {
       </v-btn>
       <v-spacer />
       <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
-        <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="require('@/assets/images/icons/Github-Mark-64px.png')" />
+        <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" />
         {{ item.text }}
       </v-btn>
       <v-btn icon @click.stop="toggleTheme">
