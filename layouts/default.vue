@@ -8,10 +8,10 @@ const { $vuetify } = useContext()
 const title = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const headerButtons = [
-  { text: 'Skills' },
-  { text: 'Projects' },
-  { text: 'Contact' },
-  { text: 'Source' },
+  { text: 'Skills',   scroll() { $vuetify.goTo(9999) } },
+  { text: 'Projects', scroll() { $vuetify.goTo(9999) } },
+  { text: 'Contact',  scroll() { $vuetify.goTo(9999) } },
+  { text: 'Source',   scroll() { $vuetify.goTo(9999) } },
 ]
 
 // dark mode properties
@@ -46,7 +46,7 @@ const toggleTheme = () => {
       </v-btn>
       <v-app-bar-title class="pl-0 font-weight-bold" style="font-size: 1.6rem" v-text="title" />
       <v-spacer />
-      <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" outlined>
+      <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" @click="item.scroll" outlined>
         {{ item.text }}
       </v-btn>
       <v-btn icon @click.stop="toggleTheme">
