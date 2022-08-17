@@ -8,14 +8,16 @@ const { $vuetify } = useContext()
 const title         = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain'
-const skillsTop     = 818
-const projectsTop   = 1664
-const contactTop    = 2341
 const addTop        = 20
+const topLengths = {
+  skillsTop:   818,
+  projectsTop: 1664,
+  contactTop:  2341,
+}
 const headerButtons = [
-  { text: 'Skills',   handleClick() { $vuetify.goTo(skillsTop + addTop) } },
-  { text: 'Projects', handleClick() { $vuetify.goTo(projectsTop + addTop) } },
-  { text: 'Contact',  handleClick() { $vuetify.goTo(contactTop + addTop) } },
+  { text: 'Skills',   handleClick() { $vuetify.goTo(topLengths.skillsTop + addTop) } },
+  { text: 'Projects', handleClick() { $vuetify.goTo(topLengths.projectsTop + addTop) } },
+  { text: 'Contact',  handleClick() { $vuetify.goTo(topLengths.contactTop + addTop) } },
   { text: 'Source',   handleClick() { window.open(githubUrl, '_blank') }, isIcon: true },
 ]
 
