@@ -5,13 +5,18 @@ import colorModule from '@/assets/scss/module.scss'
 const { $vuetify } = useContext()
 
 // data
-const title = 'Ryuichi Amejima'
+const title         = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
+const githubUrl     = 'https://github.com/smartvain'
+const skillsTop     = 818
+const projectsTop   = 1664
+const contactTop    = 2341
+const addTop        = 20
 const headerButtons = [
-  { text: 'Skills',   scroll() { $vuetify.goTo(9999) } },
-  { text: 'Projects', scroll() { $vuetify.goTo(9999) } },
-  { text: 'Contact',  scroll() { $vuetify.goTo(9999) } },
-  { text: 'Source',   scroll() { $vuetify.goTo(9999) } },
+  { text: 'Skills',   handleClick() { $vuetify.goTo(skillsTop + addTop) } },
+  { text: 'Projects', handleClick() { $vuetify.goTo(projectsTop + addTop) } },
+  { text: 'Contact',  handleClick() { $vuetify.goTo(contactTop + addTop) } },
+  { text: 'Source',   handleClick() { window.open(githubUrl, '_blank') }, isIcon: true },
 ]
 
 // dark mode properties
