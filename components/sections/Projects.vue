@@ -19,7 +19,7 @@ const projects: projectType[] = [
       <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
       <p v-text="detail" class="section-description section-description-top-area mt-11" />
     </v-col>
-    <v-col v-for="project in projects" cols="4">
+    <v-col v-for="(project, index) in projects" :key="index" cols="4">
       <v-card class="rounded-lg pa-5 overflow-hidden" height="300" flat>
         <v-hover v-slot="{ hover }">
           <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9">
