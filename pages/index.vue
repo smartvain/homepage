@@ -23,7 +23,6 @@ onMounted(() => {
     contactTop.value = contactSection.value.$el.getBoundingClientRect().top
   }
 })
-
 </script>
 
 <template>

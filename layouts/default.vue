@@ -21,7 +21,7 @@ const headerButtons = [
   { text: 'Source',   handleClick() { window.open(githubUrl, '_blank') }, isIcon: true },
 ]
 
-// dark mode properties
+// dark mode computed properties
 const backgroundTheme = computed(() => {
   return $vuetify.theme.dark
     ? colorModule.MAIN_COLOR_DARK
@@ -42,11 +42,6 @@ const githubLogoTheme = computed(() => {
     ? require('@/assets/images/icons/Github-Mark-Light-64px.png')
     : require('@/assets/images/icons/Github-Mark-64px.png')
 })
-
-// methods
-const toggleTheme = () => {
-  $vuetify.theme.dark = !$vuetify.theme.dark
-}
 </script>
 
 <template>
@@ -62,7 +57,7 @@ const toggleTheme = () => {
         <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" />
         {{ item.text }}
       </v-btn>
-      <v-btn icon @click.stop="toggleTheme">
+      <v-btn icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
         <v-icon>{{ weatherIconTheme }}</v-icon>
       </v-btn>
     </v-app-bar>
