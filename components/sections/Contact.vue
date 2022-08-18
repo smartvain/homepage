@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const sectionTitle = 'CONTACT'
-const detail = 'You can also contact us for work here.'
-const starsCount = 10
+const sectionTitle  = 'CONTACT'
+const sectionDetail = 'You can also contact us for work here.'
+const starsCount    = 10
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const starsCount = 10
     </v-col>
     <v-col cols="6" align="center">
       <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
-      <p v-text="detail" class="section-description section-description-top-area mt-11" />
+      <p v-text="sectionDetail" class="section-description section-description-top-area" />
       <form>
         <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
         <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
