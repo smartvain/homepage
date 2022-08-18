@@ -16,7 +16,7 @@ onMounted(() => {
   const { setTopLengths } = state
 
   if (skillsSection.value) {
-    setTopLengths('skills', skillsSection.value?.$el.getBoundingClientRect().top)
+    setTopLengths('skills', skillsSection.value.$el.getBoundingClientRect().top)
   }
   if (projectsSection.value) {
     setTopLengths('projects', projectsSection.value.$el.getBoundingClientRect().top)
