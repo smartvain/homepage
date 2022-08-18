@@ -1,7 +1,7 @@
 import { InjectionKey, reactive } from "vue"
 
 export const topLengthsSet = (() => {
-  const topPlus = 20
+  const topPlus = 30
   
   const topLengths = reactive({ skills: 0, projects: 0, contact: 0 })
   

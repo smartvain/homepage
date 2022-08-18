@@ -10,7 +10,7 @@ const { topLengths } = topLengthsSet
 
 const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
-const githubUrl     = 'https://github.com/smartvain'
+const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
 const headerButtons :HeaderButtonType[] = [
   { text: 'Skills',   handleClick() { $vuetify.goTo(topLengths.skills) } },
