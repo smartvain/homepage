@@ -12,4 +12,4 @@ export const topLengthsSet = (() => {
   return { topLengths, setTopLengths }
 })()
 
-export const topLengthsSetKey: InjectionKey<typeof topLengthsSet> = Symbol()
+export const topLengthsSetKey: InjectionKey<typeof topLengthsSet> = Symbol('useTopLengthsSetKey')
