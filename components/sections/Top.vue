@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss'
-import { useContext } from '@nuxtjs/composition-api'
+import { inject, useContext } from '@nuxtjs/composition-api';
+import { topLengthsSetKey } from '~/store';
+
 const { $vuetify } = useContext()
 
-const detail     = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
-const contactTop = 2341
-const addTop     = 20
+const state = inject(topLengthsSetKey)
+if (!state) throw new Error('state is undefined')
+const { topLengths } = state
+
+const sectionTitle = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 </script>
 
 <template>
@@ -14,9 +18,9 @@ const addTop     = 20
       <h1 class="section-title section-title-top-area">
         I'M <span :style="{ 'color': colorModule.SECONDARY_COLOR }">WEB</span><br>DEVELOPER.
       </h1>
-      <p v-text="detail" class="section-description section-description-top-area mt-16" />
+      <p v-text="sectionTitle" class="section-description section-description-top-area mt-16" />
       <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-8 py-5" style="font-size: 1.3rem" :color="colorModule.THIRD_COLOR"
-        @click="$vuetify.goTo(contactTop + addTop)">
+        @click="$vuetify.goTo(topLengths.contact)">
         Contact
       </v-btn>
     </v-col>
