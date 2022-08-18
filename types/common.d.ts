@@ -1,26 +1,25 @@
 export interface HeaderButtonType {
-  text: string;
-  handleClick: () => void;
-  isIcon?: boolean
+  text:        string
+  handleClick: () => void
+  isIcon?:     boolean
 }
 
 // skills area
 interface SkillType {
-  [skillName: string]: {
-    year: number;
-    desc: string
-  }
+  skillName: string
+  desc:      string
+  year:      number
 }
 export interface SkillTypes {
-  frontend: SkillType;
-  backend: SkillType;
+  frontend: SkillType[]
+  backend:  SkillType[]
 }
 
 // projects area
 interface ProjectType {
-  title: string;
-  url: NodeRequire;
-  desc: string;
+  title: string
+  desc:  string
+  url:   NodeRequire
 }
 
 // contact area

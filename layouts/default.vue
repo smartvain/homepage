@@ -52,7 +52,7 @@ const githubLogoTheme = computed(() => {
         <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
       </v-btn>
       <v-spacer />
-      <v-btn v-for="(item, index) in headerButtons" :key="index" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
+      <v-btn v-for="(item, index) of headerButtons" :key="`${index}${item.text}`" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
         <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" />
         {{ item.text }}
       </v-btn>
