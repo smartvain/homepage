@@ -63,7 +63,7 @@ const calcPercentageByYears = (year: number) => {
             </v-card-title>
             <v-card-text>
               <div class="progBar">
-                <div class="bar" :style="{ '--percentage': calcPercentageByYears(skill.year), 'color': colorModule.MAIN_COLOR_DARK }" />
+                <div class="bar" :style="{ '--percentage': calcPercentageByYears(skill.year), '--bar-color': colorModule.SECONDARY_COLOR_LIGHT }" />
               </div>
             </v-card-text>
           </v-col>
@@ -91,7 +91,7 @@ const calcPercentageByYears = (year: number) => {
 .progBar .bar {
   position: absolute;
   height: 100%;
-  background-color: #FFCA28;
+  background-color: var(--bar-color);
   animation: progress 1.5s normal;
   animation-fill-mode: forwards;
 }
