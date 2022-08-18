@@ -3,25 +3,28 @@ import TopSection from '@/components/sections/Top.vue'
 import SkillsSection from '@/components/sections/Skills.vue'
 import ProjectsSection from '@/components/sections/Projects.vue'
 import ContactSection from '@/components/sections/Contact.vue'
-import { ComponentPublicInstance, onMounted, ref } from 'vue'
+import { ComponentPublicInstance, inject, onMounted, ref } from 'vue'
+import { topLengthsSetKey } from '~/store'
 
 const skillsSection   = ref<ComponentPublicInstance>()
 const projectsSection = ref<ComponentPublicInstance>()
 const contactSection  = ref<ComponentPublicInstance>()
-const skillsTop   = ref<number>(0)
-const projectsTop = ref<number>(0)
-const contactTop  = ref<number>(0)
 
 onMounted(() => {
+  const state = inject(topLengthsSetKey)
+  if (!state) throw new Error('state is undefined')
+  const { setTopLengths } = state
+
   if (skillsSection.value) {
-    skillsTop.value = skillsSection.value.$el.getBoundingClientRect().top
+    setTopLengths('skills', skillsSection.value?.$el.getBoundingClientRect().top)
   }
   if (projectsSection.value) {
-    projectsTop.value = projectsSection.value.$el.getBoundingClientRect().top
+    setTopLengths('projects', projectsSection.value.$el.getBoundingClientRect().top)
   }
   if (contactSection.value) {
-    contactTop.value = contactSection.value.$el.getBoundingClientRect().top
+    setTopLengths('contact', contactSection.value.$el.getBoundingClientRect().top)
   }
+
 })
 </script>
 
