@@ -5,8 +5,6 @@ import { computed, provide } from 'vue';
 import { topLengthsSet, topLengthsSetKey } from '~/store';
 import { HeaderButtonType } from '~/types/common';
 
-provide(topLengthsSetKey, topLengthsSet)
-
 const { $vuetify }   = useContext()
 const { topLengths } = topLengthsSet
 
@@ -26,11 +24,11 @@ const backgroundTheme = computed(() => {
     ? colorModule.MAIN_COLOR_DARK
     : colorModule.MAIN_COLOR_LIGHT
 })
-const fontColorTheme = computed(() => ({
-  '--font-color': $vuetify.theme.dark
+const fontColorTheme = computed(() => {
+  return $vuetify.theme.dark
     ? colorModule.MAIN_COLOR_LIGHT
     : colorModule.MAIN_COLOR_DARK
-}))
+})
 const weatherIconTheme = computed(() => {
   return $vuetify.theme.dark
     ? 'mdi-weather-sunny'
@@ -41,10 +39,12 @@ const githubLogoTheme = computed(() => {
     ? require('@/assets/images/icons/Github-Mark-Light-64px.png')
     : require('@/assets/images/icons/Github-Mark-64px.png')
 })
+
+provide(topLengthsSetKey, topLengthsSet)
 </script>
 
 <template>
-  <v-app dark :style="fontColorTheme">
+  <v-app dark :style="{ '--font-color': fontColorTheme }">
     <!-- Header -->
     <v-app-bar color="transparent" flat fixed app>
       <v-btn plain @click="$vuetify.goTo(0)">
@@ -52,7 +52,7 @@ const githubLogoTheme = computed(() => {
         <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
       </v-btn>
       <v-spacer />
-      <v-btn v-for="(item, index) of headerButtons" :key="`${index}${item.text}`" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
+      <v-btn v-for="(item, index) of headerButtons" :key="`${index}-${item.text}`" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
         <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" />
         {{ item.text }}
       </v-btn>
