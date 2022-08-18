@@ -8,6 +8,7 @@ const { $vuetify } = useContext()
 
 const sectionTitle  = 'SKILLS'
 const sectionDetail = 'Skills I can handle are listed here.'
+
 const skills: SkillTypes = {
   frontend: [
     { skillName: 'JavaScript', desc: 'Experienced',  year: 2 },
