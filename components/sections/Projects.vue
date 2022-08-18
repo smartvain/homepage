@@ -1,12 +1,9 @@
 <script setup lang="ts">
-interface projectType {
-  title: string;
-  url: NodeRequire;
-  desc: string;
-}
-const sectionTitle = 'PROJECTS'
-const detail = 'These are my temporary projects.'
-const projects: projectType[] = [
+import { ProjectType } from '~/types/common';
+
+const sectionTitle  = 'PROJECTS'
+const sectionDetail = 'These are my temporary projects.'
+const projects: ProjectType[] = [
   { title: 'My sample project1', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
   { title: 'My sample project2', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
   { title: 'My sample project3', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
@@ -17,7 +14,7 @@ const projects: projectType[] = [
   <v-row justify="start" name="projects-area" class="section-area projects-area">
     <v-col cols="12" align="center">
       <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
-      <p v-text="detail" class="section-description section-description-top-area mt-11" />
+      <p v-text="sectionDetail" class="section-description section-description-top-area" />
     </v-col>
     <v-col v-for="(project, index) in projects" :key="index" cols="4">
       <v-card class="rounded-lg pa-5 overflow-hidden" height="300" flat>
