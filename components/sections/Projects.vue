@@ -5,6 +5,7 @@ import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 import { useContext } from '@nuxtjs/composition-api';
 import { computed } from 'vue';
 import { ProjectType } from '~/types/common';
+import ProjectsContentsAnimation from '../animations/ProjectsContentsAnimation.vue';
 
 const { $vuetify } = useContext()
 
@@ -41,16 +42,20 @@ const cardBackGroundTheme = computed(() => {
         <SectionDetailAnimation>
           <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
             <v-hover v-slot="{ hover }">
-              <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9" eager>
-                <v-expand-transition>
-                  <div v-if="hover" class="transition-fast-in-fast-out hover-gradient" />
-                </v-expand-transition>
-                <v-expand-transition>
-                  <div v-if="hover" class="transition-fast-in-fast-out hover-text d-flex text-subtitle-1 white--text px-3">
-                    {{ project.desc }}
-                  </div>
-                </v-expand-transition>
-              </v-img>
+              <ProjectsContentsAnimation :style="{ '--project-appear-second': `${(index + 1) * .2}s` }">
+                <div v-show="isOpen">
+                  <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9" eager>
+                    <v-expand-transition>
+                      <div v-if="hover" class="transition-fast-in-fast-out hover-gradient" />
+                    </v-expand-transition>
+                    <v-expand-transition>
+                      <div v-if="hover" class="transition-fast-in-fast-out hover-text d-flex text-subtitle-1 white--text px-3">
+                        {{ project.desc }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </div>
+              </ProjectsContentsAnimation>
             </v-hover>
             <v-card-title class="justify-center">{{ project.title }}</v-card-title>
           </v-card>
