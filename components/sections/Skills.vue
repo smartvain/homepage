@@ -9,7 +9,7 @@ const sectionDetail = 'Skills I can handle are listed here.'
 </script>
 
 <template>
-  <div class="section-area" name="skills-area">
+  <div class="section-area skills-area" name="skills-area">
     <ComponentAnimation>
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start">
@@ -29,6 +29,10 @@ const sectionDetail = 'Skills I can handle are listed here.'
 </template>
 
 <style scope lang="scss">
+.skills-area {
+  margin-top: 3rem !important;
+}
+
 .skills-area-main-image {
   position: absolute;
   top: 0;
