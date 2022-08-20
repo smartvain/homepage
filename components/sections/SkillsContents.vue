@@ -46,7 +46,7 @@ const calcPercentageByYears = (year: number) => {
 </script>
 
 <template>
-  <v-card height="500" class="rounded-xl px-7 py-2" :color="cardBackGroundTheme" flat>
+  <v-card height="510" class="rounded-xl px-7 py-2" :color="cardBackGroundTheme" flat>
     <v-tabs v-model="currentSkillTab" :slider-color="fontColorTheme" centered background-color="transparent">
       <v-tab v-for="(skill, skillTypeName) in skillTypes" :key="skillTypeName" :style="{ 'color': fontColorTheme }" class="font-weight-bold">
         {{ skillTypeName }}
@@ -55,7 +55,7 @@ const calcPercentageByYears = (year: number) => {
     <v-tabs-items v-model="currentSkillTab" class="overflow-y-auto pt-3 skill-tab-item">
       <v-tab-item v-for="(skills, skillTypesName) in skillTypes" :key="skillTypesName">
         <v-row>
-          <v-col v-for="(skill, index) of skills" :key="`${index}-${skill.skillName}`" cols="6">
+          <v-col v-for="(skill, index) of skills" :key="`${index}-${skill.skillName}`" cols="6" class="py-2">
             <v-card-title  class="ml-3">
               <v-icon class="text-h5 mr-3">mdi-check-decagram</v-icon>
               <span class="mr-5 text-h6">{{ skill.skillName }}</span>
