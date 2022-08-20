@@ -3,37 +3,59 @@ import TopSection from '@/components/sections/Top.vue'
 import SkillsSection from '@/components/sections/Skills.vue'
 import ProjectsSection from '@/components/sections/Projects.vue'
 import ContactSection from '@/components/sections/Contact.vue'
-import { ComponentPublicInstance, inject, onMounted, ref } from 'vue'
+import { ComponentPublicInstance, inject, onMounted, reactive, ref } from 'vue'
 import { topLengthsSetKey } from '~/store'
 
 const skillsSection   = ref<ComponentPublicInstance>()
 const projectsSection = ref<ComponentPublicInstance>()
 const contactSection  = ref<ComponentPublicInstance>()
+const isOpenSection   = reactive({ skills: false, projects: false, contact: false })
+
+const state = inject(topLengthsSetKey)
+if (!state) throw new Error('Inject return value is undefined')
+const { setTopLengths, topLengths } = state
+
+const setTopLengthsSkills   = () => {
+  if (skillsSection.value)   setTopLengths('skills', skillsSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
+}
+const setTopLengthsProjects = () => {
+  if (projectsSection.value) setTopLengths('projects', projectsSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
+}
+const setTopLengthsContact  = () => {
+  if (contactSection.value)  setTopLengths('contact', contactSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
+}
+
+const scrollAmountPlus = 650
+const onScroll = () => {
+  const scrollAmount = window.scrollY + scrollAmountPlus
+  
+  if (scrollAmount >= topLengths.skills && !isOpenSection.skills) {
+    isOpenSection.skills = true
+    setTopLengthsSkills()
+  }
+  else if (scrollAmount >= topLengths.projects && !isOpenSection.projects) {
+    isOpenSection.projects = true
+    setTopLengthsProjects()
+  }
+  else if (scrollAmount >= topLengths.contact && !isOpenSection.contact) {
+    isOpenSection.contact = true
+    setTopLengthsContact()
+  }
+}
 
 onMounted(() => {
-  const state = inject(topLengthsSetKey)
-  if (!state) throw new Error('state is undefined')
-  const { setTopLengths } = state
-
-  if (skillsSection.value) {
-    setTopLengths('skills', skillsSection.value.$el.getBoundingClientRect().top)
-  }
-  if (projectsSection.value) {
-    setTopLengths('projects', projectsSection.value.$el.getBoundingClientRect().top)
-  }
-  if (contactSection.value) {
-    setTopLengths('contact', contactSection.value.$el.getBoundingClientRect().top)
-  }
-
+  setTopLengthsSkills()
+  setTopLengthsProjects()
+  setTopLengthsContact()
 })
 </script>
 
 <template>
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <TopSection />
-    <SkillsSection ref="skillsSection" />
-    <ProjectsSection ref="projectsSection" class="section-top-crevice" />
-    <ContactSection ref="contactSection" class="section-top-crevice" />
+    <SkillsSection v-scroll="onScroll" :isOpen="isOpenSection.skills" ref="skillsSection" class="section-top-crevice" />
+    <ProjectsSection v-scroll="onScroll" :isOpen="isOpenSection.projects" ref="projectsSection" class="section-top-crevice" />
+    <ContactSection v-scroll="onScroll" :isOpen="isOpenSection.contact" ref="contactSection" class="section-top-crevice" />
   </v-container>
 </template>
 
