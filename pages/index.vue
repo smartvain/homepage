@@ -53,14 +53,8 @@ onMounted(() => {
 <template>
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <TopSection />
-    <SkillsSection v-scroll="onScroll" :isOpen="isOpenSection.skills" ref="skillsSection" class="section-top-crevice" />
-    <ProjectsSection v-scroll="onScroll" :isOpen="isOpenSection.projects" ref="projectsSection" class="section-top-crevice" />
-    <ContactSection v-scroll="onScroll" :isOpen="isOpenSection.contact" ref="contactSection" class="section-top-crevice" />
+    <SkillsSection v-scroll="onScroll" :isOpen="isOpenSection.skills" ref="skillsSection" />
+    <ProjectsSection v-scroll="onScroll" :isOpen="isOpenSection.projects" ref="projectsSection" />
+    <ContactSection v-scroll="onScroll" :isOpen="isOpenSection.contact" ref="contactSection" />
   </v-container>
 </template>
-
-<style scoped lang="scss">
-.section-top-crevice {
-  margin-top: 8rem;
-}
-</style>

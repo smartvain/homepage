@@ -74,9 +74,3 @@ provide(topLengthsSetKey, topLengthsSet)
     </v-footer>
   </v-app>
 </template>
-
-<style scoped lang="scss">
-* {
-  color: var(--font-color);
-}
-</style>

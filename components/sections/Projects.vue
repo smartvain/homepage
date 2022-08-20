@@ -19,18 +19,18 @@ const projects: ProjectType[] = [
     <ComponentAnimation>
       <v-row v-show="isOpen" justify="start">
         <v-col cols="12" align="center">
-          <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
-          <p v-text="sectionDetail" class="section-description section-description-top-area" />
+          <h1 v-text="sectionTitle" class="section-title" />
+          <p v-text="sectionDetail" class="section-description" />
         </v-col>
         <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
           <v-card class="rounded-lg pa-5 overflow-hidden" height="300" flat>
             <v-hover v-slot="{ hover }">
               <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9">
                 <v-expand-transition>
-                  <div v-if="hover" class="transition-fast-in-fast-out gradient-reveal" />
+                  <div v-if="hover" class="transition-fast-in-fast-out hover-gradient" />
                 </v-expand-transition>
                 <v-expand-transition>
-                  <div v-if="hover" class="transition-fast-in-fast-out text-reveal d-flex text-subtitle-1 white--text px-3">
+                  <div v-if="hover" class="transition-fast-in-fast-out hover-text d-flex text-subtitle-1 white--text px-3">
                     {{ project.desc }}
                   </div>
                 </v-expand-transition>
@@ -49,7 +49,7 @@ const projects: ProjectType[] = [
   min-height: 45rem;
 }
 
-.gradient-reveal {
+.hover-gradient {
   position: absolute;
   top: 0;
   opacity: .5;
@@ -58,7 +58,7 @@ const projects: ProjectType[] = [
   background: linear-gradient(#9f44a9, #4e376b);
 }
 
-.text-reveal {
+.hover-text {
   position: absolute;
   bottom: 0;
   opacity: .9;

@@ -13,22 +13,22 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
 </script>
 
 <template>
-  <div class="section-area" name="top-area">
-    <v-row justify="center" align="center" class="top-area">
+  <div class="section-area top-area" name="top-area">
+    <v-row justify="center" align="center">
       <v-col cols="5" align="center">
-        <h1 class="section-title section-title-top-area">
+        <h1 class="section-title">
           I'M <span :style="{ 'color': colorModule.SECONDARY_COLOR }">WEB</span><br>DEVELOPER.
         </h1>
-        <p v-text="sectionTitle" class="section-description section-description-top-area mt-16" />
-        <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-8 py-5" style="font-size: 1.3rem" :color="colorModule.THIRD_COLOR"
+        <p v-text="sectionTitle" class="section-description mt-16" />
+        <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-6 py-5 text-h5" :color="colorModule.THIRD_COLOR"
           @click="$vuetify.goTo(topLengths.contact)">
           Contact
         </v-btn>
       </v-col>
       <v-col cols="7" align="center">
         <div style="position: relative">
-          <img style="width: 25rem" :src="require('@/assets/images/main-satellite.png')" class="satellite-image">
-          <img style="width: 8rem" :src="require('@/assets/images/main-star.png')" class="star-image">
+          <img style="width: 25rem" :src="require('@/assets/images/main-satellite.png')" class="top-area-satellite-image">
+          <img style="width: 8rem" :src="require('@/assets/images/main-star.png')" class="top-area-shine-image">
           <img style="width: 70rem" :src="require('@/assets/images/main-astronaut.png')">
         </div>
       </v-col>
@@ -41,19 +41,18 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
   text-align: left;
 }
 
-.satellite-image {
+.top-area-satellite-image {
   position: absolute;
   animation: 4s float infinite;
 }
 
-.star-image {
+.top-area-shine-image {
   position: absolute;
   top: 35%;
   left: 70%;
-  animation: 4s sparkle infinite;
+  animation: 4s shine infinite;
 }
 
-// Simple float animation
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -63,7 +62,6 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
   }
 }
 
-// Sparkle animation
 @keyframes sparkle {
   0%, 100% {
     transform: rotate(0) scale(0);

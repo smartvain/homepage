@@ -14,13 +14,13 @@ const sectionDetail = 'Skills I can handle are listed here.'
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start">
           <div style="position: relative; top: -5rem;">
-            <img style="width: 65rem" :src="require('@/assets/images/skill-space.png')" class="skill-space">
-            <img style="width: 65rem" :src="require('@/assets/images/skill-astronaut.png')" class="skill-astronaut">
+            <img style="width: 65rem" :src="require('@/assets/images/skill-space.png')" class="skills-area-main-image">
+            <img style="width: 65rem" :src="require('@/assets/images/skill-astronaut.png')" class="skills-area-astronaut-image">
           </div>
         </v-col>
         <v-col cols="6" align="center">
-          <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
-          <p v-text="sectionDetail" class="section-description section-description-top-area" />
+          <h1 v-text="sectionTitle" class="section-title" />
+          <p v-text="sectionDetail" class="section-description" />
           <SkillsContents />
         </v-col>
       </v-row>
@@ -29,23 +29,21 @@ const sectionDetail = 'Skills I can handle are listed here.'
 </template>
 
 <style scope lang="scss">
-.skill-space {
+.skills-area-main-image {
   position: absolute;
   top: 0;
   right: -10rem;
 }
 
-.skill-astronaut {
+.skills-area-astronaut-image {
   position: absolute;
   top: 0;
   right: -10rem;
   animation: 5s float infinite;
 }
 
-// Float animation with rotation
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(0deg);
   }
 
