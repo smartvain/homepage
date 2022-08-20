@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ComponentAnimation from '../ComponentAnimation.vue';
+import ContactSvg from './ContactSvg.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -16,14 +17,7 @@ const starsCount    = 10
           <img style="width: 55rem" :src="require('@/assets/images/contact-astronaut2.png')" class="contact-area-astronaut-image">
           <div class="shooting-starts-wrapper"><span v-for="n of starsCount" class="shooting-starts" /></div>
           <img style="width: 42rem" :src="require('@/assets/images/contact-astronaut-set.png')" class="contact-area-main-image">
-          <svg width="0" height="0">
-            <defs>
-              <clipPath id="contact-astronaut-svg">
-                <path style="transform: scale(0.31) translate(6rem, 3rem)" fill-rule="evenodd" stroke="rgb(3, 0, 0)" stroke-width="5px" stroke-linecap="butt" stroke-linejoin="miter" fill="rgb(0, 0, 0)"
-                  d="M1071.500,63.748 C1071.500,63.748 815.464,141.745 679.499,152.748 C543.534,163.752 267.898,38.59 149.497,101.748 C31.97,165.437 -18.834,272.18 33.497,839.750 C85.830,1407.482 -330.483,1888.765 892.499,1837.753 C2115.483,1786.741 1782.563,1295.929 1800.502,995.751 C1818.441,695.572 1816.581,483.262 1637.501,182.748 C1458.422,-117.765 1098.970,54.716 1098.500,53.748 C1098.30,52.780 1071.500,63.748 1071.500,63.748 Z"/>
-              </clipPath>
-            </defs>
-          </svg>
+          <ContactSvg />
         </v-col>
         <v-col cols="6" align="center">
           <h1 v-text="sectionTitle" class="section-title" />
@@ -53,8 +47,8 @@ const starsCount    = 10
 }
 
 .shooting-starts-wrapper {
-  clip-path: url(#contact-astronaut-svg);
-  -webkit-clip-path: url(#contact-astronaut-svg);
+  clip-path: url(#contact-area-svg);
+  -webkit-clip-path: url(#contact-area-svg);
 }
 
 .shooting-starts {
