@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ProjectType } from '~/types/common';
+import ComponentAnimation from '../ComponentAnimation.vue';
+
+defineProps<{ isOpen: boolean }>()
 
 const sectionTitle  = 'PROJECTS'
 const sectionDetail = 'These are my temporary projects.'
@@ -12,29 +15,33 @@ const projects: ProjectType[] = [
 </script>
 
 <template>
-  <v-row justify="start" name="projects-area" class="section-area projects-area">
-    <v-col cols="12" align="center">
-      <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
-      <p v-text="sectionDetail" class="section-description section-description-top-area" />
-    </v-col>
-    <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
-      <v-card class="rounded-lg pa-5 overflow-hidden" height="300" flat>
-        <v-hover v-slot="{ hover }">
-          <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9">
-            <v-expand-transition>
-              <div v-if="hover" class="transition-fast-in-fast-out gradient-reveal" />
-            </v-expand-transition>
-            <v-expand-transition>
-              <div v-if="hover" class="transition-fast-in-fast-out text-reveal d-flex text-subtitle-1 white--text px-3">
-                {{ project.desc }}
-              </div>
-            </v-expand-transition>
-          </v-img>
-        </v-hover>
-        <v-card-title class="justify-center">{{ project.title }}</v-card-title>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div class="section-area projects-area" name="projects-area">
+    <ComponentAnimation>
+      <v-row v-show="isOpen" justify="start">
+        <v-col cols="12" align="center">
+          <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
+          <p v-text="sectionDetail" class="section-description section-description-top-area" />
+        </v-col>
+        <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
+          <v-card class="rounded-lg pa-5 overflow-hidden" height="300" flat>
+            <v-hover v-slot="{ hover }">
+              <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9">
+                <v-expand-transition>
+                  <div v-if="hover" class="transition-fast-in-fast-out gradient-reveal" />
+                </v-expand-transition>
+                <v-expand-transition>
+                  <div v-if="hover" class="transition-fast-in-fast-out text-reveal d-flex text-subtitle-1 white--text px-3">
+                    {{ project.desc }}
+                  </div>
+                </v-expand-transition>
+              </v-img>
+            </v-hover>
+            <v-card-title class="justify-center">{{ project.title }}</v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+    </ComponentAnimation>
+  </div>
 </template>
 
 <style scoped lang="scss">

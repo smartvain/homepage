@@ -1,24 +1,31 @@
 <script setup lang="ts">
 import SkillsContents from './SkillsContents.vue'
+import ComponentAnimation from '../ComponentAnimation.vue'
+
+defineProps<{ isOpen: boolean }>()
 
 const sectionTitle  = 'SKILLS'
 const sectionDetail = 'Skills I can handle are listed here.'
 </script>
 
 <template>
-  <v-row justify="center" align="center" name="skills-area" class="section-area skills-area">
-    <v-col cols="6" align-self="start">
-      <div style="position: relative; top: -5rem;">
-        <img style="width: 65rem" :src="require('@/assets/images/skill-space.png')" class="skill-space">
-        <img style="width: 65rem" :src="require('@/assets/images/skill-astronaut.png')" class="skill-astronaut">
-      </div>
-    </v-col>
-    <v-col cols="6" align="center">
-      <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
-      <p v-text="sectionDetail" class="section-description section-description-top-area" />
-      <SkillsContents />
-    </v-col>
-  </v-row>
+  <div class="section-area" name="skills-area">
+    <ComponentAnimation>
+      <v-row v-show="isOpen" justify="center" align="center">
+        <v-col cols="6" align-self="start">
+          <div style="position: relative; top: -5rem;">
+            <img style="width: 65rem" :src="require('@/assets/images/skill-space.png')" class="skill-space">
+            <img style="width: 65rem" :src="require('@/assets/images/skill-astronaut.png')" class="skill-astronaut">
+          </div>
+        </v-col>
+        <v-col cols="6" align="center">
+          <h1 v-text="sectionTitle" class="section-title section-title-top-area" />
+          <p v-text="sectionDetail" class="section-description section-description-top-area" />
+          <SkillsContents />
+        </v-col>
+      </v-row>
+    </ComponentAnimation>
+  </div>
 </template>
 
 <style scope lang="scss">
