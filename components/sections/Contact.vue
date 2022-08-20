@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import ComponentAnimation from '../ComponentAnimation.vue';
 import ContactSvg from './ContactSvg.vue';
+import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
+import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
+import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -11,25 +13,33 @@ const starsCount    = 10
 
 <template>
   <div class="section-area" name="contact-area">
-    <ComponentAnimation>
-      <v-row v-show="isOpen" justify="center" align="center">
-        <v-col cols="6" align-self="start" style="position: relative">
-          <img style="width: 55rem" :src="require('@/assets/images/contact-background.png')" class="contact-area-main-image" rel="preload">
-          <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
-          <img style="width: 38rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
-          <ContactSvg />
-        </v-col>
-        <v-col cols="6" align="center">
-          <h1 v-text="sectionTitle" class="section-title" />
-          <p v-text="sectionDetail" class="section-description" />
-          <form>
-            <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
-            <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
-            <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat />
-          </form>
-        </v-col>
-      </v-row>
-    </ComponentAnimation>
+    <v-row justify="center" align="center">
+      <v-col cols="6" align-self="start" style="position: relative">
+        <MainImageLeftAnimation>
+          <img v-show="isOpen" style="width: 55rem" :src="require('@/assets/images/contact-background.png')" class="contact-area-main-image" rel="preload">
+        </MainImageLeftAnimation>
+        <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
+        <ContactSvg />
+        <MainImageLeftAnimation>
+          <img v-show="isOpen" style="width: 38rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
+        </MainImageLeftAnimation>
+      </v-col>
+      <v-col cols="6" align="center">
+        <SectionTitleAnimation>
+          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
+        </SectionTitleAnimation>
+        <SectionDetailAnimation>
+          <div v-show="isOpen">
+            <p v-text="sectionDetail" class="section-description" />
+            <form>
+              <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
+              <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
+              <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat />
+            </form>
+          </div>
+        </SectionDetailAnimation>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import colorModule from '@/assets/scss/module.scss';
+import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
+import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 import { useContext } from '@nuxtjs/composition-api';
 import { computed } from 'vue';
 import { ProjectType } from '~/types/common';
-import ComponentAnimation from '../ComponentAnimation.vue';
-import colorModule from '@/assets/scss/module.scss';
 
 const { $vuetify } = useContext()
 
@@ -27,14 +28,18 @@ const cardBackGroundTheme = computed(() => {
 
 <template>
   <div class="section-area projects-area" name="projects-area">
-    <ComponentAnimation>
-      <v-row v-show="isOpen" justify="start">
-        <v-col cols="12" align="center">
-          <h1 v-text="sectionTitle" class="section-title" />
-          <p v-text="sectionDetail" class="section-description" />
-        </v-col>
-        <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
-          <v-card :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
+    <v-row justify="start">
+      <v-col cols="12" align="center">
+        <SectionTitleAnimation>
+          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
+        </SectionTitleAnimation>
+        <SectionDetailAnimation>
+          <p v-show="isOpen" v-text="sectionDetail" class="section-description" />
+        </SectionDetailAnimation>
+      </v-col>
+      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
+        <SectionDetailAnimation>
+          <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
             <v-hover v-slot="{ hover }">
               <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9" eager>
                 <v-expand-transition>
@@ -49,9 +54,9 @@ const cardBackGroundTheme = computed(() => {
             </v-hover>
             <v-card-title class="justify-center">{{ project.title }}</v-card-title>
           </v-card>
-        </v-col>
-      </v-row>
-    </ComponentAnimation>
+        </SectionDetailAnimation>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

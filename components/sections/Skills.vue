@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import SkillsContents from './SkillsContents.vue'
-import ComponentAnimation from '../ComponentAnimation.vue'
+import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
+import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
+import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -10,21 +12,27 @@ const sectionDetail = 'Skills I can handle are listed here.'
 
 <template>
   <div class="section-area skills-area" name="skills-area">
-    <ComponentAnimation>
-      <v-row v-show="isOpen" justify="center" align="center">
-        <v-col cols="6" align-self="start">
-          <div style="position: relative; top: -5rem;">
-            <img style="width: 58rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload"/>
+    <v-row justify="center" align="center">
+      <v-col cols="6" align-self="start">
+        <div style="position: relative; top: -5rem;">
+          <MainImageLeftAnimation>
+            <img v-show="isOpen" style="width: 58rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" rel="preload"/>
+          </MainImageLeftAnimation>
+          <img style="width: 58rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image animation-image-appear" rel="preload"/>
+        </div>
+      </v-col>
+      <v-col cols="6" align="center">
+        <SectionTitleAnimation>
+          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
+        </SectionTitleAnimation>
+        <SectionDetailAnimation>
+          <div v-show="isOpen">
+            <p v-text="sectionDetail" class="section-description" />
+            <SkillsContents />
           </div>
-        </v-col>
-        <v-col cols="6" align="center">
-          <h1 v-text="sectionTitle" class="section-title" />
-          <p v-text="sectionDetail" class="section-description" />
-          <SkillsContents />
-        </v-col>
-      </v-row>
-    </ComponentAnimation>
+        </SectionDetailAnimation>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -37,7 +45,6 @@ const sectionDetail = 'Skills I can handle are listed here.'
   position: absolute;
   top: 1.3rem;
   right: -6.6rem;
-  transform: scaleX(1.04);
 }
 
 .skills-area-astronaut-image {
