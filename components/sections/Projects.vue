@@ -13,9 +13,9 @@ const sectionTitle  = 'PROJECTS'
 const sectionDetail = 'These are my temporary projects.'
 
 const projects: ProjectType[] = [
-  { title: 'My sample project1', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  { title: 'My sample project2', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  { title: 'My sample project3', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
+  { title: 'My sample project1', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
+  { title: 'My sample project2', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
+  { title: 'My sample project3', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
 ]
 
 const cardBackGroundTheme = computed(() => {
@@ -36,7 +36,7 @@ const cardBackGroundTheme = computed(() => {
         <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
           <v-card :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
             <v-hover v-slot="{ hover }">
-              <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9">
+              <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9" eager>
                 <v-expand-transition>
                   <div v-if="hover" class="transition-fast-in-fast-out hover-gradient" />
                 </v-expand-transition>

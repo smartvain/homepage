@@ -52,7 +52,7 @@ provide(topLengthsSetKey, topLengthsSet)
       </v-btn>
       <v-spacer />
       <v-btn v-for="(item, index) of headerButtons" :key="`${index}-${item.text}`" class="mr-10 rounded-lg" outlined @click="item.handleClick">
-        <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" />
+        <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" eager />
         {{ item.text }}
       </v-btn>
       <v-btn class="mr-0" icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">

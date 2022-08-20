@@ -14,8 +14,8 @@ const sectionDetail = 'Skills I can handle are listed here.'
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start">
           <div style="position: relative; top: -5rem;">
-            <img style="width: 65rem" :src="require('@/assets/images/skill-space.png')" class="skills-area-main-image">
-            <img style="width: 65rem" :src="require('@/assets/images/skill-astronaut.png')" class="skills-area-astronaut-image">
+            <v-img style="width: 65rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" eager/>
+            <v-img style="width: 65rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image" eager/>
           </div>
         </v-col>
         <v-col cols="6" align="center">

@@ -27,9 +27,9 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
       </v-col>
       <v-col cols="7" align="center">
         <div style="position: relative">
-          <img style="width: 25rem" :src="require('@/assets/images/main-satellite.png')" class="top-area-satellite-image">
-          <img style="width: 8rem" :src="require('@/assets/images/main-star.png')" class="top-area-shine-image">
-          <img style="width: 70rem" :src="require('@/assets/images/main-astronaut.png')">
+          <v-img style="width: 25rem" :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" eager />
+          <v-img style="width: 8rem" :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" eager />
+          <v-img style="width: 70rem" :src="require('@/assets/images/top-main.png')" eager />
         </div>
       </v-col>
     </v-row>

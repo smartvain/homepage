@@ -14,9 +14,9 @@ const starsCount    = 10
     <ComponentAnimation>
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start" style="position: relative">
-          <img style="width: 55rem" :src="require('@/assets/images/contact-astronaut2.png')" class="contact-area-astronaut-image">
+          <v-img style="width: 55rem" :src="require('@/assets/images/contact-background.png')" class="contact-area-astronaut-image" eager />
           <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
-          <img style="width: 42rem" :src="require('@/assets/images/contact-astronaut-set.png')" class="contact-area-main-image">
+          <v-img style="width: 42rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-main-image" eager />
           <ContactSvg />
         </v-col>
         <v-col cols="6" align="center">
