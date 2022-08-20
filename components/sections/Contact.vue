@@ -30,7 +30,7 @@ const starsCount    = 10
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <p v-show="isOpen" v-text="sectionDetail" class="section-description" />
+          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
           <form v-show="isOpen">

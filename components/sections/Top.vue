@@ -14,7 +14,7 @@ const state = inject(topLengthsSetKey)
 if (!state) throw new Error('Inject return value is undefined')
 const { topLengths } = state
 
-const sectionTitle = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
+const sectionDetail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 
 const isOpen = ref<boolean>(false)
 onMounted(() => setTimeout(() => isOpen.value = true, 300))
@@ -30,7 +30,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           </h1>
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <p v-show="isOpen" v-text="sectionTitle" class="section-description mt-16" />
+          <p v-show="isOpen" v-text="sectionDetail" class="section-detail mt-13" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
           <v-btn v-show="isOpen" class="mt-7 font-weight-bold white--text rounded-xl px-6 py-5 text-h5" :color="colorModule.THIRD_COLOR"

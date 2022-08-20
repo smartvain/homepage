@@ -29,7 +29,7 @@ const sectionDetail = 'Skills I can handle are listed here.'
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <p v-show="isOpen" v-text="sectionDetail" class="section-description" />
+          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
           <SkillsContents v-show="isOpen" />

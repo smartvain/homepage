@@ -34,7 +34,7 @@ const cardBackGroundTheme = computed(() => {
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <p v-show="isOpen" v-text="sectionDetail" class="section-description" />
+          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
       </v-col>
       <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
