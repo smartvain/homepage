@@ -16,7 +16,7 @@ export interface SkillTypes {
 }
 
 // projects area
-interface ProjectType {
+export interface ProjectType {
   title: string
   desc:  string
   url:   NodeRequire
