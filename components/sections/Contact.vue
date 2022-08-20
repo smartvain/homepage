@@ -20,9 +20,9 @@ const starsCount    = 10
         </MainImageLeftAnimation>
         <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
         <ContactSvg />
-        <MainImageLeftAnimation>
+        <div v-show="isOpen" class="animation-image-appear">
           <img v-show="isOpen" style="width: 38rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
-        </MainImageLeftAnimation>
+        </div>
       </v-col>
       <v-col cols="6" align="center">
         <SectionTitleAnimation>

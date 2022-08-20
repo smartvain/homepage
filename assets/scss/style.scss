@@ -21,3 +21,16 @@
   font-size: 1.4rem;
   margin-top: 2rem;
 }
+
+.animation-image-appear {
+  animation: 1.3s appear normal forwards;
+}
+
+@keyframes appear {
+  0%, 10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

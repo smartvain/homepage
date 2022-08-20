@@ -18,7 +18,9 @@ const sectionDetail = 'Skills I can handle are listed here.'
           <MainImageLeftAnimation>
             <img v-show="isOpen" style="width: 58rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" rel="preload"/>
           </MainImageLeftAnimation>
-          <img style="width: 58rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image animation-image-appear" rel="preload"/>
+          <div v-show="isOpen" class="animation-image-appear">
+            <img style="width: 58rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload"/>
+          </div>
         </div>
       </v-col>
       <v-col cols="6" align="center">

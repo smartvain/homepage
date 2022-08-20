@@ -42,7 +42,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
         <MainImageRightAnimation>
           <img v-show="isOpen" style="width: 70rem" :src="require('@/assets/images/top-main.png')" rel="preload">
         </MainImageRightAnimation>
-        <div class="animation-image-appear">
+        <div v-show="isOpen" class="animation-image-appear">
           <img style="width: 23rem" :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" rel="preload">
           <img style="width: 8rem" :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" rel="preload">
         </div>
