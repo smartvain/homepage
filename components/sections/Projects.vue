@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { useContext } from '@nuxtjs/composition-api';
+import { computed } from 'vue';
 import { ProjectType } from '~/types/common';
 import ComponentAnimation from '../ComponentAnimation.vue';
+import colorModule from '@/assets/scss/module.scss';
+
+const { $vuetify } = useContext()
 
 defineProps<{ isOpen: boolean }>()
 
@@ -12,6 +17,12 @@ const projects: ProjectType[] = [
   { title: 'My sample project2', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
   { title: 'My sample project3', url: require('@/assets/images/sample-project.jpg'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
 ]
+
+const cardBackGroundTheme = computed(() => {
+  return $vuetify.theme.dark
+    ? colorModule.THIRD_COLOR_DARKEN
+    : '#fff'
+})
 </script>
 
 <template>
@@ -23,7 +34,7 @@ const projects: ProjectType[] = [
           <p v-text="sectionDetail" class="section-description" />
         </v-col>
         <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
-          <v-card class="rounded-lg pa-5 overflow-hidden" height="300" flat>
+          <v-card :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
             <v-hover v-slot="{ hover }">
               <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9">
                 <v-expand-transition>
