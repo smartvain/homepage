@@ -70,7 +70,8 @@ const cardBackGroundTheme = computed(() => {
 
 <style scoped lang="scss">
 .projects-area {
-  min-height: 45rem;
+  min-height: 41.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .hover-gradient {
