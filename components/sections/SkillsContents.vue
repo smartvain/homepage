@@ -23,7 +23,7 @@ const skillTypes: SkillTypes = {
     { skillName: 'PHP',     desc: 'Experience',   year: 2.3 },
     { skillName: 'Laravel', desc: 'Experience',   year: 2.3 },
     { skillName: 'MySQL',   desc: 'Experience',   year: 2.3 },
-    { skillName: 'Docker',  desc: 'Experience',   year: 2 },
+    { skillName: 'Docker',  desc: 'Experience',   year: 1.7 },
     { skillName: 'Node.js', desc: 'Intermediate', year: 1 },
   ]
 }
@@ -39,6 +39,12 @@ const fontColorTheme = computed(() => {
     : colorModule.MAIN_COLOR_DARK
 })
 
+const barColor = (skillName: string) => {
+  const findSkill = skillTypes.frontend.find(skill => skill.skillName === skillName)
+  return findSkill
+    ? colorModule.SECONDARY_COLOR_LIGHT
+    : colorModule.THIRD_COLOR_LIGHT
+}
 const calcPercentageByYears = (year: number) => {
   const percentage = year >= 3 ? 100 : year * 35
   return `${percentage}%`
@@ -63,7 +69,7 @@ const calcPercentageByYears = (year: number) => {
             </v-card-title>
             <v-card-text>
               <div class="progBar">
-                <div class="bar" :style="{ '--percentage': calcPercentageByYears(skill.year), '--bar-color': colorModule.SECONDARY_COLOR_LIGHT }" />
+                <div class="bar" :style="{ '--percentage': calcPercentageByYears(skill.year), '--bar-color': barColor(skill.skillName) }" />
               </div>
             </v-card-text>
           </v-col>

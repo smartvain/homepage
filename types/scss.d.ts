@@ -5,6 +5,7 @@ declare module '@/assets/scss/module.scss' {
     SECONDARY_COLOR:       string;
     SECONDARY_COLOR_LIGHT: string;
     THIRD_COLOR:           string;
+    THIRD_COLOR_LIGHT:     string;
     THIRD_COLOR_DARKEN:    string;
   };
   export default colorModule;
