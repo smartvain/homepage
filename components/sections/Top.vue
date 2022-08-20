@@ -6,7 +6,7 @@ import { topLengthsSetKey } from '~/store';
 const { $vuetify } = useContext()
 
 const state = inject(topLengthsSetKey)
-if (!state) throw new Error('state is undefined')
+if (!state) throw new Error('Inject return value is undefined')
 const { topLengths } = state
 
 const sectionTitle = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
