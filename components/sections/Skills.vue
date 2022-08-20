@@ -14,8 +14,8 @@ const sectionDetail = 'Skills I can handle are listed here.'
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start">
           <div style="position: relative; top: -5rem;">
-            <v-img style="width: 65rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" eager/>
-            <v-img style="width: 65rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image" eager/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload"/>
           </div>
         </v-col>
         <v-col cols="6" align="center">
@@ -35,14 +35,15 @@ const sectionDetail = 'Skills I can handle are listed here.'
 
 .skills-area-main-image {
   position: absolute;
-  top: 0;
-  right: -10rem;
+  top: 1.3rem;
+  right: -6.6rem;
+  transform: scaleX(1.04);
 }
 
 .skills-area-astronaut-image {
   position: absolute;
-  top: 0;
-  right: -10rem;
+  top: 1.3rem;
+  right: -6.6rem;
   animation: 5s float infinite;
 }
 

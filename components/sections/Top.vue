@@ -25,12 +25,10 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
           Contact
         </v-btn>
       </v-col>
-      <v-col cols="7" align="center">
-        <div style="position: relative">
-          <v-img style="width: 25rem" :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" eager />
-          <v-img style="width: 8rem" :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" eager />
-          <v-img style="width: 70rem" :src="require('@/assets/images/top-main.png')" eager />
-        </div>
+      <v-col cols="7" align="center" style="position: relative">
+        <img style="width: 70rem" :src="require('@/assets/images/top-main.png')" rel="preload">
+        <img style="width: 23rem" :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" rel="preload">
+        <img style="width: 8rem" :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" rel="preload">
       </v-col>
     </v-row>
   </div>
@@ -43,13 +41,15 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
 
 .top-area-satellite-image {
   position: absolute;
+  top: 2rem;
+  left: 0;
   animation: 4s float infinite;
 }
 
 .top-area-shine-image {
   position: absolute;
-  top: 35%;
-  left: 70%;
+  top: 17rem;
+  left: 42rem;
   animation: 4s shine infinite;
 }
 
@@ -62,7 +62,7 @@ const sectionTitle = 'I work for a Tokyo-based company as a full-stack web devel
   }
 }
 
-@keyframes sparkle {
+@keyframes shine {
   0%, 100% {
     transform: rotate(0) scale(0);
   }

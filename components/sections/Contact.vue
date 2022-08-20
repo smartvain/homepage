@@ -14,9 +14,9 @@ const starsCount    = 10
     <ComponentAnimation>
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start" style="position: relative">
-          <v-img style="width: 55rem" :src="require('@/assets/images/contact-background.png')" class="contact-area-astronaut-image" eager />
+          <img style="width: 55rem" :src="require('@/assets/images/contact-background.png')" class="contact-area-main-image" rel="preload">
           <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
-          <v-img style="width: 42rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-main-image" eager />
+          <img style="width: 38rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
           <ContactSvg />
         </v-col>
         <v-col cols="6" align="center">
@@ -34,17 +34,18 @@ const starsCount    = 10
 </template>
 
 <style scoped lang="scss">
-.contact-area-astronaut-image {
+.contact-area-main-image {
   position: absolute;
   top: 0;
   right: -5rem;
 }
 
-.contact-area-main-image {
+.contact-area-astronaut-image {
   position: absolute;
-  top: 9rem;
-  right: -2rem;
+  top: 11rem;
+  right: 2rem;
 }
+
 
 .shooting-stars-wrapper {
   clip-path: url(#contact-area-svg);
