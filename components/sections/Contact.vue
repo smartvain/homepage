@@ -15,7 +15,7 @@ const starsCount    = 10
       <v-row v-show="isOpen" justify="center" align="center">
         <v-col cols="6" align-self="start" style="position: relative">
           <img style="width: 55rem" :src="require('@/assets/images/contact-astronaut2.png')" class="contact-area-astronaut-image">
-          <div class="shooting-starts-wrapper"><span v-for="n of starsCount" class="shooting-starts" /></div>
+          <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
           <img style="width: 42rem" :src="require('@/assets/images/contact-astronaut-set.png')" class="contact-area-main-image">
           <ContactSvg />
         </v-col>
@@ -46,12 +46,12 @@ const starsCount    = 10
   right: -2rem;
 }
 
-.shooting-starts-wrapper {
+.shooting-stars-wrapper {
   clip-path: url(#contact-area-svg);
   -webkit-clip-path: url(#contact-area-svg);
 }
 
-.shooting-starts {
+.shooting-stars {
   position: absolute;
   top: 50%;
   left: 50%;
