@@ -45,14 +45,13 @@ provide(topLengthsSetKey, topLengthsSet)
 
 <template>
   <v-app dark :style="{ '--font-color': fontColorTheme }">
-    <!-- Header -->
     <v-app-bar color="transparent" flat fixed app>
       <v-btn plain @click="$vuetify.goTo(0)">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
         <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
       </v-btn>
       <v-spacer />
-      <v-btn v-for="(item, index) of headerButtons" :key="`${index}-${item.text}`" class="mr-10 rounded-lg" @click="item.handleClick" outlined>
+      <v-btn v-for="(item, index) of headerButtons" :key="`${index}-${item.text}`" class="mr-10 rounded-lg" outlined @click="item.handleClick">
         <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" />
         {{ item.text }}
       </v-btn>
@@ -60,11 +59,11 @@ provide(topLengthsSetKey, topLengthsSet)
         <v-icon>{{ weatherIconTheme }}</v-icon>
       </v-btn>
     </v-app-bar>
-    <!-- Body -->
+
     <v-main :style="{ 'background-color': backgroundTheme }" class="pb-16">
       <Nuxt />
     </v-main>
-    <!-- Footer -->
+
     <v-footer :color="colorModule.THIRD_COLOR">
       <v-col cols="12" class="font-weight-bold" align="center">
         <span :style="{ 'color': colorModule.MAIN_COLOR_LIGHT }">
