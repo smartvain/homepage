@@ -3,6 +3,7 @@ import SkillsContents from './SkillsContents.vue'
 import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
 import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
+import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -28,11 +29,11 @@ const sectionDetail = 'Skills I can handle are listed here.'
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <div v-show="isOpen">
-            <p v-text="sectionDetail" class="section-description" />
-            <SkillsContents />
-          </div>
+          <p v-show="isOpen" v-text="sectionDetail" class="section-description" />
         </SectionDetailAnimation>
+        <SectionContentAnimation>
+          <SkillsContents v-show="isOpen" />
+        </SectionContentAnimation>
       </v-col>
     </v-row>
   </div>

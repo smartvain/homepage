@@ -3,6 +3,7 @@ import ContactSvg from './ContactSvg.vue';
 import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
+import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -29,15 +30,15 @@ const starsCount    = 10
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <div v-show="isOpen">
-            <p v-text="sectionDetail" class="section-description" />
-            <form>
-              <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
-              <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
-              <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat />
-            </form>
-          </div>
+          <p v-show="isOpen" v-text="sectionDetail" class="section-description" />
         </SectionDetailAnimation>
+        <SectionContentAnimation>
+          <form v-show="isOpen">
+            <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
+            <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
+            <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat />
+          </form>
+        </SectionContentAnimation>
       </v-col>
     </v-row>
   </div>
@@ -55,7 +56,6 @@ const starsCount    = 10
   top: 11rem;
   right: 2rem;
 }
-
 
 .shooting-stars-wrapper {
   clip-path: url(#contact-area-svg);

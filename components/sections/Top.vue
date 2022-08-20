@@ -6,6 +6,7 @@ import MainImageRightAnimation from '../animations/MainImageRightAnimation.vue'
 import { inject, useContext } from '@nuxtjs/composition-api';
 import { topLengthsSetKey } from '~/store';
 import { onMounted, ref } from 'vue'
+import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 
 const { $vuetify } = useContext()
 
@@ -29,14 +30,14 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           </h1>
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <div v-show="isOpen">
-            <p v-text="sectionTitle" class="section-description mt-16" />
-            <v-btn class="mt-7 font-weight-bold white--text rounded-xl px-6 py-5 text-h5" :color="colorModule.THIRD_COLOR"
-              @click="$vuetify.goTo(topLengths.contact)">
-              Contact
-            </v-btn>
-          </div>
+          <p v-show="isOpen" v-text="sectionTitle" class="section-description mt-16" />
         </SectionDetailAnimation>
+        <SectionContentAnimation>
+          <v-btn v-show="isOpen" class="mt-7 font-weight-bold white--text rounded-xl px-6 py-5 text-h5" :color="colorModule.THIRD_COLOR"
+            @click="$vuetify.goTo(topLengths.contact)">
+            Contact
+          </v-btn>
+        </SectionContentAnimation>
       </v-col>
       <v-col cols="7" align="center" style="position: relative">
         <MainImageRightAnimation>
