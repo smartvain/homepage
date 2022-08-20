@@ -9,6 +9,7 @@
   transition: transform 1s, opacity .6s;
   opacity: 1;
   transform: translateY(0) scaleY(1.2);
+  transition-delay: .5s;
 }
 .section-title-enter, .section-title-leave-to {
   opacity: 0;
