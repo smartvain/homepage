@@ -17,10 +17,16 @@ const sectionDetail = 'Skills I can handle are listed here.'
       <v-col cols="6" align-self="start">
         <div style="position: relative; top: -5rem;">
           <MainImageLeftAnimation>
-            <img v-show="isOpen" style="width: 58rem" :src="require('@/assets/images/skills-background.png')" class="skills-area-main-image" rel="preload"/>
+            <img v-show="isOpen" style="width: 58rem" :src="require('@/assets/images/skills/skills-background.png')" class="skills-area-main-image" rel="preload"/>
           </MainImageLeftAnimation>
           <div v-show="isOpen" class="animation-image-appear">
-            <img style="width: 58rem" :src="require('@/assets/images/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet-main.png')" class="skills-area-planet-main-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-asteroid.png')" class="skills-area-asteroid-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet1.png')" class="skills-area-planet-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet2.png')" class="skills-area-planet-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet3.png')" class="skills-area-planet-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet4.png')" class="skills-area-planet-image" rel="preload"/>
+            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload"/>
           </div>
         </div>
       </v-col>
@@ -46,15 +52,60 @@ const sectionDetail = 'Skills I can handle are listed here.'
 
 .skills-area-main-image {
   position: absolute;
-  top: 1.3rem;
-  right: -6.6rem;
+  top: 0;
+  right: -7rem;
 }
 
 .skills-area-astronaut-image {
   position: absolute;
-  top: 1.3rem;
-  right: -6.6rem;
+  top: 5.5rem;
+  right: -7rem;
   animation: 5s floatWithRotate infinite;
+}
+
+.skills-area-planet-main-image {
+  position: absolute;
+  top: 5.5rem;
+  right: -7rem;
+  animation: 5s float infinite;
+  animation-delay: .4s;
+}
+
+.skills-area-asteroid-image {
+  position: absolute;
+  top: 5.5rem;
+  right: -7rem;
+  animation: 5s float infinite;
+  animation-delay: .6s;
+}
+
+.skills-area-planet-image {
+  position: absolute;
+  top: 5.5rem;
+  right: -7rem;
+  animation: 5s float infinite;
+  &:first-child {
+    animation-delay: .2s;
+  }
+  &:nth-child(2) {
+    animation-delay: .6s;
+  }
+  &:nth-child(3) {
+    animation-delay: .8s;
+  }
+  &:nth-child(4) {
+    animation-delay: 2s;
+  }
+}
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes floatWithRotate {
