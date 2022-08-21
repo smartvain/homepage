@@ -54,10 +54,10 @@ const sectionDetail = 'Skills I can handle are listed here.'
   position: absolute;
   top: 1.3rem;
   right: -6.6rem;
-  animation: 5s float infinite;
+  animation: 5s floatWithRotate infinite;
 }
 
-@keyframes float {
+@keyframes floatWithRotate {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
   }
