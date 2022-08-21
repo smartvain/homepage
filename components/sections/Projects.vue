@@ -31,7 +31,7 @@ const cardBackGroundTheme = computed(() => {
 </script>
 
 <template>
-  <div class="section-area projects-area" name="projects-area">
+  <div class="section-area projects-area">
     <v-row justify="start">
       <v-col cols="12" align="center">
         <SectionTitleAnimation>
@@ -52,7 +52,7 @@ const cardBackGroundTheme = computed(() => {
                       <div v-if="hover" class="transition-fast-in-fast-out hover-gradient" />
                     </v-expand-transition>
                     <v-expand-transition>
-                      <div v-if="hover" class="transition-fast-in-fast-out hover-text d-flex text-subtitle-1 white--text px-3">
+                      <div v-if="hover" class="transition-fast-in-fast-out hover-text d-flex align-center text-subtitle-1 white--text px-3">
                         {{ project.desc }}
                       </div>
                     </v-expand-transition>
@@ -89,7 +89,5 @@ const cardBackGroundTheme = computed(() => {
   opacity: .9;
   height: 100%;
   width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 </style>

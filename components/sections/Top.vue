@@ -21,7 +21,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
 </script>
 
 <template>
-  <div class="section-area top-area" name="top-area">
+  <div class="section-area top-area">
     <v-row justify="center" align="center">
       <v-col cols="5" align="center">
         <SectionTitleAnimation>
@@ -41,11 +41,11 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
       </v-col>
       <v-col cols="7" align="center" style="position: relative">
         <MainImageRightAnimation>
-          <img v-show="isOpen" style="width: 70rem" :src="require('@/assets/images/top-main.png')" rel="preload">
+          <img v-show="isOpen" :src="require('@/assets/images/top-main.png')" class="top-area-main-image" rel="preload">
         </MainImageRightAnimation>
         <div v-show="isOpen" class="animation-image-appear">
-          <img style="width: 23rem" :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" rel="preload">
-          <img style="width: 8rem" :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" rel="preload">
+          <img :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" rel="preload">
+          <img :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" rel="preload">
         </div>
       </v-col>
     </v-row>
@@ -57,21 +57,27 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   text-align: left;
 }
 
+.top-area-main-image {
+  width: 70rem
+}
+
 .top-area-satellite-image {
   position: absolute;
   top: 2rem;
   left: 0;
-  animation: 4s float infinite;
+  width: 23rem;
+  animation: 4s floatForTop infinite;
 }
 
 .top-area-shine-image {
   position: absolute;
   top: 17rem;
   left: 42rem;
+  width: 8rem;
   animation: 4s shine infinite;
 }
 
-@keyframes float {
+@keyframes floatForTop {
   0%, 100% {
     transform: translateY(0);
   }

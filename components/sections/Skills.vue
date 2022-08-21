@@ -12,22 +12,22 @@ const sectionDetail = 'Skills I can handle are listed here.'
 </script>
 
 <template>
-  <div class="section-area skills-area" name="skills-area">
+  <div class="section-area skills-area">
     <v-row justify="center" align="center">
-      <v-col cols="6" align-self="start">
-        <div style="position: relative; top: -5rem;">
-          <MainImageLeftAnimation>
-            <img v-show="isOpen" style="width: 58rem" :src="require('@/assets/images/skills/skills-background.png')" class="skills-area-main-image" rel="preload"/>
-          </MainImageLeftAnimation>
-          <div v-show="isOpen" class="animation-image-appear">
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet-main.png')" class="skills-area-planet-main-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-asteroid.png')" class="skills-area-asteroid-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet1.png')" class="skills-area-planet-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet2.png')" class="skills-area-planet-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet3.png')" class="skills-area-planet-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-planet4.png')" class="skills-area-planet-image" rel="preload"/>
-            <img style="width: 58rem" :src="require('@/assets/images/skills/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload"/>
+      <v-col cols="6" align-self="start" style="position: relative">
+        <MainImageLeftAnimation>
+          <img v-show="isOpen" :src="require('@/assets/images/skills/skills-background.png')" class="skills-area-background-image" rel="preload">
+        </MainImageLeftAnimation>
+        <div v-show="isOpen" class="animation-image-appear">
+          <img :src="require('@/assets/images/skills/skills-planet-main.png')" class="skills-area-planet-main-image" rel="preload">
+          <img :src="require('@/assets/images/skills/skills-asteroid.png')" class="skills-area-asteroid-image" rel="preload">
+          <div class="planets-wrapper">
+            <img :src="require('@/assets/images/skills/skills-planet1.png')" class="skills-area-planet-image" rel="preload">
+            <img :src="require('@/assets/images/skills/skills-planet2.png')" class="skills-area-planet-image" rel="preload">
+            <img :src="require('@/assets/images/skills/skills-planet3.png')" class="skills-area-planet-image" rel="preload">
+            <img :src="require('@/assets/images/skills/skills-planet4.png')" class="skills-area-planet-image" rel="preload">
           </div>
+          <img :src="require('@/assets/images/skills/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload">
         </div>
       </v-col>
       <v-col cols="6" align="center">
@@ -50,39 +50,44 @@ const sectionDetail = 'Skills I can handle are listed here.'
   margin-top: 3rem !important;
 }
 
-.skills-area-main-image {
+.skills-area-background-image {
   position: absolute;
-  top: 0;
+  top: -3rem;
   right: -7rem;
+  width: 58rem;
 }
 
 .skills-area-astronaut-image {
   position: absolute;
-  top: 5.5rem;
+  top: 2.5rem;
   right: -7rem;
+  width: 58rem;
   animation: 5s floatWithRotate infinite;
 }
 
 .skills-area-planet-main-image {
   position: absolute;
-  top: 5.5rem;
+  top: 2.5rem;
   right: -7rem;
+  width: 58rem;
   animation: 5s float infinite;
   animation-delay: .4s;
 }
 
 .skills-area-asteroid-image {
   position: absolute;
-  top: 5.5rem;
+  top: 2.5rem;
   right: -7rem;
+  width: 58rem;
   animation: 5s float infinite;
   animation-delay: .6s;
 }
 
 .skills-area-planet-image {
   position: absolute;
-  top: 5.5rem;
+  top: 2.5rem;
   right: -7rem;
+  width: 58rem;
   animation: 5s float infinite;
   &:first-child {
     animation-delay: .2s;
@@ -94,17 +99,7 @@ const sectionDetail = 'Skills I can handle are listed here.'
     animation-delay: .8s;
   }
   &:nth-child(4) {
-    animation-delay: 2s;
-  }
-}
-
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
+    animation-delay: 1s;
   }
 }
 

@@ -13,17 +13,17 @@ const starsCount    = 10
 </script>
 
 <template>
-  <div class="section-area" name="contact-area">
+  <div class="section-area">
     <v-row justify="center" align="center">
-      <v-col cols="6" style="position: relative">
+      <v-col cols="6" align-self="start" style="position: relative">
         <MainImageLeftAnimation>
-          <img v-show="isOpen" style="width: 52rem" :src="require('@/assets/images/contact-background.png')" rel="preload">
+          <img v-show="isOpen" :src="require('@/assets/images/contact-background.png')" class="contact-area-background-image" rel="preload">
         </MainImageLeftAnimation>
-        <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
-        <ContactSvg />
+        <!-- <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
+        <ContactSvg /> -->
         <div v-show="isOpen" class="animation-image-appear">
-          <img style="width: 49rem" :src="require('@/assets/images/contact-planet.png')" class="contact-area-planet-image" rel="preload">
-          <img style="width: 21rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
+          <img :src="require('@/assets/images/contact-planet.png')" class="contact-area-planet-image" rel="preload">
+          <img :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
       <v-col cols="6" align="center">
@@ -46,28 +46,29 @@ const starsCount    = 10
 </template>
 
 <style scoped lang="scss">
+.contact-area-background-image {
+  position: absolute;
+  top: 4rem;
+  right: -2rem;
+  width: 52rem;
+
+}
+
 .contact-area-astronaut-image{
   position: absolute;
-  top: 0;
+  top: 2rem;
   right: 1.5rem;
-  transform: rotate(-10deg);
-  animation: 4s float infinite;
+  width: 21rem;
+  transform: rotate(-15deg);
+  animation: 5s float infinite;
 }
 
 .contact-area-planet-image{
   position: absolute;
-  top: 8.5rem;
+  top: 11.5rem;
   right: 2.5rem;
+  width: 49rem;
   animation: 6s float infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
 }
 
 .shooting-stars-wrapper {
@@ -177,7 +178,6 @@ const starsCount    = 10
   }
 }
 
-// Shooing stars animation
 @keyframes shooting {
   0% {
     transform: rotate(325deg) translateX(0);
