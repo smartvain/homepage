@@ -36,7 +36,7 @@ const starsCount    = 10
           <form v-show="isOpen">
             <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
             <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
-            <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat />
+            <v-textarea type="text" solo class="rounded-lg" height="300" placeholder="Your message" flat no-resize />
           </form>
         </SectionContentAnimation>
       </v-col>
