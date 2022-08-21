@@ -1,22 +1,41 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss'
-import { useContext } from '@nuxtjs/composition-api';
+import { useContext, useRouter } from '@nuxtjs/composition-api';
 import { computed, provide } from 'vue';
 import { topLengthsSet, topLengthsSetKey } from '~/store';
 import { HeaderButtonType } from '~/types/common';
 
-const { $vuetify }   = useContext()
-const { topLengths } = topLengthsSet
+const { $vuetify, route } = useContext()
+const $router             = useRouter()
 
 const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
+const { topLengths } = topLengthsSet
 const headerButtons :HeaderButtonType[] = [
-  { text: 'Skills',   handleClick() { $vuetify.goTo(topLengths.skills) } },
-  { text: 'Projects', handleClick() { $vuetify.goTo(topLengths.projects) } },
-  { text: 'Contact',  handleClick() { $vuetify.goTo(topLengths.contact) } },
-  { text: 'Source',   handleClick() { window.open(githubUrl, '_blank') }, isIcon: true },
+  { text: 'Skills',
+    handleClick() {
+      if (route.value.fullPath !== '/') $router.push('/')
+      $vuetify.goTo(topLengths.skills)
+    }
+  },
+  { text: 'Projects',
+    handleClick() {
+      if (route.value.fullPath !== '/') $router.push('/')
+      $vuetify.goTo(topLengths.projects)
+    }
+  },
+  { text: 'Contact',
+    handleClick() {
+      if (route.value.fullPath !== '/') $router.push('/')
+      $vuetify.goTo(topLengths.contact)
+    }
+  },
+  { text: 'Source',
+    handleClick() { window.open(githubUrl, '_blank') },
+    isIcon: true
+  },
 ]
 
 const backgroundTheme = computed(() => {
