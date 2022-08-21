@@ -11,24 +11,25 @@ const $router             = useRouter()
 const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
+const isRoutePath   = route.value.fullPath === '/'
 
 const { topLengths } = topLengthsSet
 const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
     handleClick() {
-      if (route.value.fullPath !== '/') $router.push('/')
+      if (!isRoutePath) $router.push('/')
       $vuetify.goTo(topLengths.skills)
     }
   },
   { text: 'Projects',
     handleClick() {
-      if (route.value.fullPath !== '/') $router.push('/')
+      if (!isRoutePath) $router.push('/')
       $vuetify.goTo(topLengths.projects)
     }
   },
   { text: 'Contact',
     handleClick() {
-      if (route.value.fullPath !== '/') $router.push('/')
+      if (!isRoutePath) $router.push('/')
       $vuetify.goTo(topLengths.contact)
     }
   },
@@ -59,13 +60,18 @@ const githubLogoTheme = computed(() => {
     : require('@/assets/images/icons/Github-Mark-64px.png')
 })
 
+const handleLogoClick = () => {
+  if (!isRoutePath) $router.push('/')
+  $vuetify.goTo(0)
+}
+
 provide(topLengthsSetKey, topLengthsSet)
 </script>
 
 <template>
   <v-app :style="{ '--font-color': fontColorTheme }">
     <v-app-bar color="transparent" flat fixed app>
-      <v-btn plain @click="$vuetify.goTo(0)">
+      <v-btn plain @click="handleLogoClick">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
         <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
       </v-btn>
