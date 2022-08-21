@@ -44,7 +44,7 @@ provide(topLengthsSetKey, topLengthsSet)
 </script>
 
 <template>
-  <v-app dark :style="{ '--font-color': fontColorTheme }">
+  <v-app :style="{ '--font-color': fontColorTheme }">
     <v-app-bar color="transparent" flat fixed app>
       <v-btn plain @click="$vuetify.goTo(0)">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
