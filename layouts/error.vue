@@ -17,7 +17,7 @@ switch (error.statusCode) {
 }
 
 const contactAdmin = () => {
-  console.log('go to google form')
+  console.log('unimplemented')
 }
 </script>
 
