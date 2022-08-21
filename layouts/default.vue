@@ -79,7 +79,7 @@ provide(topLengthsSetKey, topLengthsSet)
       </v-btn>
     </v-app-bar>
 
-    <v-main :style="{ 'background-color': backgroundTheme }" class="pb-16">
+    <v-main :style="{ 'background-color': backgroundTheme }">
       <Nuxt />
     </v-main>
 
