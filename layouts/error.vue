@@ -25,9 +25,8 @@ const contactAdmin = () => {
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <v-row justify="center" align="center">
       <v-col cols="5" style="position: relative">
-        <img style="width: 50rem" :src="require('@/assets/images/error-background.png')" class="error-area-background-image" rel="preload">
-        <img style="width: 20rem" :src="require('@/assets/images/error-astronaut.png')" class="error-area-astronaut-image">
-        <img style="width: 48rem" :src="require('@/assets/images/error-planet.png')" class="error-area-planet-image">
+        <img style="width: 46rem" :src="require('@/assets/images/error-background.png')" rel="preload">
+        <img style="width: 32rem" :src="require('@/assets/images/error-astronaut.png')" class="error-area-astronaut-image" rel="preload">
       </v-col>
       <v-col cols="6" align="center">
         <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" />
@@ -44,27 +43,9 @@ const contactAdmin = () => {
 </template>
 
 <style scoped lang="scss">
-.error-area-astronaut-image{
+.error-area-astronaut-image {
   position: absolute;
-  top: 0;
-  right: -3rem;
-  transform: rotate(-10deg);
-  animation: 4s float infinite;
-}
-
-.error-area-planet-image{
-  position: absolute;
-  top: 8rem;
-  right: -5rem;
-  animation: 6s float infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+  top: 9rem;
+  right: -1rem;
 }
 </style>

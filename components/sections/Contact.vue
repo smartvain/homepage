@@ -15,14 +15,15 @@ const starsCount    = 10
 <template>
   <div class="section-area" name="contact-area">
     <v-row justify="center" align="center">
-      <v-col cols="6" align-self="start" style="position: relative">
+      <v-col cols="6" style="position: relative">
         <MainImageLeftAnimation>
-          <img v-show="isOpen" style="width: 55rem" :src="require('@/assets/images/contact-background.png')" class="contact-area-main-image" rel="preload">
+          <img v-show="isOpen" style="width: 52rem" :src="require('@/assets/images/contact-background.png')" rel="preload">
         </MainImageLeftAnimation>
         <div class="shooting-stars-wrapper"><span v-for="n of starsCount" class="shooting-stars" /></div>
         <ContactSvg />
         <div v-show="isOpen" class="animation-image-appear">
-          <img v-show="isOpen" style="width: 38rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
+          <img style="width: 49rem" :src="require('@/assets/images/contact-planet.png')" class="contact-area-planet-image" rel="preload">
+          <img style="width: 21rem" :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
       <v-col cols="6" align="center">
@@ -45,16 +46,28 @@ const starsCount    = 10
 </template>
 
 <style scoped lang="scss">
-.contact-area-main-image {
+.contact-area-astronaut-image{
   position: absolute;
   top: 0;
-  right: -5rem;
+  right: 1.5rem;
+  transform: rotate(-10deg);
+  animation: 4s float infinite;
 }
 
-.contact-area-astronaut-image {
+.contact-area-planet-image{
   position: absolute;
-  top: 11rem;
-  right: 2rem;
+  top: 8.5rem;
+  right: 2.5rem;
+  animation: 6s float infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 .shooting-stars-wrapper {
