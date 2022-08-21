@@ -9,7 +9,7 @@ let errorDetail = ''
 switch (error.statusCode) {
   case 404:
     errorTitle  = '404\nNot found'
-    errorDetail = error.message!
+    errorDetail = `"${window.location.href}" could not be found `!
     break
   default:
     errorTitle  = 'An error\noccurred'
