@@ -13,7 +13,7 @@ const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
 const { topLengths } = topLengthsSet
-const headerButtons :HeaderButtonType[] = [
+const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
     handleClick() {
       if (route.value.fullPath !== '/') $router.push('/')
