@@ -33,7 +33,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail mt-13" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
-          <v-btn v-show="isOpen" class="mt-7 font-weight-bold white--text rounded-xl px-6 py-5 text-h5" :color="colorModule.THIRD_COLOR"
+          <v-btn v-show="isOpen" class="mt-7 font-weight-bold white--text rounded-lg pa-5" style="font-size: 1.5rem" :color="colorModule.THIRD_COLOR"
             @click="$vuetify.goTo(topLengths.contact)">
             Contact
           </v-btn>
