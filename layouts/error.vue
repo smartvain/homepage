@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss'
 import { NuxtError } from '@nuxt/types';
+import ContactButton from '~/components/items/ContactButton.vue';
 
 const { error } = defineProps<{ error: NuxtError }>()
 
@@ -14,10 +15,6 @@ switch (error.statusCode) {
   default:
     errorTitle  = 'An error\noccurred'
     errorDetail = "If the error still occurs after some time,\nplease contact the administrator"
-}
-
-const contactAdmin = () => {
-  console.log('unimplemented')
 }
 </script>
 
@@ -34,9 +31,7 @@ const contactAdmin = () => {
         <v-btn v-if="error.statusCode === 404" to="/" class="font-weight-bold white--text rounded-lg pa-5" style="font-size: 1.2rem" :color="colorModule.THIRD_COLOR">
           Return to Home
         </v-btn>
-        <v-btn v-else class="font-weight-bold white--text rounded-lg pa-5" style="font-size: 1.2rem" :color="colorModule.THIRD_COLOR" @click="contactAdmin">
-          Contact
-        </v-btn>
+        <ContactButton v-else />
       </v-col>
     </v-row>
   </v-container>

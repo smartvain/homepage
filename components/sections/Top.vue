@@ -3,16 +3,9 @@ import colorModule from '@/assets/scss/module.scss'
 import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue'
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue'
 import MainImageRightAnimation from '../animations/MainImageRightAnimation.vue'
-import { inject, useContext } from '@nuxtjs/composition-api';
-import { topLengthsSetKey } from '~/store';
-import { onMounted, ref } from 'vue'
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
-
-const { $vuetify } = useContext()
-
-const state = inject(topLengthsSetKey)
-if (!state) throw new Error('Inject return value is undefined')
-const { topLengths } = state
+import ContactButton from '../items/ContactButton.vue';
+import { onMounted, ref } from 'vue'
 
 const sectionDetail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 
@@ -33,10 +26,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail mt-13" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
-          <v-btn v-show="isOpen" class="mt-7 font-weight-bold white--text rounded-lg pa-5" style="font-size: 1.5rem" :color="colorModule.THIRD_COLOR"
-            @click="$vuetify.goTo(topLengths.contact)">
-            Contact
-          </v-btn>
+          <ContactButton v-show="isOpen" />
         </SectionContentAnimation>
       </v-col>
       <v-col cols="7" align="center" style="position: relative">
