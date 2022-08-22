@@ -4,7 +4,6 @@ export interface HeaderButtonType {
   isIcon?:     boolean
 }
 
-// skills area
 interface SkillType {
   skillName: string
   desc:      string
@@ -15,11 +14,8 @@ export interface SkillTypes {
   backend:  SkillType[]
 }
 
-// projects area
 export interface ProjectType {
   title: string
   desc:  string
   url:   NodeRequire
 }
-
-// contact area
