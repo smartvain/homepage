@@ -5,6 +5,8 @@ import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue'
 import MainImageRightAnimation from '../animations/MainImageRightAnimation.vue'
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 import ContactButton from '../items/ContactButton.vue';
+import ShootingStars from '../items/ShootingStars.vue'
+import TopImageClipSvg from '../items/TopImageClipSvg.vue';
 import { onMounted, ref } from 'vue'
 
 const sectionDetail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
@@ -29,13 +31,22 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           <ContactButton v-show="isOpen" />
         </SectionContentAnimation>
       </v-col>
-      <v-col cols="7" align="center" style="position: relative">
-        <MainImageRightAnimation>
-          <img v-show="isOpen" :src="require('@/assets/images/top-main.png')" class="top-area-main-image" rel="preload">
-        </MainImageRightAnimation>
+      <v-col cols="7" align-self="start" style="position: relative">
+        <div class="top-image-clip-svg">
+          <img :src="require('@/assets/images/top/top-background.png')" class="top-area-spurious-image" rel="preload">
+          <MainImageRightAnimation>
+            <img v-show="isOpen" :src="require('@/assets/images/top/top-background.png')" class="top-area-background-image" rel="preload">
+          </MainImageRightAnimation>
+          <div v-show="isOpen" class="animation-image-appear">
+            <img :src="require('@/assets/images/top/top-earth.png')" class="top-area-earth-image" rel="preload">
+            <ShootingStars />
+            <img :src="require('@/assets/images/top/top-astronaut.png')" class="top-area-astronaut-image" rel="preload">
+          </div>
+          <TopImageClipSvg />
+        </div>
         <div v-show="isOpen" class="animation-image-appear">
-          <img :src="require('@/assets/images/top-satellite.png')" class="top-area-satellite-image" rel="preload">
-          <img :src="require('@/assets/images/top-shine.png')" class="top-area-shine-image" rel="preload">
+          <img :src="require('@/assets/images/top/top-satellite.png')" class="top-area-satellite-image" rel="preload">
+          <img :src="require('@/assets/images/top/top-shine.png')" class="top-area-shine-image" rel="preload">
         </div>
       </v-col>
     </v-row>
@@ -47,8 +58,36 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   text-align: left;
 }
 
-.top-area-main-image {
-  width: 70rem
+.top-image-clip-svg {
+  clip-path: url(#top-image-clip-svg);
+  -webkit-clip-path: url(#top-image-clip-svg);
+}
+
+.top-area-spurious-image {
+  width: 70rem;
+  opacity: 0;
+}
+
+.top-area-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70rem;
+}
+
+.top-area-earth-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70rem;
+  animation: 120s rotatePlanet infinite linear;
+}
+
+.top-area-astronaut-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70rem;
 }
 
 .top-area-satellite-image {
@@ -56,7 +95,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   top: 2rem;
   left: 0;
   width: 23rem;
-  animation: 4s floatForTop infinite;
+  animation: 4s floatForSatellite infinite;
 }
 
 .top-area-shine-image {
@@ -67,7 +106,18 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   animation: 4s shine infinite;
 }
 
-@keyframes floatForTop {
+@keyframes rotatePlanet {
+  0% {
+    transform: rotate(0);
+    transform-origin: 74.5% 37% 0;
+  }
+  100% {
+    transform: rotate(1turn);
+    transform-origin: 74.5% 37% 0;
+  }
+}
+
+@keyframes floatForSatellite {
   0%, 100% {
     transform: translateY(0);
   }
