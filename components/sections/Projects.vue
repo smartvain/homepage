@@ -5,15 +5,18 @@ import ProjectsContentsAnimation from '../animations/ProjectsContentsAnimation.v
 import { useContext } from '@nuxtjs/composition-api';
 import { inject } from 'vue';
 import { ProjectType } from '~/types/common';
-import { darkModePropertiesKey } from '~/store';
+import { darkModePropertiesKey, screenWidthSetKey } from '~/store';
+
+defineProps<{ isOpen: boolean }>()
 
 const { $vuetify } = useContext()
 
 const darkModeProperties = inject(darkModePropertiesKey)
+const screenWidthSet     = inject(screenWidthSetKey)
 if (!darkModeProperties) throw Error('darkModeProperties is undefined')
+if (!screenWidthSet)     throw Error('screenWidthSet is undefined')
 const { cardBackGroundTheme } = darkModeProperties($vuetify)
-
-defineProps<{ isOpen: boolean }>()
+const { isSmMedia }           = screenWidthSet
 
 const sectionTitle  = 'PROJECTS'
 const sectionDetail = 'These are my temporary projects.'
@@ -35,7 +38,7 @@ const projects: ProjectType[] = [
 </script>
 
 <template>
-  <div class="section-area projects-area">
+  <div class="section-area" :class="{ 'projects-area-responsive': !isSmMedia }">
     <v-row justify="start">
       <v-col cols="12" align="center">
         <SectionTitleAnimation>
@@ -73,9 +76,8 @@ const projects: ProjectType[] = [
 </template>
 
 <style scoped lang="scss">
-.projects-area {
+.projects-area-responsive {
   min-height: 41.5rem;
-  padding-bottom: 3.5rem;
 }
 
 .hover-gradient {
