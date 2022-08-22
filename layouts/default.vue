@@ -60,7 +60,7 @@ onMounted(() => {
     <v-app-bar color="transparent" flat fixed app :hide-on-scroll="isSmMedia">
       <v-btn plain class="px-1" href="/">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
-        <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
+        <v-app-bar-title class="font-weight-bold" :class="isSmMedia ? 'text-subtitle-1' : 'text-h5'" v-text="logoTitle" />
       </v-btn>
       <v-spacer />
       <v-btn
