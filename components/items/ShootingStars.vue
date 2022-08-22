@@ -120,7 +120,7 @@ const starsCount = 10
   }
 
   100% {
-    transform: rotate(325deg) translateX(-1500px);
+    transform: rotate(325deg) translateX(-1000px);
     opacity: 0;
   }
 }

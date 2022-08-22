@@ -40,8 +40,10 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           <div v-show="isOpen" class="animation-image-appear">
             <img :src="require('@/assets/images/top/top-earth.png')" class="top-area-earth-image" rel="preload">
             <ShootingStars />
-            <img :src="require('@/assets/images/top/top-astronaut.png')" class="top-area-astronaut-image" rel="preload">
           </div>
+          <MainImageRightAnimation>
+            <img v-show="isOpen" :src="require('@/assets/images/top/top-astronaut.png')" class="top-area-astronaut-image" rel="preload">
+          </MainImageRightAnimation>
           <TopImageClipSvg />
         </div>
         <div v-show="isOpen" class="animation-image-appear">
