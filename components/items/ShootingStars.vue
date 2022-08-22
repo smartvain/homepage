@@ -3,20 +3,20 @@ const starsCount = 10
 </script>
 
 <template>
-  <div><span v-for="n of starsCount" class="shooting-stars" /></div>
+  <div><span v-for="n of starsCount" class="shooting-star" /></div>
 </template>
 
 <style scoped lang="scss">
-.shooting-stars {
+.shooting-star {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
   width: 4px;
   height: 4px;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
-  animation: shooting 3s linear infinite;
+  animation: 4s shooting linear infinite;
   
   &::before {
     content: '';
@@ -120,7 +120,7 @@ const starsCount = 10
   }
 
   100% {
-    transform: rotate(325deg) translateX(-1000px);
+    transform: rotate(325deg) translateX(-2000px);
     opacity: 0;
   }
 }
