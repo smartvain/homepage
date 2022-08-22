@@ -1,79 +1,64 @@
 <script setup lang="ts">
-import colorModule from '@/assets/scss/module.scss'
-import { useContext, useRouter } from '@nuxtjs/composition-api';
-import { computed, provide } from 'vue';
-import { topLengthsSet, topLengthsSetKey } from '~/store';
+import colorModule from '@/assets/scss/module.scss';
+import { provide, useContext, useRouter } from '@nuxtjs/composition-api';
+import { topLengthsSet, topLengthsSetKey, darkModeProperties, darkModePropertiesKey } from '~/store';
 import { HeaderButtonType } from '~/types/common';
 
+const router              = useRouter()
 const { $vuetify, route } = useContext()
-const $router             = useRouter()
+const { backgroundTheme, fontColorTheme, weatherIconTheme, githubLogoTheme } = darkModeProperties($vuetify)
 
 const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
-const isRoutePath   = route.value.fullPath === '/'
 
+const isRoutePath    = route.value.fullPath === '/'
 const { topLengths } = topLengthsSet
 const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
-    handleClick() {
-      if (!isRoutePath) $router.push('/')
+    handleClick: (): void => {
+      if (!isRoutePath) router.push('/')
       $vuetify.goTo(topLengths.skills)
     }
   },
   { text: 'Projects',
-    handleClick() {
-      if (!isRoutePath) $router.push('/')
+    handleClick: (): void => {
+      if (!isRoutePath) router.push('/')
       $vuetify.goTo(topLengths.projects)
     }
   },
   { text: 'Contact',
-    handleClick() {
-      if (!isRoutePath) $router.push('/')
+    handleClick: (): void => {
+      if (!isRoutePath) router.push('/')
       $vuetify.goTo(topLengths.contact)
     }
   },
   { text: 'Source',
-    handleClick() { window.open(githubUrl, '_blank') },
+    handleClick: (): void => { window.open(githubUrl, '_blank') },
     isIcon: true
   },
 ]
 
-const backgroundTheme = computed(() => {
-  return $vuetify.theme.dark
-    ? colorModule.MAIN_COLOR_DARK
-    : colorModule.MAIN_COLOR_LIGHT
-})
-const fontColorTheme = computed(() => {
-  return $vuetify.theme.dark
-    ? colorModule.MAIN_COLOR_LIGHT
-    : colorModule.MAIN_COLOR_DARK
-})
-const weatherIconTheme = computed(() => {
-  return $vuetify.theme.dark
-    ? 'mdi-weather-sunny'
-    : 'mdi-weather-night'
-})
-const githubLogoTheme = computed(() => {
-  return $vuetify.theme.dark
-    ? require('@/assets/images/icons/Github-Mark-Light-64px.png')
-    : require('@/assets/images/icons/Github-Mark-64px.png')
-})
-
-const handleLogoClick = () => window.location.reload()
+const handleLogoClick = (): void => window.location.reload()
 
 provide(topLengthsSetKey, topLengthsSet)
+provide(darkModePropertiesKey, darkModeProperties)
 </script>
 
 <template>
   <v-app :style="{ '--font-color': fontColorTheme }">
     <v-app-bar color="transparent" flat fixed app>
-      <v-btn plain @click="handleLogoClick">
+      <v-btn plain @click.stop="handleLogoClick">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
         <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
       </v-btn>
       <v-spacer />
-      <v-btn v-for="(item, index) of headerButtons" :key="`${index}-${item.text}`" class="mr-10 rounded-lg" outlined @click="item.handleClick">
+      <v-btn
+        v-for="(item, index) of headerButtons"
+        :key="`${index}-${item.text}`"
+        class="mr-10 rounded-lg"
+        outlined
+        @click.stop="item.handleClick">
         <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" eager />
         {{ item.text }}
       </v-btn>

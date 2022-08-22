@@ -11,22 +11,22 @@ const projectsSection = ref<ComponentPublicInstance>()
 const contactSection  = ref<ComponentPublicInstance>()
 const isOpenSection   = reactive({ skills: false, projects: false, contact: false })
 
-const state = inject(topLengthsSetKey)
-if (!state) throw new Error('Inject return value is undefined')
-const { setTopLengths, topLengths } = state
+const topLengthsSet = inject(topLengthsSetKey)
+if (!topLengthsSet) throw new Error('topLengthsSet is undefined')
+const { setTopLengths, topLengths } = topLengthsSet
 
-const setTopLengthsSkills   = () => {
+const setTopLengthsSkills   = (): void => {
   if (skillsSection.value)   setTopLengths('skills', skillsSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
 }
-const setTopLengthsProjects = () => {
+const setTopLengthsProjects = (): void => {
   if (projectsSection.value) setTopLengths('projects', projectsSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
 }
-const setTopLengthsContact  = () => {
+const setTopLengthsContact  = (): void => {
   if (contactSection.value)  setTopLengths('contact', contactSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
 }
 
 const scrollAmountPlus = 650
-const onScroll = () => {
+const onScroll = (): void => {
   const scrollAmount = window.scrollY + scrollAmountPlus
   
   if (scrollAmount >= topLengths.skills && !isOpenSection.skills) {
