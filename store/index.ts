@@ -60,7 +60,6 @@ export const screenWidthSet = (() => {
   const updateScreenWidth = (width: number): void => { screenWidth.value = width }
 
   return {
-    screenWidth,
     updateScreenWidth,
     isSmMedia
   }
