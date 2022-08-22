@@ -60,10 +60,7 @@ const githubLogoTheme = computed(() => {
     : require('@/assets/images/icons/Github-Mark-64px.png')
 })
 
-const handleLogoClick = () => {
-  if (!isRoutePath) $router.push('/')
-  $vuetify.goTo(0)
-}
+const handleLogoClick = () => window.location.reload()
 
 provide(topLengthsSetKey, topLengthsSet)
 </script>
