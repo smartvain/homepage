@@ -22,8 +22,8 @@ switch (error.statusCode) {
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <v-row justify="center" align="center">
       <v-col cols="5" style="position: relative">
-        <img :src="require('@/assets/images/error-background.png')" class="error-area-background-image" rel="preload">
-        <img :src="require('@/assets/images/error-astronaut.png')" class="error-area-astronaut-image" rel="preload">
+        <img :src="require('@/assets/images/error/error-background.png')" class="error-area-background-image" rel="preload">
+        <img :src="require('@/assets/images/error/error-astronaut.png')" class="error-area-astronaut-image" rel="preload">
       </v-col>
       <v-col cols="6" align="center">
         <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" />

@@ -15,11 +15,11 @@ const sectionDetail = 'You can also contact us for work here.'
     <v-row justify="center" align="center">
       <v-col cols="6" align-self="start" style="position: relative">
         <MainImageLeftAnimation>
-          <img v-show="isOpen" :src="require('@/assets/images/contact-background.png')" class="contact-area-background-image" rel="preload">
+          <img v-show="isOpen" :src="require('@/assets/images/contact/contact-background.png')" class="contact-area-background-image" rel="preload">
         </MainImageLeftAnimation>
         <div v-show="isOpen" class="animation-image-appear">
-          <img :src="require('@/assets/images/contact-planet.png')" class="contact-area-planet-image" rel="preload">
-          <img :src="require('@/assets/images/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
+          <img :src="require('@/assets/images/contact/contact-planet.png')" class="contact-area-planet-image" rel="preload">
+          <img :src="require('@/assets/images/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
       <v-col cols="6" align="center">
