@@ -4,11 +4,11 @@ import { inject, useContext } from '@nuxtjs/composition-api';
 import { topLengthsSetKey } from '~/store';
 
 const { $vuetify } = useContext()
-const state = inject(topLengthsSetKey)
-if (!state) throw new Error('Inject return value is undefined')
-const { topLengths } = state
+const topLengthsSet = inject(topLengthsSetKey)
+if (!topLengthsSet) throw new Error('topLengthsSet is undefined')
+const { topLengths } = topLengthsSet
 
-const handleContactButton = () => {
+const handleContactButton = (): void => {
   $vuetify.goTo(topLengths.contact)
 }
 </script>
@@ -19,7 +19,6 @@ const handleContactButton = () => {
     style="font-size: 1.5rem"
     :color="colorModule.THIRD_COLOR"
     @click="handleContactButton"
-  >
-    Contact
+  >Contact
   </v-btn>
 </template>

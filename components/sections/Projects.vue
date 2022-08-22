@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import colorModule from '@/assets/scss/module.scss';
 import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
-import { useContext } from '@nuxtjs/composition-api';
-import { computed } from 'vue';
-import { ProjectType } from '~/types/common';
 import ProjectsContentsAnimation from '../animations/ProjectsContentsAnimation.vue';
+import { useContext } from '@nuxtjs/composition-api';
+import { inject } from 'vue';
+import { ProjectType } from '~/types/common';
+import { darkModePropertiesKey } from '~/store';
 
 const { $vuetify } = useContext()
+
+const darkModeProperties = inject(darkModePropertiesKey)
+if (!darkModeProperties) throw Error('darkModeProperties is undefined')
+const { cardBackGroundTheme } = darkModeProperties($vuetify)
 
 defineProps<{ isOpen: boolean }>()
 
@@ -15,19 +19,19 @@ const sectionTitle  = 'PROJECTS'
 const sectionDetail = 'These are my temporary projects.'
 
 const projects: ProjectType[] = [
-  { title: 'My sample project1', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  { title: 'My sample project2', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  { title: 'My sample project3', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-  // { title: 'My sample project1', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  // { title: 'My sample project2', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." },
-  // { title: 'My sample project3', url: require('@/assets/images/sample-project.png'), desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
+  { title: 'My sample project1',
+    url: require('@/assets/images/sample-project.png'),
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  { title: 'My sample project2',
+    url: require('@/assets/images/sample-project.png'),
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  { title: 'My sample project3',
+    url: require('@/assets/images/sample-project.png'),
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
 ]
-
-const cardBackGroundTheme = computed(() => {
-  return $vuetify.theme.dark
-    ? colorModule.THIRD_COLOR_DARKEN
-    : '#fff'
-})
 </script>
 
 <template>

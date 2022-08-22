@@ -1,6 +1,6 @@
 <template>
   <transition name="main-image-left">
-    <slot></slot>
+    <slot />
   </transition>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <transition name="section-title">
-    <slot></slot>
+    <slot />
   </transition>
 </template>
 

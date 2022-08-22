@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss'
-import { NuxtError } from '@nuxt/types';
 import ContactButton from '~/components/items/ContactButton.vue';
+import { NuxtError } from '@nuxt/types';
 
 const { error } = defineProps<{ error: NuxtError }>()
 
@@ -22,14 +22,19 @@ switch (error.statusCode) {
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <v-row justify="center" align="center">
       <v-col cols="5" style="position: relative">
-        <img style="width: 46rem" :src="require('@/assets/images/error-background.png')" rel="preload">
-        <img style="width: 32rem" :src="require('@/assets/images/error-astronaut.png')" class="error-area-astronaut-image" rel="preload">
+        <img :src="require('@/assets/images/error-background.png')" class="error-area-background-image" rel="preload">
+        <img :src="require('@/assets/images/error-astronaut.png')" class="error-area-astronaut-image" rel="preload">
       </v-col>
       <v-col cols="6" align="center">
         <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" />
         <p v-text="errorDetail" style="white-space: pre-wrap" class="section-detail" />
-        <v-btn v-if="error.statusCode === 404" to="/" class="font-weight-bold white--text rounded-lg pa-5" style="font-size: 1.2rem" :color="colorModule.THIRD_COLOR">
-          Return to Home
+        <v-btn
+          v-if="error.statusCode === 404"
+          to="/"
+          class="font-weight-bold white--text rounded-lg pa-5"
+          style="font-size: 1.2rem"
+          :color="colorModule.THIRD_COLOR"
+        >Return to Home
         </v-btn>
         <ContactButton v-else />
       </v-col>
@@ -38,9 +43,14 @@ switch (error.statusCode) {
 </template>
 
 <style scoped lang="scss">
+.error-area-background-image {
+  width: 46rem
+}
+
 .error-area-astronaut-image {
   position: absolute;
   top: 9rem;
   right: -1rem;
+  width: 32rem;
 }
 </style>
