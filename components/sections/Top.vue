@@ -80,12 +80,12 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   top: 0;
   left: 0;
   width: 70rem;
-  animation: 120s rotatePlanet infinite linear;
+  animation: 150s rotatePlanet infinite linear;
 }
 
 .top-area-astronaut-image {
   position: absolute;
-  top: 0;
+  top: 1.5rem;
   left: 0;
   width: 70rem;
 }
