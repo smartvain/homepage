@@ -13,7 +13,7 @@ const sectionDetail = 'You can also contact us for work here.'
 <template>
   <div class="section-area">
     <v-row justify="center" align="center">
-      <v-col cols="6" align-self="start" style="position: relative">
+      <v-col cols="12" sm="6" align-self="start" style="position: relative" class="d-none d-sm-flex">
         <MainImageLeftAnimation>
           <img v-show="isOpen" :src="require('@/assets/images/contact/contact-background.png')" class="contact-area-background-image" rel="preload">
         </MainImageLeftAnimation>
@@ -22,7 +22,7 @@ const sectionDetail = 'You can also contact us for work here.'
           <img :src="require('@/assets/images/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
-      <v-col cols="6" align="center">
+      <v-col cols="12" sm="6" align="center">
         <SectionTitleAnimation>
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>

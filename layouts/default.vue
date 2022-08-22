@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss';
-import { provide, useContext, useRouter } from '@nuxtjs/composition-api';
-import { topLengthsSet, topLengthsSetKey, darkModeProperties, darkModePropertiesKey } from '~/store';
+import { onMounted, provide, ref, useContext, useRouter } from '@nuxtjs/composition-api';
+import { topLengthsSet, topLengthsSetKey, darkModeProperties, darkModePropertiesKey, screenWidthSet, screenWidthSetKey } from '~/store';
 import { HeaderButtonType } from '~/types/common';
+import SideBar from '../components/items/SideBar.vue';
 
 const router              = useRouter()
 const { $vuetify, route } = useContext()
 const { backgroundTheme, fontColorTheme, weatherIconTheme, githubLogoTheme } = darkModeProperties($vuetify)
+const { isSmMedia } = screenWidthSet
+
+const isOpenSideBar = ref<boolean>(false)
 
 const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
@@ -19,19 +23,22 @@ const headerButtons: HeaderButtonType[] = [
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
       $vuetify.goTo(topLengths.skills)
-    }
+    },
+    isIcon: true
   },
   { text: 'Projects',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
       $vuetify.goTo(topLengths.projects)
-    }
+    },
+    isIcon: true
   },
   { text: 'Contact',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
       $vuetify.goTo(topLengths.contact)
-    }
+    },
+    isIcon: true
   },
   { text: 'Source',
     handleClick: (): void => { window.open(githubUrl, '_blank') },
@@ -39,16 +46,19 @@ const headerButtons: HeaderButtonType[] = [
   },
 ]
 
-const handleLogoClick = (): void => window.location.reload()
-
 provide(topLengthsSetKey, topLengthsSet)
 provide(darkModePropertiesKey, darkModeProperties)
+provide(screenWidthSetKey, screenWidthSet)
+
+onMounted(() => {
+  window.addEventListener('resize', () => screenWidthSet.updateScreenWidth(window.innerWidth))
+})
 </script>
 
 <template>
   <v-app :style="{ '--font-color': fontColorTheme }">
-    <v-app-bar color="transparent" flat fixed app>
-      <v-btn plain @click.stop="handleLogoClick">
+    <v-app-bar color="transparent" flat fixed app :hide-on-scroll="isSmMedia">
+      <v-btn plain class="px-1" href="/">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
         <v-app-bar-title class="font-weight-bold" style="font-size: 1.6rem" v-text="logoTitle" />
       </v-btn>
@@ -56,16 +66,21 @@ provide(darkModePropertiesKey, darkModeProperties)
       <v-btn
         v-for="(item, index) of headerButtons"
         :key="`${index}-${item.text}`"
-        class="mr-10 rounded-lg"
+        class="mr-10 rounded-lg d-none d-sm-flex"
         outlined
         @click.stop="item.handleClick">
-        <v-img v-if="item.isIcon" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" eager />
+        <div v-if="item.isIcon">
+          <v-img v-if="item.text === 'Source'" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" eager />
+        </div>
         {{ item.text }}
       </v-btn>
-      <v-btn class="mr-0" icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
+      <v-btn icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
         <v-icon>{{ weatherIconTheme }}</v-icon>
       </v-btn>
+      <v-app-bar-nav-icon class="d-flex d-sm-none" @click="isOpenSideBar = !isOpenSideBar" />
     </v-app-bar>
+
+    <SideBar :headerButtons="headerButtons" :isOpen.sync="isOpenSideBar" />
 
     <v-main :style="{ 'background-color': backgroundTheme }">
       <Nuxt />

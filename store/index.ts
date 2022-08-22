@@ -1,20 +1,20 @@
 import colorModule from "@/assets/scss/module.scss"
-import { computed, InjectionKey, reactive } from "vue"
+import { computed, InjectionKey, reactive, ref } from "vue"
 import { Framework } from "vuetify"
 
 export const topLengthsSet = (() => {
-  const topPlus = 20
-  
+  const topPlus    = 20
   const topLengths = reactive({ skills: 0, projects: 0, contact: 0 })
-  
+
   const setTopLengths = (areaName: keyof typeof topLengths, length: number): void => {
     topLengths[areaName] = length + topPlus
   }
 
-  return { topLengths, setTopLengths }
+  return {
+    topLengths,
+    setTopLengths
+  }
 })()
-
-export const topLengthsSetKey: InjectionKey<typeof topLengthsSet> = Symbol('useTopLengthsSetKey')
 
 export const darkModeProperties = ($vuetify: Framework) => {
   const backgroundTheme     = computed((): string => {
@@ -52,4 +52,20 @@ export const darkModeProperties = ($vuetify: Framework) => {
   }
 }
 
+export const screenWidthSet = (() => {
+  const smBreakPoint = 768
+  const screenWidth  = ref<number>(window.innerWidth)
+  const isSmMedia    = computed((): boolean => screenWidth.value < smBreakPoint)
+
+  const updateScreenWidth = (width: number): void => { screenWidth.value = width }
+
+  return {
+    screenWidth,
+    updateScreenWidth,
+    isSmMedia
+  }
+})()
+
+export const topLengthsSetKey:      InjectionKey<typeof topLengthsSet>      = Symbol('useTopLengthsSetKey')
 export const darkModePropertiesKey: InjectionKey<typeof darkModeProperties> = Symbol('useDarkModePropertiesKey')
+export const screenWidthSetKey:     InjectionKey<typeof screenWidthSet>     = Symbol('useScreenWidthSetKey')

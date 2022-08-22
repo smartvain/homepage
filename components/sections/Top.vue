@@ -18,7 +18,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
 <template>
   <div class="section-area top-area">
     <v-row justify="center" align="center">
-      <v-col cols="5" align="center">
+      <v-col cols="12" sm="5" align="center">
         <SectionTitleAnimation>
           <h1 v-show="isOpen" class="section-title">
             I'M <span :style="{ 'color': colorModule.SECONDARY_COLOR }">WEB</span><br>DEVELOPER.
@@ -31,7 +31,7 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
           <ContactButton v-show="isOpen" />
         </SectionContentAnimation>
       </v-col>
-      <v-col cols="7" align-self="start" style="position: relative">
+      <v-col cols="12" sm="7" align-self="start" style="position: relative" class="d-none d-sm-flex">
         <div class="top-image-clip-svg">
           <img :src="require('@/assets/images/top/top-background.png')" class="top-area-spurious-image" rel="preload">
           <MainImageRightAnimation>
@@ -77,14 +77,6 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   width: 70rem;
 }
 
-.top-area-earth-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 70rem;
-  animation: 150s rotatePlanet infinite linear;
-}
-
 .top-area-astronaut-image {
   position: absolute;
   top: 1.5rem;
@@ -92,23 +84,14 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
   width: 70rem;
 }
 
-.top-area-satellite-image {
+.top-area-earth-image {
   position: absolute;
-  top: 2rem;
+  top: 0;
   left: 0;
-  width: 23rem;
-  animation: 4s floatForSatellite infinite;
-}
+  width: 70rem;
+  animation: 150s rotatePlanet infinite linear;
 
-.top-area-shine-image {
-  position: absolute;
-  top: 17rem;
-  left: 42rem;
-  width: 8rem;
-  animation: 4s shine infinite;
-}
-
-@keyframes rotatePlanet {
+  @keyframes rotatePlanet {
   0% {
     transform: rotate(0);
     transform-origin: 74.5% 37% 0;
@@ -118,8 +101,16 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
     transform-origin: 74.5% 37% 0;
   }
 }
+}
 
-@keyframes floatForSatellite {
+.top-area-satellite-image {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 23rem;
+  animation: 4s floatForSatellite infinite;
+
+  @keyframes floatForSatellite {
   0%, 100% {
     transform: translateY(0);
   }
@@ -127,13 +118,22 @@ onMounted(() => setTimeout(() => isOpen.value = true, 300))
     transform: translateY(-30px);
   }
 }
+}
 
-@keyframes shine {
+.top-area-shine-image {
+  position: absolute;
+  top: 17rem;
+  left: 42rem;
+  width: 8rem;
+  animation: 4s shine infinite;
+
+  @keyframes shine {
   0%, 100% {
     transform: rotate(0) scale(0);
   }
   50% {
     transform: rotate(1turn) scale(1);
   }
+}
 }
 </style>

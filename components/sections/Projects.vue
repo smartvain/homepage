@@ -45,9 +45,9 @@ const projects: ProjectType[] = [
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
       </v-col>
-      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
+      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="12" sm="4">
         <SectionDetailAnimation>
-          <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
+          <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" flat >
             <v-hover v-slot="{ hover }">
               <ProjectsContentsAnimation :style="{ '--project-appear-second': `${(index + 1) * .2}s` }">
                 <div v-show="isOpen">
@@ -64,7 +64,7 @@ const projects: ProjectType[] = [
                 </div>
               </ProjectsContentsAnimation>
             </v-hover>
-            <v-card-title class="justify-center">{{ project.title }}</v-card-title>
+            <v-card-title class="justify-center pb-0">{{ project.title }}</v-card-title>
           </v-card>
         </SectionDetailAnimation>
       </v-col>

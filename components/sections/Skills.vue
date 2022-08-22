@@ -14,7 +14,7 @@ const sectionDetail = 'Skills I can handle are listed here.'
 <template>
   <div class="section-area skills-area">
     <v-row justify="center" align="center">
-      <v-col cols="6" align-self="start" style="position: relative">
+      <v-col cols="12" sm="6" align-self="start" style="position: relative" class="d-none d-sm-flex">
         <MainImageLeftAnimation>
           <img v-show="isOpen" :src="require('@/assets/images/skills/skills-background.png')" class="skills-area-background-image" rel="preload">
         </MainImageLeftAnimation>
@@ -30,7 +30,7 @@ const sectionDetail = 'Skills I can handle are listed here.'
           <img :src="require('@/assets/images/skills/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload">
         </div>
       </v-col>
-      <v-col cols="6" align="center">
+      <v-col cols="12" sm="6" align="center">
         <SectionTitleAnimation>
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
@@ -63,6 +63,16 @@ const sectionDetail = 'Skills I can handle are listed here.'
   right: -7rem;
   width: 58rem;
   animation: 5s floatWithRotate infinite;
+
+  @keyframes floatWithRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(-5deg);
+  }
+}
 }
 
 .skills-area-planet-main-image {
@@ -100,16 +110,6 @@ const sectionDetail = 'Skills I can handle are listed here.'
   }
   &:nth-child(4) {
     animation-delay: 1s;
-  }
-}
-
-@keyframes floatWithRotate {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-20px) rotate(-5deg);
   }
 }
 </style>
