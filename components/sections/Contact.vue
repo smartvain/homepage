@@ -48,7 +48,7 @@ const starsCount    = 10
 <style scoped lang="scss">
 .contact-area-background-image {
   position: absolute;
-  top: 4rem;
+  top: 6rem;
   right: -2rem;
   width: 52rem;
 
@@ -56,7 +56,7 @@ const starsCount    = 10
 
 .contact-area-astronaut-image{
   position: absolute;
-  top: 2rem;
+  top: 4rem;
   right: 1.5rem;
   width: 21rem;
   transform: rotate(-15deg);
@@ -65,7 +65,7 @@ const starsCount    = 10
 
 .contact-area-planet-image{
   position: absolute;
-  top: 11.5rem;
+  top: 13.5rem;
   right: 2.5rem;
   width: 49rem;
   animation: 6s float infinite;
