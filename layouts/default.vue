@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss';
 import { onMounted, provide, ref, useContext, useRouter } from '@nuxtjs/composition-api';
-import { topLengthsSet, topLengthsSetKey, darkModeProperties, darkModePropertiesKey, screenWidthSet, screenWidthSetKey } from '~/store';
+import { topLengthsSet, topLengthsSetKey, darkModeProperties, darkModePropertiesKey, screenWidthSet, screenWidthSetKey, openSectionsSet, openSectionsSetKey } from '~/store';
 import { HeaderButtonType } from '~/types/common';
 import SideBar from '../components/items/SideBar.vue';
 
@@ -48,6 +48,7 @@ const headerButtons: HeaderButtonType[] = [
 provide(topLengthsSetKey, topLengthsSet)
 provide(darkModePropertiesKey, darkModeProperties)
 provide(screenWidthSetKey, screenWidthSet)
+provide(openSectionsSetKey, openSectionsSet)
 
 onMounted(() => {
   window.addEventListener('resize', () => screenWidthSet.updateScreenWidth(window.innerWidth))
