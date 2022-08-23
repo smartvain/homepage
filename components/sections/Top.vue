@@ -10,7 +10,7 @@ import { screenWidthSetKey } from '~/store';
 
 const screenWidthSet = inject(screenWidthSetKey)
 if (!screenWidthSet) throw Error('screenWidthSet is undefined')
-const { isSmMedia, isMdMedia } = screenWidthSet
+const { isSmMedia } = screenWidthSet
 
 const sectionDetail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 
