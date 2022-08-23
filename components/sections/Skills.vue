@@ -44,10 +44,10 @@ const sectionDetail = 'Skills I can handle are listed here.'
       </v-col>
       <v-col cols="12" sm="8" md="6" align="center">
         <SectionTitleAnimation>
-          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
+          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" :class="{ 'font-color-res': !isSmMedia }" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
+          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" :class="{ 'font-color-res': !isSmMedia }" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
           <SkillsContents v-show="isOpen" />
@@ -119,6 +119,11 @@ const sectionDetail = 'Skills I can handle are listed here.'
   &:nth-child(4) {
     animation-delay: 1s;
   }
+}
+
+// responsive
+.font-color-res {
+  color: $main-color-light;
 }
 
 .skills-area-image-position-res {
