@@ -17,7 +17,7 @@ const sectionDetail = 'You can also contact us for work here.'
 </script>
 
 <template>
-  <div class="section-area">
+  <div class="section-area" id="contact-area">
     <v-row justify="center" align="center">
       <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'contact-area-image-position-res': !isSmMedia }">
         <MainImageLeftAnimation>
