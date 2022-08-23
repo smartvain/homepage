@@ -4,16 +4,18 @@ import SkillsSection from '@/components/sections/Skills.vue'
 import ProjectsSection from '@/components/sections/Projects.vue'
 import ContactSection from '@/components/sections/Contact.vue'
 import { ComponentPublicInstance, inject, onMounted, reactive, ref } from 'vue'
-import { topLengthsSetKey } from '~/store'
+import { topLengthsSetKey, openSectionsSetKey } from '~/store'
 
 const skillsSection   = ref<ComponentPublicInstance>()
 const projectsSection = ref<ComponentPublicInstance>()
 const contactSection  = ref<ComponentPublicInstance>()
-const isOpenSection   = reactive({ skills: false, projects: false, contact: false })
 
-const topLengthsSet = inject(topLengthsSetKey)
-if (!topLengthsSet) throw new Error('topLengthsSet is undefined')
+const openSectionsSet = inject(openSectionsSetKey)
+const topLengthsSet   = inject(topLengthsSetKey)
+if (!topLengthsSet)   throw new Error('topLengthsSet is undefined')
+if (!openSectionsSet) throw new Error('openSectionsSet is undefined')
 const { setTopLengths, topLengths } = topLengthsSet
+const { isOpenSections, switchSection } = openSectionsSet
 
 const setTopLengthsSkills   = (): void => {
   if (skillsSection.value)   setTopLengths('skills', skillsSection.value.$el.getBoundingClientRect().top + window.pageYOffset)
@@ -32,15 +34,9 @@ const onScroll = (): void => {
     setTopLengthsProjects()
     setTopLengthsContact()
   
-  if (scrollAmount >= topLengths.skills && !isOpenSection.skills) {
-    isOpenSection.skills = true
-  }
-  else if (scrollAmount >= topLengths.projects && !isOpenSection.projects) {
-    isOpenSection.projects = true
-  }
-  else if (scrollAmount >= topLengths.contact && !isOpenSection.contact) {
-    isOpenSection.contact = true
-  }
+  if (scrollAmount >= topLengths.skills && !isOpenSections.skills)          switchSection('skills', true)
+  else if (scrollAmount >= topLengths.projects && !isOpenSections.projects) switchSection('projects', true)
+  else if (scrollAmount >= topLengths.contact && !isOpenSections.contact)   switchSection('contact', true)
 }
 
 onMounted(() => {
@@ -53,8 +49,8 @@ onMounted(() => {
 <template>
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <TopSection />
-    <SkillsSection v-scroll="onScroll" :isOpen="isOpenSection.skills" ref="skillsSection" />
-    <ProjectsSection v-scroll="onScroll" :isOpen="isOpenSection.projects" ref="projectsSection" />
-    <ContactSection v-scroll="onScroll" :isOpen="isOpenSection.contact" ref="contactSection" />
+    <SkillsSection v-scroll="onScroll" :isOpen="isOpenSections.skills" ref="skillsSection" />
+    <ProjectsSection v-scroll="onScroll" :isOpen="isOpenSections.projects" ref="projectsSection" />
+    <ContactSection v-scroll="onScroll" :isOpen="isOpenSections.contact" ref="contactSection" />
   </v-container>
 </template>

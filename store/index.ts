@@ -70,6 +70,20 @@ export const screenWidthSet = (() => {
   }
 })()
 
+export const openSectionsSet = (() => {
+  const isOpenSections = reactive({ skills: false, projects: false, contact: false })
+
+  const switchSection = (sectionName: keyof typeof isOpenSections, bool: boolean) => {
+    isOpenSections[sectionName] = bool
+  }
+
+  return {
+    isOpenSections,
+    switchSection
+  }
+})()
+
 export const topLengthsSetKey:      InjectionKey<typeof topLengthsSet>      = Symbol('useTopLengthsSetKey')
 export const darkModePropertiesKey: InjectionKey<typeof darkModeProperties> = Symbol('useDarkModePropertiesKey')
 export const screenWidthSetKey:     InjectionKey<typeof screenWidthSet>     = Symbol('useScreenWidthSetKey')
+export const openSectionsSetKey:    InjectionKey<typeof openSectionsSet>    = Symbol('useOpenSectionsSetKey')
