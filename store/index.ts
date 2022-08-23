@@ -53,15 +53,21 @@ export const darkModeProperties = ($vuetify: Framework) => {
 }
 
 export const screenWidthSet = (() => {
-  const smBreakPoint = 768
+  const smBreakPoint = 600
+  const mdBreakPoint = 960
   const screenWidth  = ref<number>(window.innerWidth)
-  const isSmMedia    = computed((): boolean => screenWidth.value < smBreakPoint)
 
-  const updateScreenWidth = (width: number): void => { screenWidth.value = width }
+  const isSmMedia = computed((): boolean => screenWidth.value > smBreakPoint)
+  const isMdMedia = computed((): boolean => screenWidth.value > mdBreakPoint)
+
+  const updateScreenWidth = (width: number): void => {
+    screenWidth.value = width
+  }
 
   return {
     updateScreenWidth,
-    isSmMedia
+    isSmMedia,
+    isMdMedia
   }
 })()
 
