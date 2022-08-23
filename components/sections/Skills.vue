@@ -22,7 +22,13 @@ const sectionDetail = 'Skills I can handle are listed here.'
     <v-row justify="center" align="center">
       <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'skills-area-image-position-res': !isSmMedia }">
         <MainImageLeftAnimation>
-          <img v-show="isOpen" :src="require('@/assets/images/skills/skills-background.png')" class="skills-area-background-image d-none d-sm-flex" rel="preload">
+          <img
+            v-show="isOpen"
+            class="skills-area-background-image"
+            :class="{ 'd-none': !isSmMedia }"
+            :src="require('@/assets/images/skills/skills-background.png')"
+            rel="preload"
+          >
         </MainImageLeftAnimation>
         <div v-show="isOpen" class="animation-image-appear">
           <img :src="require('@/assets/images/skills/skills-planet-main.png')" class="skills-area-planet-main-image" rel="preload">
@@ -116,6 +122,6 @@ const sectionDetail = 'Skills I can handle are listed here.'
 }
 
 .skills-area-image-position-res {
-  transform: translate(4rem, -18rem);
+  transform: translate(4rem, 46rem);
 }
 </style>

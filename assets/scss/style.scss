@@ -24,10 +24,14 @@
 .section-area {
   position: relative;
   min-height: 100%;
-  margin-bottom: 10rem;
+  margin-bottom: 12rem;
   &:first-child {
-    @include sm {
-      margin-bottom: 11rem;
+    margin-bottom: 7rem;
+  }
+  @include sm {
+    margin-bottom: 8rem;
+    &:first-child {
+      margin-bottom: 12rem;
     }
   }
 }
@@ -42,7 +46,7 @@
     line-height: 6rem;
   }
   @include md {
-    font-size: 7.5rem;
+    font-size: 7.2rem;
     line-height: 7rem;
   }
 }

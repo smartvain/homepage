@@ -20,7 +20,7 @@ const { githubLogoTheme } = darkModeProperties($vuetify)
   <v-navigation-drawer v-model="_isOpen" fixed temporary style="opacity: .9">
     <v-list nav>
       <v-list-item-group>
-        <v-list-item v-for="button of headerButtons" :key="`${index}-${button.text}`" @click.stop="button.handleClick">
+        <v-list-item v-for="(button, index) of headerButtons" :key="`${index}-${button.text}`" @click.stop="button.handleClick">
           <v-list-item-icon v-if="button.isIcon">
             <v-icon v-if="button.text === 'Skills'">mdi-electron-framework</v-icon>
             <v-icon v-else-if="button.text === 'Projects'">mdi-folder-multiple-image</v-icon>
@@ -35,6 +35,3 @@ const { githubLogoTheme } = darkModeProperties($vuetify)
     </v-list>
   </v-navigation-drawer>
 </template>
-
-<style scoped lang="scss">
-</style>
