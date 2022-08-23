@@ -13,5 +13,9 @@ $third-color-darken:       #2f2b4c;
 $section-title-font-family: 'Titillium Web';
 
 // override variable
-$body-font-family:          'Ubuntu';
-$font-size-root:            13px;
+$body-font-family: 'Ubuntu';
+$font-size-root:   13px;
+
+$breakpoint-small:  600px;
+$breakpoint-medium: 960px;
+$breakpoint-large:  1264px;

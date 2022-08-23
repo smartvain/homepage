@@ -1,9 +1,12 @@
 :export {
-  MAIN_COLOR_LIGHT:        $main-color-light;
-  MAIN_COLOR_DARK:         $main-color-dark;
-  SECONDARY_COLOR:         $secondary-color;
-  SECONDARY_COLOR_LIGHT:   $secondary-color-light;
-  THIRD_COLOR:             $third-color;
-  THIRD_COLOR_LIGHT:       $third-color-light;
-  THIRD_COLOR_DARKEN:      $third-color-darken;
+  MAIN_COLOR_LIGHT:      $main-color-light;
+  MAIN_COLOR_DARK:       $main-color-dark;
+  SECONDARY_COLOR:       $secondary-color;
+  SECONDARY_COLOR_LIGHT: $secondary-color-light;
+  THIRD_COLOR:           $third-color;
+  THIRD_COLOR_LIGHT:     $third-color-light;
+  THIRD_COLOR_DARKEN:    $third-color-darken;
+  BREAKPOINT_SMALL:      $breakpoint-small;
+  BREAKPOINT_MEDIUM:     $breakpoint-medium;
+  BREAKPOINT_LARGE:      $breakpoint-large;
 }
