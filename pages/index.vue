@@ -28,18 +28,18 @@ const setTopLengthsContact  = (): void => {
 const scrollAmountPlus = 650
 const onScroll = (): void => {
   const scrollAmount = window.scrollY + scrollAmountPlus
+    setTopLengthsSkills()
+    setTopLengthsProjects()
+    setTopLengthsContact()
   
   if (scrollAmount >= topLengths.skills && !isOpenSection.skills) {
     isOpenSection.skills = true
-    setTopLengthsSkills()
   }
   else if (scrollAmount >= topLengths.projects && !isOpenSection.projects) {
     isOpenSection.projects = true
-    setTopLengthsProjects()
   }
   else if (scrollAmount >= topLengths.contact && !isOpenSection.contact) {
     isOpenSection.contact = true
-    setTopLengthsContact()
   }
 }
 

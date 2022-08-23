@@ -8,7 +8,7 @@ import SideBar from '../components/items/SideBar.vue';
 const router              = useRouter()
 const { $vuetify, route } = useContext()
 const { backgroundTheme, fontColorTheme, weatherIconTheme, githubLogoTheme } = darkModeProperties($vuetify)
-const { isSmMedia, isMdMedia } = screenWidthSet
+const { isSmMedia } = screenWidthSet
 
 const isOpenSideBar = ref<boolean>(false)
 
@@ -17,26 +17,25 @@ const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
 const isRoutePath    = route.value.fullPath === '/'
-const { topLengths } = topLengthsSet
 const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      $vuetify.goTo(topLengths.skills)
+      $vuetify.goTo('#skills-area')
     },
     isIcon: true
   },
   { text: 'Projects',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      $vuetify.goTo(topLengths.projects)
+      $vuetify.goTo('#projects-area')
     },
     isIcon: true
   },
   { text: 'Contact',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      $vuetify.goTo(topLengths.contact)
+      $vuetify.goTo('#contact-area')
     },
     isIcon: true
   },

@@ -18,7 +18,7 @@ const sectionDetail = 'Skills I can handle are listed here.'
 </script>
 
 <template>
-  <div class="section-area">
+  <div class="section-area" id="skills-area">
     <v-row justify="center" align="center">
       <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'skills-area-image-position-res': !isSmMedia }">
         <MainImageLeftAnimation>
@@ -73,14 +73,14 @@ const sectionDetail = 'Skills I can handle are listed here.'
   animation: 5s floatWithRotate infinite;
 
   @keyframes floatWithRotate {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
 
-  50% {
-    transform: translateY(-20px) rotate(-5deg);
+    50% {
+      transform: translateY(-20px) rotate(-5deg);
+    }
   }
-}
 }
 
 .skills-area-planet-main-image {

@@ -3,11 +3,10 @@ import { computed, InjectionKey, reactive, ref } from "vue"
 import { Framework } from "vuetify"
 
 export const topLengthsSet = (() => {
-  const topPlus    = 20
   const topLengths = reactive({ skills: 0, projects: 0, contact: 0 })
 
   const setTopLengths = (areaName: keyof typeof topLengths, length: number): void => {
-    topLengths[areaName] = length + topPlus
+    topLengths[areaName] = length
   }
 
   return {

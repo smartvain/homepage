@@ -38,7 +38,7 @@ const projects: ProjectType[] = [
 </script>
 
 <template>
-  <div class="section-area">
+  <div class="section-area" id="projects-area">
     <v-row justify="start">
       <v-col cols="12" align="center">
         <SectionTitleAnimation>
@@ -52,7 +52,7 @@ const projects: ProjectType[] = [
         <SectionDetailAnimation>
           <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" flat >
             <v-hover v-slot="{ hover }">
-              <ProjectsContentsAnimation :style="{ '--project-appear-second': `${(index + 1) * .2}s` }">
+              <ProjectsContentsAnimation :style="{ '--project-appear-second': `${(index + 1) * .25}s` }">
                 <div v-show="isOpen">
                   <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9" eager>
                     <v-expand-transition>
