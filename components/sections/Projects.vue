@@ -13,8 +13,8 @@ const { $vuetify } = useContext()
 
 const darkModeProperties = inject(darkModePropertiesKey)
 const screenWidthSet     = inject(screenWidthSetKey)
-if (!darkModeProperties) throw Error('darkModeProperties is undefined')
-if (!screenWidthSet)     throw Error('screenWidthSet is undefined')
+if (!darkModeProperties) throw new Error('darkModeProperties is undefined')
+if (!screenWidthSet)     throw new Error('screenWidthSet is undefined')
 const { cardBackGroundTheme } = darkModeProperties($vuetify)
 const { isSmMedia }           = screenWidthSet
 
@@ -38,7 +38,7 @@ const projects: ProjectType[] = [
 </script>
 
 <template>
-  <div class="section-area" :class="{ 'projects-area-responsive': !isSmMedia }">
+  <div class="section-area">
     <v-row justify="start">
       <v-col cols="12" align="center">
         <SectionTitleAnimation>
@@ -48,7 +48,7 @@ const projects: ProjectType[] = [
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
       </v-col>
-      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="12" sm="4">
+      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="12" sm="6" md="4">
         <SectionDetailAnimation>
           <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" flat >
             <v-hover v-slot="{ hover }">
@@ -76,10 +76,6 @@ const projects: ProjectType[] = [
 </template>
 
 <style scoped lang="scss">
-.projects-area-responsive {
-  min-height: 41.5rem;
-}
-
 .hover-gradient {
   position: absolute;
   top: 0;

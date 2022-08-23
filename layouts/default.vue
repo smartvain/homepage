@@ -8,7 +8,7 @@ import SideBar from '../components/items/SideBar.vue';
 const router              = useRouter()
 const { $vuetify, route } = useContext()
 const { backgroundTheme, fontColorTheme, weatherIconTheme, githubLogoTheme } = darkModeProperties($vuetify)
-const { isSmMedia } = screenWidthSet
+const { isSmMedia, isMdMedia } = screenWidthSet
 
 const isOpenSideBar = ref<boolean>(false)
 
@@ -56,17 +56,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-app :style="{ '--font-color': fontColorTheme }">
-    <v-app-bar color="transparent" flat fixed app :hide-on-scroll="isSmMedia">
+  <v-app :style="{ '--font-color': fontColorTheme }" style="overflow: hidden">
+    <v-app-bar color="transparent" flat fixed app :hide-on-scroll="!isMdMedia">
       <v-btn plain class="px-1" href="/">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
-        <v-app-bar-title class="font-weight-bold" :class="isSmMedia ? 'text-subtitle-1' : 'text-h5'" v-text="logoTitle" />
+        <v-app-bar-title class="font-weight-bold" :class="!isSmMedia ? 'text-subtitle-1' : 'text-h5'" v-text="logoTitle" />
       </v-btn>
       <v-spacer />
       <v-btn
         v-for="(item, index) of headerButtons"
         :key="`${index}-${item.text}`"
-        class="mr-10 rounded-lg d-none d-sm-flex"
+        class="mr-10 rounded-lg d-none d-md-flex"
         outlined
         @click.stop="item.handleClick">
         <div v-if="item.isIcon">
@@ -77,7 +77,7 @@ onMounted(() => {
       <v-btn icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
         <v-icon>{{ weatherIconTheme }}</v-icon>
       </v-btn>
-      <v-app-bar-nav-icon class="d-flex d-sm-none" @click="isOpenSideBar = !isOpenSideBar" />
+      <v-app-bar-nav-icon class="d-flex d-md-none" @click="isOpenSideBar = !isOpenSideBar" />
     </v-app-bar>
 
     <SideBar :headerButtons="headerButtons" :isOpen.sync="isOpenSideBar" />

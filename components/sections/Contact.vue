@@ -3,8 +3,14 @@ import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
+import { screenWidthSetKey } from '~/store';
+import { inject } from 'vue';
 
 defineProps<{ isOpen: boolean }>()
+
+const screenWidthSet = inject(screenWidthSetKey)
+if (!screenWidthSet) throw Error('screenWidthSet is undefined')
+const { isSmMedia } = screenWidthSet
 
 const sectionTitle  = 'CONTACT'
 const sectionDetail = 'You can also contact us for work here.'
@@ -13,16 +19,16 @@ const sectionDetail = 'You can also contact us for work here.'
 <template>
   <div class="section-area">
     <v-row justify="center" align="center">
-      <v-col cols="12" sm="6" align-self="start" style="position: relative" class="d-none d-sm-flex">
+      <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'contact-area-image-position-res': !isSmMedia }">
         <MainImageLeftAnimation>
-          <img v-show="isOpen" :src="require('@/assets/images/contact/contact-background.png')" class="contact-area-background-image" rel="preload">
+          <img v-show="isOpen" :src="require('@/assets/images/contact/contact-background.png')" class="contact-area-background-image d-none d-sm-flex" rel="preload">
         </MainImageLeftAnimation>
         <div v-show="isOpen" class="animation-image-appear">
           <img :src="require('@/assets/images/contact/contact-planet.png')" class="contact-area-planet-image" rel="preload">
           <img :src="require('@/assets/images/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
-      <v-col cols="12" sm="6" align="center">
+      <v-col cols="12" sm="8" md="6" align="center">
         <SectionTitleAnimation>
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
@@ -65,5 +71,9 @@ const sectionDetail = 'You can also contact us for work here.'
   right: 2.5rem;
   width: 49rem;
   animation: 6s float infinite;
+}
+
+.contact-area-image-position-res {
+  transform: translate(5rem, -13rem);
 }
 </style>
