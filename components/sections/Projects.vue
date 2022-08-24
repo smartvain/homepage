@@ -5,15 +5,18 @@ import ProjectsContentsAnimation from '../animations/ProjectsContentsAnimation.v
 import { useContext } from '@nuxtjs/composition-api';
 import { inject } from 'vue';
 import { ProjectType } from '~/types/common';
-import { darkModePropertiesKey } from '~/store';
+import { darkModePropertiesKey, screenWidthSetKey } from '~/store';
+
+defineProps<{ isOpen: boolean }>()
 
 const { $vuetify } = useContext()
 
 const darkModeProperties = inject(darkModePropertiesKey)
-if (!darkModeProperties) throw Error('darkModeProperties is undefined')
+const screenWidthSet     = inject(screenWidthSetKey)
+if (!darkModeProperties) throw new Error('darkModeProperties is undefined')
+if (!screenWidthSet)     throw new Error('screenWidthSet is undefined')
 const { cardBackGroundTheme } = darkModeProperties($vuetify)
-
-defineProps<{ isOpen: boolean }>()
+const { isSmMedia }           = screenWidthSet
 
 const sectionTitle  = 'PROJECTS'
 const sectionDetail = 'These are my temporary projects.'
@@ -35,7 +38,7 @@ const projects: ProjectType[] = [
 </script>
 
 <template>
-  <div class="section-area projects-area">
+  <div class="section-area" id="projects-area">
     <v-row justify="start">
       <v-col cols="12" align="center">
         <SectionTitleAnimation>
@@ -45,11 +48,11 @@ const projects: ProjectType[] = [
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
       </v-col>
-      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="4">
+      <v-col v-for="(project, index) of projects" :key="`${index}-${project.title}`" cols="12" sm="6" md="4">
         <SectionDetailAnimation>
-          <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" height="300" flat >
+          <v-card v-show="isOpen" :color="cardBackGroundTheme" class="rounded-lg pa-5 overflow-hidden" flat >
             <v-hover v-slot="{ hover }">
-              <ProjectsContentsAnimation :style="{ '--project-appear-second': `${(index + 1) * .2}s` }">
+              <ProjectsContentsAnimation :style="{ '--project-appear-second': `${(index + 1) * .25}s` }">
                 <div v-show="isOpen">
                   <v-img class="mx-auto rounded-lg" :src="project.url" max-width="100%" :aspect-ratio="16/9" eager>
                     <v-expand-transition>
@@ -64,7 +67,7 @@ const projects: ProjectType[] = [
                 </div>
               </ProjectsContentsAnimation>
             </v-hover>
-            <v-card-title class="justify-center">{{ project.title }}</v-card-title>
+            <v-card-title class="justify-center pb-0">{{ project.title }}</v-card-title>
           </v-card>
         </SectionDetailAnimation>
       </v-col>
@@ -73,11 +76,6 @@ const projects: ProjectType[] = [
 </template>
 
 <style scoped lang="scss">
-.projects-area {
-  min-height: 41.5rem;
-  padding-bottom: 3.5rem;
-}
-
 .hover-gradient {
   position: absolute;
   top: 0;

@@ -1,25 +1,62 @@
+@import './variables';
+
+@mixin sm {
+  @media only screen and (min-width: ($breakpoint-small)) {
+    @content;
+  }
+}
+@mixin md {
+  @media only screen and (min-width: ($breakpoint-medium)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media only screen and (min-width: ($breakpoint-large)) {
+    @content;
+  }
+}
+
 * {
   color: var(--font-color);
+  overflow-wrap: break-word;
 }
 
 .section-area {
   position: relative;
-  min-height: 56rem;
-  &:not(:first-child) {
+  margin-bottom: 12rem;
+  &:first-child {
+    margin-bottom: 7rem;
+  }
+  @include sm {
     margin-bottom: 8rem;
+    &:first-child {
+      margin-bottom: 16rem;
+    }
   }
 }
 
 .section-title {
-  font-size: 7.5rem;
+  transform: scaleY(1.2);
   font-family: $section-title-font-family;
-  line-height: 7rem;
-  transform: scaleY(1.2)
+  font-size: 4.5rem;
+  line-height: 5rem;
+  @include sm {
+    font-size: 5.5rem;
+    line-height: 6rem;
+  }
+  @include md {
+    font-size: 7.2rem;
+    line-height: 7rem;
+  }
 }
 
 .section-detail {
-  font-size: 1.3rem;
+  transform: scaleY(1.001);
+  font-size: 1.1rem;
   margin-top: 1.8rem;
+  @include sm {
+    font-size: 1.3rem;
+  }
 }
 
 .animation-image-appear {

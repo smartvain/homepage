@@ -4,19 +4,31 @@ import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
 import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
+import { screenWidthSetKey } from '~/store';
+import { inject } from 'vue';
 
 defineProps<{ isOpen: boolean }>()
+
+const screenWidthSet = inject(screenWidthSetKey)
+if (!screenWidthSet) throw new Error('screenWidthSet is undefined')
+const { isSmMedia } = screenWidthSet
 
 const sectionTitle  = 'SKILLS'
 const sectionDetail = 'Skills I can handle are listed here.'
 </script>
 
 <template>
-  <div class="section-area skills-area">
+  <div class="section-area" id="skills-area">
     <v-row justify="center" align="center">
-      <v-col cols="6" align-self="start" style="position: relative">
+      <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'skills-area-image-position-res': !isSmMedia }">
         <MainImageLeftAnimation>
-          <img v-show="isOpen" :src="require('@/assets/images/skills/skills-background.png')" class="skills-area-background-image" rel="preload">
+          <img
+            v-show="isOpen"
+            class="skills-area-background-image"
+            :class="{ 'd-none': !isSmMedia }"
+            :src="require('@/assets/images/skills/skills-background.png')"
+            rel="preload"
+          >
         </MainImageLeftAnimation>
         <div v-show="isOpen" class="animation-image-appear">
           <img :src="require('@/assets/images/skills/skills-planet-main.png')" class="skills-area-planet-main-image" rel="preload">
@@ -30,12 +42,12 @@ const sectionDetail = 'Skills I can handle are listed here.'
           <img :src="require('@/assets/images/skills/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload">
         </div>
       </v-col>
-      <v-col cols="6" align="center">
+      <v-col cols="12" sm="8" md="6" align="center">
         <SectionTitleAnimation>
-          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
+          <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" :class="{ 'font-color-res': !isSmMedia }" />
         </SectionTitleAnimation>
         <SectionDetailAnimation>
-          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
+          <p v-show="isOpen" v-text="sectionDetail" class="section-detail" :class="{ 'font-color-res': !isSmMedia }" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
           <SkillsContents v-show="isOpen" />
@@ -46,10 +58,6 @@ const sectionDetail = 'Skills I can handle are listed here.'
 </template>
 
 <style scope lang="scss">
-.skills-area {
-  margin-top: 3rem !important;
-}
-
 .skills-area-background-image {
   position: absolute;
   top: -3rem;
@@ -63,6 +71,16 @@ const sectionDetail = 'Skills I can handle are listed here.'
   right: -7rem;
   width: 58rem;
   animation: 5s floatWithRotate infinite;
+
+  @keyframes floatWithRotate {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-20px) rotate(-5deg);
+    }
+  }
 }
 
 .skills-area-planet-main-image {
@@ -103,13 +121,12 @@ const sectionDetail = 'Skills I can handle are listed here.'
   }
 }
 
-@keyframes floatWithRotate {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
+// responsive
+.font-color-res {
+  color: $main-color-light;
+}
 
-  50% {
-    transform: translateY(-20px) rotate(-5deg);
-  }
+.skills-area-image-position-res {
+  transform: translate(4rem, 46rem);
 }
 </style>
