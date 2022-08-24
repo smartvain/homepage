@@ -14,7 +14,7 @@ const openSectionsSet = inject(openSectionsSetKey)
 const topLengthsSet   = inject(topLengthsSetKey)
 if (!topLengthsSet)   throw new Error('topLengthsSet is undefined')
 if (!openSectionsSet) throw new Error('openSectionsSet is undefined')
-const { setTopLengths, topLengths } = topLengthsSet
+const { setTopLengths, topLengths }     = topLengthsSet
 const { isOpenSections, switchSection } = openSectionsSet
 
 const setTopLengthsSkills   = (): void => {
