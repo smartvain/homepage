@@ -10,7 +10,7 @@ import { inject } from 'vue';
 defineProps<{ isOpen: boolean }>()
 
 const screenWidthSet = inject(screenWidthSetKey)
-if (!screenWidthSet) throw Error('screenWidthSet is undefined')
+if (!screenWidthSet) throw new Error('screenWidthSet is undefined')
 const { isSmMedia } = screenWidthSet
 
 const sectionTitle  = 'SKILLS'
