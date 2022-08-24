@@ -5,17 +5,21 @@ import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue'
 import MainImageRightAnimation from '../animations/MainImageRightAnimation.vue'
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 import ContactButton from '../items/ContactButton.vue';
-import { inject, onMounted, ref } from 'vue'
-import { screenWidthSetKey } from '~/store';
+import { inject, onMounted } from 'vue'
+import { openSectionsSetKey, screenWidthSetKey } from '~/store';
 
-const screenWidthSet = inject(screenWidthSetKey)
-if (!screenWidthSet) throw Error('screenWidthSet is undefined')
-const { isSmMedia } = screenWidthSet
+defineProps<{ isOpen: boolean }>()
+
+const openSectionsSet = inject(openSectionsSetKey)
+const screenWidthSet  = inject(screenWidthSetKey)
+if (!openSectionsSet) throw new Error('openSectionSet is undefined')
+if (!screenWidthSet)  throw new Error('screenWidthSet is undefined')
+const { switchSection } = openSectionsSet
+const { isSmMedia }     = screenWidthSet
 
 const sectionDetail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 
-const isOpen = ref<boolean>(false)
-onMounted(() => setTimeout(() => isOpen.value = true, 300))
+onMounted(() => setTimeout(() => switchSection('top', true), 300))
 </script>
 
 <template>

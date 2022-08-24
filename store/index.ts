@@ -71,7 +71,12 @@ export const screenWidthSet = (() => {
 })()
 
 export const openSectionsSet = (() => {
-  const isOpenSections = reactive({ skills: false, projects: false, contact: false })
+  const isOpenSections = reactive({
+    top:      false,
+    skills:   false,
+    projects: false,
+    contact:  false
+  })
 
   const switchSection = (sectionName: keyof typeof isOpenSections, bool: boolean) => {
     isOpenSections[sectionName] = bool
