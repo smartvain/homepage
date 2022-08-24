@@ -16,26 +16,51 @@ const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
-const isRoutePath    = route.value.fullPath === '/'
+const isRoutePath   = route.value.fullPath === '/'
+const delaySeconds  = 500
 const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      $vuetify.goTo('#skills-area')
+      
+      const elementId = '#skills-area'
+      if (!openSectionsSet.isOpenSections.skills) {
+        openSectionsSet.switchSection('skills', true)
+        setTimeout(() => $vuetify.goTo(elementId), delaySeconds)
+      } else {
+        $vuetify.goTo(elementId)
+      }
     },
     isIcon: true
   },
   { text: 'Projects',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      $vuetify.goTo('#projects-area')
+      
+      const elementId = '#projects-area'
+      if (!openSectionsSet.isOpenSections.projects) {
+        openSectionsSet.switchSection('skills', true)
+        openSectionsSet.switchSection('projects', true)
+        setTimeout(() => $vuetify.goTo(elementId), delaySeconds)
+      } else {
+        $vuetify.goTo(elementId)
+      }
     },
     isIcon: true
   },
   { text: 'Contact',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      $vuetify.goTo('#contact-area')
+
+      const elementId = '#contact-area'
+      if (!openSectionsSet.isOpenSections.contact) {
+        openSectionsSet.switchSection('skills', true)
+        openSectionsSet.switchSection('projects', true)
+        openSectionsSet.switchSection('contact', true)
+        setTimeout(() => $vuetify.goTo(elementId), delaySeconds)
+      } else {
+        $vuetify.goTo(elementId)
+      }
     },
     isIcon: true
   },
