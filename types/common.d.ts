@@ -12,6 +12,7 @@ interface SkillType {
 export interface SkillTypes {
   frontend: SkillType[]
   backend:  SkillType[]
+  other:    SkillType[]
 }
 
 export interface ProjectType {

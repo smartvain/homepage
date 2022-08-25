@@ -30,14 +30,20 @@ const skillTypes: SkillTypes = {
     { skillName: 'MySQL',   desc: 'Experience',   year: 2.3 },
     { skillName: 'Docker',  desc: 'Experience',   year: 1.7 },
     { skillName: 'Node.js', desc: 'Intermediate', year: 1 },
+  ],
+  other: [
+    { skillName: 'Photoshop',    desc: 'Experience', year: 3 },
+    { skillName: 'Premiere pro', desc: 'Experience', year: 3 },
   ]
 }
 
 const barColor = (skillName: string): string => {
-  const findSkill = skillTypes.frontend.find(skill => skill.skillName === skillName)
-  return findSkill
-    ? colorModule.SECONDARY_COLOR_LIGHT
-    : colorModule.THIRD_COLOR_LIGHT
+  const frontend = skillTypes.frontend.find(skill => skill.skillName === skillName)
+  const backend  = skillTypes.backend.find(skill => skill.skillName === skillName)
+
+  if (frontend)     return colorModule.SECONDARY_COLOR_LIGHT
+  else if (backend) return colorModule.THIRD_COLOR_LIGHT
+  else              return colorModule.FORTH_COLOR
 }
 const calcPercentageByYears = (year: number): string => {
   const percentage = year >= 3 ? 100 : year * 35
