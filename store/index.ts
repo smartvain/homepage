@@ -78,7 +78,7 @@ export const openSectionsSet = (() => {
     contact:  false
   })
 
-  const switchSection = (sectionName: keyof typeof isOpenSections, bool: boolean) => {
+  const switchSection = (sectionName: keyof typeof isOpenSections, bool: boolean): void => {
     isOpenSections[sectionName] = bool
   }
 
@@ -129,8 +129,22 @@ export const moveSectionsSet = ($vuetify: Framework) => {
   }
 }
 
+export const loading = (() => {
+  const isLoadingButton = ref<boolean>(false)
+
+  const updateIsLoadingButton = (bool: boolean): void => {
+    isLoadingButton.value = bool
+  }
+
+  return {
+    isLoadingButton,
+    updateIsLoadingButton
+  }
+})()
+
 export const topLengthsSetKey:      InjectionKey<typeof topLengthsSet>      = Symbol('useTopLengthsSetKey')
 export const darkModePropertiesKey: InjectionKey<typeof darkModeProperties> = Symbol('useDarkModePropertiesKey')
 export const screenWidthSetKey:     InjectionKey<typeof screenWidthSet>     = Symbol('useScreenWidthSetKey')
 export const openSectionsSetKey:    InjectionKey<typeof openSectionsSet>    = Symbol('useOpenSectionsSetKey')
 export const moveSectionsSetKey:    InjectionKey<typeof moveSectionsSet>    = Symbol('useMoveSectionsSetKey')
+export const loadingKey:            InjectionKey<typeof loading>            = Symbol('useLoadingKey')

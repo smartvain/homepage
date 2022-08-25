@@ -9,7 +9,9 @@ import {
   openSectionsSet,
   openSectionsSetKey,
   moveSectionsSet,
-  moveSectionsSetKey
+  moveSectionsSetKey,
+  loading,
+  loadingKey
 } from '~/store';
 import colorModule from '@/assets/scss/module.scss';
 import SideBar from '../components/items/SideBar.vue';
@@ -72,6 +74,7 @@ provide(darkModePropertiesKey, darkModeProperties)
 provide(screenWidthSetKey, screenWidthSet)
 provide(openSectionsSetKey, openSectionsSet)
 provide(moveSectionsSetKey, moveSectionsSet)
+provide(loadingKey, loading)
 
 onMounted(() => window.addEventListener('resize', () => screenWidthSet.updateScreenWidth(window.innerWidth)))
 </script>
