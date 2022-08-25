@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import colorModule from '@/assets/scss/module.scss'
-import ContactButton from '~/components/items/ContactButton.vue';
+import ButtonTemplate from '~/components/items/ButtonTemplate.vue';
 import { NuxtError } from '@nuxt/types';
 
 const { error } = defineProps<{ error: NuxtError }>()
@@ -16,6 +16,9 @@ switch (error.statusCode) {
     errorTitle  = 'An error\noccurred'
     errorDetail = "If the error still occurs after some time,\nplease contact the administrator"
 }
+
+const pageReload = (): void => (window.location.reload())
+
 </script>
 
 <template>
@@ -36,7 +39,7 @@ switch (error.statusCode) {
           :color="colorModule.THIRD_COLOR"
         >Return to Home
         </v-btn>
-        <ContactButton v-else />
+        <ButtonTemplate v-else :clickEvent="pageReload">Page Reload</ButtonTemplate>
       </v-col>
     </v-row>
   </v-container>
