@@ -14,7 +14,7 @@ switch (error.statusCode) {
     break
   default:
     errorTitle  = 'An error\noccurred'
-    errorDetail = "If the error still occurs after some time,\nplease contact the administrator"
+    errorDetail = "If the error still occurs after some time,\nplease contact the administrator\nusing the Source button at the top of the screen."
 }
 
 const pageReload = (): void => (window.location.reload())
@@ -31,15 +31,7 @@ const pageReload = (): void => (window.location.reload())
       <v-col cols="6" align="center">
         <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" />
         <p v-text="errorDetail" style="white-space: pre-wrap" class="section-detail" />
-        <v-btn
-          v-if="error.statusCode === 404"
-          to="/"
-          class="font-weight-bold white--text rounded-lg pa-5"
-          style="font-size: 1.2rem"
-          :color="colorModule.THIRD_COLOR"
-        >Return to Home
-        </v-btn>
-        <ButtonTemplate v-else :clickEvent="pageReload">Page Reload</ButtonTemplate>
+        <ButtonTemplate class="mt-4" :clickEvent="pageReload">Page Reload</ButtonTemplate>
       </v-col>
     </v-row>
   </v-container>
