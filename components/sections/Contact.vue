@@ -4,7 +4,8 @@ import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
 import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 import { screenWidthSetKey } from '~/store';
-import { inject } from 'vue';
+import { inject, reactive } from 'vue';
+import SendEmailButton from '../items/SendEmailButton.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -14,6 +15,8 @@ const { isSmMedia } = screenWidthSet
 
 const sectionTitle  = 'CONTACT'
 const sectionDetail = 'You can also contact us for work here.'
+
+const sendEmailForm = reactive({from: '', name: '', content: ''})
 </script>
 
 <template>
@@ -43,9 +46,10 @@ const sectionDetail = 'You can also contact us for work here.'
         </SectionDetailAnimation>
         <SectionContentAnimation>
           <form v-show="isOpen">
-            <v-text-field type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
-            <v-text-field type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
-            <v-textarea type="text" solo class="rounded-lg" height="280" placeholder="Your message" flat no-resize />
+            <v-text-field v-model="sendEmailForm.name" type="text" solo class="rounded-lg" height="80" placeholder="Your full name" flat />
+            <v-text-field v-model="sendEmailForm.from" type="email" solo class="rounded-lg" height="80" placeholder="Your Email" flat />
+            <v-textarea v-model="sendEmailForm.content" type="text" solo class="rounded-lg" height="210" placeholder="Your message" flat no-resize />
+            <SendEmailButton :sendEmailForm="sendEmailForm" />
           </form>
         </SectionContentAnimation>
       </v-col>
