@@ -4,18 +4,23 @@ import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue'
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue'
 import MainImageRightAnimation from '../animations/MainImageRightAnimation.vue'
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
-import ContactButton from '../items/ContactButton.vue';
+import ButtonTemplate from '../items/ButtonTemplate.vue';
 import { inject, onMounted } from 'vue'
-import { openSectionsSetKey, screenWidthSetKey } from '~/store';
+import { moveSectionsSetKey, openSectionsSetKey, screenWidthSetKey } from '~/store';
+import { useContext } from '@nuxtjs/composition-api';
 
 defineProps<{ isOpen: boolean }>()
 
+const { $vuetify } = useContext()
 const openSectionsSet = inject(openSectionsSetKey)
+const moveSectionsSet = inject(moveSectionsSetKey)
 const screenWidthSet  = inject(screenWidthSetKey)
-if (!openSectionsSet) throw new Error('openSectionSet is undefined')
+if (!openSectionsSet) throw new Error('openSectionsSet is undefined')
+if (!moveSectionsSet) throw new Error('moveSectionsSet is undefined')
 if (!screenWidthSet)  throw new Error('screenWidthSet is undefined')
-const { switchSection } = openSectionsSet
-const { isSmMedia }     = screenWidthSet
+const { switchSection }      = openSectionsSet
+const { isSmMedia }          = screenWidthSet
+const { moveContactSection } = moveSectionsSet($vuetify)
 
 const sectionDetail = 'I work for a Tokyo-based company as a full-stack web developer and also freelance. I am skilled in all aspects of web development, from design to coding. If you like my website, please contact me.'
 
@@ -35,7 +40,7 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail mt-13" />
         </SectionDetailAnimation>
         <SectionContentAnimation>
-          <ContactButton v-show="isOpen" />
+          <ButtonTemplate class="mt-7" v-show="isOpen" :clickEvent="moveContactSection">Contact</ButtonTemplate>
         </SectionContentAnimation>
       </v-col>
       <v-col cols="12" sm="7" align-self="start" style="position: relative">
