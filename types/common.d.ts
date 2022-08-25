@@ -19,3 +19,9 @@ export interface ProjectType {
   desc:  string
   url:   NodeRequire
 }
+
+export interface SendEmailForm {
+  from:    string;
+  subject: string;
+  text:    string;
+}
