@@ -53,11 +53,11 @@ export default {
     // https://www.npmjs.com/package/nuxt-mail
     ['nuxt-mail', {
       message: {
-        to: 'me@gmail.com',
+        to: process.env.MESSAGE_TO,
       },
       smtp: {
-        host: 'smtp.mailtrap.io',
-        port: 2525,
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
         auth: {
           user: process.env.MAIL_SMTP_USER,
           pass: process.env.MAIL_SMTP_PASS
