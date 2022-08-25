@@ -48,12 +48,34 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://www.npmjs.com/package/@nuxtjs/toast
+    '@nuxtjs/toast',
+    // https://www.npmjs.com/package/nuxt-mail
+    ['nuxt-mail', {
+      message: {
+        to: 'me@gmail.com',
+      },
+      smtp: {
+        host: 'smtp.mailtrap.io',
+        port: 2525,
+        auth: {
+          user: process.env.MAIL_SMTP_USER,
+          pass: process.env.MAIL_SMTP_PASS
+        },
+      },
+    }],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
+  },
+
+  // Toast module configuration: // https://www.npmjs.com/package/@nuxtjs/toast
+  toast: {
+    duration: 5000,
+    position: 'top-right',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
