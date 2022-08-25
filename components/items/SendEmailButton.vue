@@ -22,13 +22,15 @@ const sendEmail = () => {
   }
   try {
     contextWithMail.$mail.send(emailDetail)
-    context.$toast.show('Email successfully sent!')
+    setTimeout(() => {
+      context.$toast.show('Email successfully sent!')
+      updateIsLoadingButton(false)
+    }, 1000)
   } catch (e: Error) {
     console.log(e.message)
     context.$toast.error('Failed to send email. Please contact the administrator using the Source button at the top of the screen.')
+    updateIsLoadingButton(false)
   }
-  
-  updateIsLoadingButton(false)
 }
 </script>
 
