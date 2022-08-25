@@ -88,7 +88,49 @@ export const openSectionsSet = (() => {
   }
 })()
 
+export const moveSectionsSet = ($vuetify: Framework) => {
+  const delaySeconds = 500
+  const skillsSectionId   = '#skills-area'
+  const projectsSectionId = '#projects-area'
+  const contactSectionId  = '#contact-area'
+  
+  const moveSkillsSection = () => {
+    if (openSectionsSet.isOpenSections.skills) {
+      $vuetify.goTo(skillsSectionId)
+    } else {
+      openSectionsSet.switchSection('skills', true)
+      setTimeout(() => $vuetify.goTo(skillsSectionId), delaySeconds)
+    }
+  }
+  const moveProjectsSection = () => {
+    if (openSectionsSet.isOpenSections.projects) {
+      $vuetify.goTo(projectsSectionId)
+    } else {
+      openSectionsSet.switchSection('skills', true)
+      openSectionsSet.switchSection('projects', true)
+      setTimeout(() => $vuetify.goTo(projectsSectionId), delaySeconds)
+    }
+  }
+  const moveContactSection = () => {
+    if (openSectionsSet.isOpenSections.contact) {
+      $vuetify.goTo(contactSectionId)
+    } else {
+      openSectionsSet.switchSection('skills', true)
+      openSectionsSet.switchSection('projects', true)
+      openSectionsSet.switchSection('contact', true)
+      setTimeout(() => $vuetify.goTo(contactSectionId), delaySeconds)
+    }
+  }
+
+  return {
+    moveSkillsSection,
+    moveProjectsSection,
+    moveContactSection,
+  }
+}
+
 export const topLengthsSetKey:      InjectionKey<typeof topLengthsSet>      = Symbol('useTopLengthsSetKey')
 export const darkModePropertiesKey: InjectionKey<typeof darkModeProperties> = Symbol('useDarkModePropertiesKey')
 export const screenWidthSetKey:     InjectionKey<typeof screenWidthSet>     = Symbol('useScreenWidthSetKey')
 export const openSectionsSetKey:    InjectionKey<typeof openSectionsSet>    = Symbol('useOpenSectionsSetKey')
+export const moveSectionsSetKey:    InjectionKey<typeof moveSectionsSet>    = Symbol('useMoveSectionsSetKey')

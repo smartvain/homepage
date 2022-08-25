@@ -1,14 +1,35 @@
 <script setup lang="ts">
+import {
+  topLengthsSet,
+  topLengthsSetKey,
+  darkModeProperties,
+  darkModePropertiesKey,
+  screenWidthSet,
+  screenWidthSetKey,
+  openSectionsSet,
+  openSectionsSetKey,
+  moveSectionsSet,
+  moveSectionsSetKey
+} from '~/store';
 import colorModule from '@/assets/scss/module.scss';
-import { onMounted, provide, ref, useContext, useRouter } from '@nuxtjs/composition-api';
-import { topLengthsSet, topLengthsSetKey, darkModeProperties, darkModePropertiesKey, screenWidthSet, screenWidthSetKey, openSectionsSet, openSectionsSetKey } from '~/store';
-import { HeaderButtonType } from '~/types/common';
 import SideBar from '../components/items/SideBar.vue';
+import { onMounted, provide, ref, useContext, useRouter } from '@nuxtjs/composition-api';
+import { HeaderButtonType } from '~/types/common';
 
-const router              = useRouter()
+const router = useRouter()
 const { $vuetify, route } = useContext()
-const { backgroundTheme, fontColorTheme, weatherIconTheme, githubLogoTheme } = darkModeProperties($vuetify)
 const { isSmMedia } = screenWidthSet
+const {
+  backgroundTheme,
+  fontColorTheme,
+  weatherIconTheme,
+  githubLogoTheme
+} = darkModeProperties($vuetify)
+const {
+  moveSkillsSection,
+  moveProjectsSection,
+  moveContactSection
+} = moveSectionsSet($vuetify)
 
 const isOpenSideBar = ref<boolean>(false)
 
@@ -16,51 +37,27 @@ const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
-const isRoutePath   = route.value.fullPath === '/'
-const delaySeconds  = 500
+
+const isRoutePath = route.value.fullPath === '/'
 const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      
-      const elementId = '#skills-area'
-      if (!openSectionsSet.isOpenSections.skills) {
-        openSectionsSet.switchSection('skills', true)
-        setTimeout(() => $vuetify.goTo(elementId), delaySeconds)
-      } else {
-        $vuetify.goTo(elementId)
-      }
+      moveSkillsSection()
     },
     isIcon: true
   },
   { text: 'Projects',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-      
-      const elementId = '#projects-area'
-      if (!openSectionsSet.isOpenSections.projects) {
-        openSectionsSet.switchSection('skills', true)
-        openSectionsSet.switchSection('projects', true)
-        setTimeout(() => $vuetify.goTo(elementId), delaySeconds)
-      } else {
-        $vuetify.goTo(elementId)
-      }
+      moveProjectsSection()
     },
     isIcon: true
   },
   { text: 'Contact',
     handleClick: (): void => {
       if (!isRoutePath) router.push('/')
-
-      const elementId = '#contact-area'
-      if (!openSectionsSet.isOpenSections.contact) {
-        openSectionsSet.switchSection('skills', true)
-        openSectionsSet.switchSection('projects', true)
-        openSectionsSet.switchSection('contact', true)
-        setTimeout(() => $vuetify.goTo(elementId), delaySeconds)
-      } else {
-        $vuetify.goTo(elementId)
-      }
+      moveContactSection()
     },
     isIcon: true
   },
@@ -74,10 +71,9 @@ provide(topLengthsSetKey, topLengthsSet)
 provide(darkModePropertiesKey, darkModeProperties)
 provide(screenWidthSetKey, screenWidthSet)
 provide(openSectionsSetKey, openSectionsSet)
+provide(moveSectionsSetKey, moveSectionsSet)
 
-onMounted(() => {
-  window.addEventListener('resize', () => screenWidthSet.updateScreenWidth(window.innerWidth))
-})
+onMounted(() => window.addEventListener('resize', () => screenWidthSet.updateScreenWidth(window.innerWidth)))
 </script>
 
 <template>
