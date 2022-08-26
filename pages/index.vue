@@ -46,6 +46,12 @@ onMounted(() => {
 })
 </script>
 
+<script lang="ts">
+export default {
+  head: { title: 'Ryuichi Amejima - Home page' },
+}
+</script>
+
 <template>
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <TopSection :isOpen="isOpenSections.top" />

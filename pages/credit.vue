@@ -44,6 +44,12 @@ const creditList: CreditList[] = [
 ]
 </script>
 
+<script lang="ts">
+export default {
+  head: { title: 'Credit - Ryuichi Amejima' },
+}
+</script>
+
 <template>
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <h1 v-text="pageTitle" class="mb-5" />
