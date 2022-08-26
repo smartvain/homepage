@@ -2,8 +2,11 @@
 import ButtonTemplate from '~/components/items/ButtonTemplate.vue';
 import { NuxtError } from '@nuxt/types';
 import { useRouter } from '@nuxtjs/composition-api';
+import { screenWidthSet } from '~/store';
 
 const { error } = defineProps<{ error: NuxtError }>()
+
+const { isMdMedia } = screenWidthSet
 
 const router = useRouter()
 
@@ -28,13 +31,13 @@ const returnHome = (): void => { router.push('/') }
 <template>
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <v-row justify="center" align="center">
-      <v-col cols="5" style="position: relative">
-        <img :src="require('@/assets/images/error/error-background.png')" class="error-area-background-image" rel="preload">
-        <img :src="require('@/assets/images/error/error-astronaut.png')" class="error-area-astronaut-image" rel="preload">
+      <v-col cols="12" md="5" style="position: relative" :class="{ 'filter-brightness': !isMdMedia }">
+        <img :src="require('@/assets/images/error/error-background.png')" :class="!isMdMedia ? 'error-area-background-image-res' : 'error-area-background-image'" rel="preload">
+        <img :src="require('@/assets/images/error/error-astronaut.png')" :class="!isMdMedia ? 'error-area-astronaut-image-res' : 'error-area-astronaut-image'" rel="preload">
       </v-col>
-      <v-col cols="6" align="center">
-        <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" />
-        <p v-text="errorDetail" style="white-space: pre-wrap" class="section-detail" />
+      <v-col cols="12" md="5" align="center" :class="{ 'error-left-position-res': !isMdMedia }">
+        <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" :class="{ 'font-color-fix': !isMdMedia }" />
+        <p v-text="errorDetail" style="white-space: pre-wrap" class="section-detail" :class="{ 'font-color-fix': !isMdMedia }" />
         <ButtonTemplate v-if="error.statusCode === 404" class="mt-4" :clickEvent="returnHome">Return Home</ButtonTemplate>
         <ButtonTemplate v-else class="mt-4" :clickEvent="pageReload">Page Reload</ButtonTemplate>
       </v-col>
@@ -44,7 +47,7 @@ const returnHome = (): void => { router.push('/') }
 
 <style scoped lang="scss">
 .error-area-background-image {
-  width: 46rem
+  width: 46rem;
 }
 
 .error-area-astronaut-image {
@@ -52,5 +55,21 @@ const returnHome = (): void => { router.push('/') }
   top: 9rem;
   right: -1rem;
   width: 32rem;
+}
+
+.error-area-background-image-res {
+  width: 100%;
+}
+
+.error-area-astronaut-image-res {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 73%;
+}
+
+.error-left-position-res {
+  position: absolute;
+  top: 9%;
 }
 </style>

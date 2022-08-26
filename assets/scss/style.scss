@@ -63,6 +63,15 @@
   animation: 1.3s appear normal forwards;
 }
 
+.font-color-fix {
+  color: $main-color-light;
+  mix-blend-mode: screen;
+}
+
+.filter-brightness {
+  filter: brightness(0.85);
+}
+
 @keyframes appear {
   0%, 10% {
     opacity: 0;

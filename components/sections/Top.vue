@@ -164,8 +164,4 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
     }
   }
 }
-
-.filter-brightness {
-  filter: brightness(0.85);
-}
 </style>
