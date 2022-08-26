@@ -28,13 +28,13 @@ const sendEmailForm = reactive({from: '', name: '', content: ''})
             v-show="isOpen"
             class="contact-area-background-image"
             :class="{ 'd-none': !isSmMedia }"
-            :src="require('@/assets/images/contact/contact-background.png')"
+            :src="require('@/assets/images/sections/contact/contact-background.png')"
             rel="preload"
           >
         </MainImageLeftAnimation>
         <div v-show="isOpen" class="animation-image-appear">
-          <img :src="require('@/assets/images/contact/contact-planet.png')" class="contact-area-planet-image" rel="preload">
-          <img :src="require('@/assets/images/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
+          <img :src="require('@/assets/images/sections/contact/contact-planet.png')" class="contact-area-planet-image" rel="preload">
+          <img :src="require('@/assets/images/sections/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
       <v-col cols="12" sm="8" md="6" align="center">

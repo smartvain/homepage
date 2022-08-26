@@ -48,14 +48,14 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
           <img
             v-show="isOpen"
             :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
-            :src="require('@/assets/images/top/top-background.png')"
+            :src="require('@/assets/images/sections/top/top-background.png')"
             rel="preload"
           >
         </MainImageRightAnimation>
         <div v-show="isOpen" class="animation-image-appear">
           <img
             class="top-area-earth-image"
-            :src="require('@/assets/images/top/top-earth.png')"
+            :src="require('@/assets/images/sections/top/top-earth.png')"
             rel="preload"
           >
         </div>
@@ -63,7 +63,7 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
           <img
             v-show="isOpen"
             :class="!isSmMedia ? 'top-area-images-position-res filter-brightness' : 'top-area-images-position'"
-            :src="require('@/assets/images/top/top-astronaut.png')"
+            :src="require('@/assets/images/sections/top/top-astronaut.png')"
             rel="preload"
           >
         </MainImageRightAnimation>
@@ -71,12 +71,12 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
           <img
             class="top-area-satellite-image"
             :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
-            :src="require('@/assets/images/top/top-satellite.png')"
+            :src="require('@/assets/images/sections/top/top-satellite.png')"
             rel="preload"
           >
           <img
             class="top-area-shine-image"
-            :src="require('@/assets/images/top/top-shine.png')"
+            :src="require('@/assets/images/sections/top/top-shine.png')"
             rel="preload"
           >
         </div>

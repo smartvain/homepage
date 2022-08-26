@@ -20,15 +20,15 @@ const sectionDetail = 'These are sample projects.'
 
 const projects: ProjectType[] = [
   { title: 'Cigarette smokers',
-    url: require('@/assets/images/projects/original-project1.png'),
+    url: require('@/assets/images/sections/projects/original-project1.png'),
     desc: "This is Photoshop art I made. I will post the website in the future."
   },
   { title: 'Nightmare',
-    url: require('@/assets/images/projects/original-project2.png'),
+    url: require('@/assets/images/sections/projects/original-project2.png'),
     desc: "This is Photoshop art I made. I will post the website in the future."
   },
   { title: "I don't know what's going to happen.",
-    url: require('@/assets/images/projects/original-project3.png'),
+    url: require('@/assets/images/sections/projects/original-project3.png'),
     desc: "This is Photoshop art I made. I will post the website in the future."
   },
 ]
