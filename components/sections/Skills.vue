@@ -14,7 +14,7 @@ if (!screenWidthSet) throw new Error('screenWidthSet is undefined')
 const { isSmMedia } = screenWidthSet
 
 const sectionTitle  = 'SKILLS'
-const sectionDetail = 'Skills I can handle are listed here.'
+const sectionDetail = 'This section is lined with skills I can handle.'
 </script>
 
 <template>
