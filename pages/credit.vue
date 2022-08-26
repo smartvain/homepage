@@ -2,6 +2,7 @@
 import { inject } from 'vue';
 import { useContext } from '@nuxtjs/composition-api';
 import { darkModePropertiesKey } from '~/store';
+import { CreditList } from '~/types/common';
 
 const { $vuetify } = useContext()
 
@@ -11,7 +12,7 @@ const { cardBackGroundTheme } = darkModeProperties($vuetify)
 
 const pageTitle = 'Attribution of images used on this site'
 
-const creditList = [
+const creditList: CreditList[] = [
   { url: require('@/assets/images/origin/DJV MAR 732-13.jpg'),
     link: '<a href="https://www.freepik.com/free-vector/space-rocket-helmet-with-satellite-icons_28157674.htm#page=2&position=19&from_view=undefined">Image by gstudioimagen1</a> on Freepik',
     service: 'freepick'

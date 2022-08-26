@@ -26,3 +26,9 @@ export interface SendEmailForm {
   subject: string;
   text:    string;
 }
+
+export interface CreditList {
+  url:     NodeRequire,
+  link:    string,
+  service: string
+}
