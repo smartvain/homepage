@@ -53,7 +53,7 @@ const calcPercentageByYears = (year: number): string => {
 
 <template>
   <v-card height="510" class="rounded-xl px-7 pt-2" :color="cardBackGroundTheme" flat>
-    <v-tabs v-model="currentSkillTab" :slider-color="fontColorTheme" centered background-color="transparent">
+    <v-tabs v-model="currentSkillTab" :slider-color="fontColorTheme" background-color="transparent" centered show-arrows>
       <v-tab v-for="(skill, skillTypeName) in skillTypes" :key="skillTypeName" :style="{ 'color': fontColorTheme }" class="font-weight-bold">
         {{ skillTypeName }}
       </v-tab>
