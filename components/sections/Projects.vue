@@ -5,34 +5,31 @@ import ProjectsContentsAnimation from '../animations/ProjectsContentsAnimation.v
 import { useContext } from '@nuxtjs/composition-api';
 import { inject } from 'vue';
 import { ProjectType } from '~/types/common';
-import { darkModePropertiesKey, screenWidthSetKey } from '~/store';
+import { darkModePropertiesKey } from '~/store';
 
 defineProps<{ isOpen: boolean }>()
 
 const { $vuetify } = useContext()
 
 const darkModeProperties = inject(darkModePropertiesKey)
-const screenWidthSet     = inject(screenWidthSetKey)
 if (!darkModeProperties) throw new Error('darkModeProperties is undefined')
-if (!screenWidthSet)     throw new Error('screenWidthSet is undefined')
 const { cardBackGroundTheme } = darkModeProperties($vuetify)
-const { isSmMedia }           = screenWidthSet
 
 const sectionTitle  = 'PROJECTS'
-const sectionDetail = 'These are my temporary projects.'
+const sectionDetail = 'These are sample projects.'
 
 const projects: ProjectType[] = [
-  { title: 'My sample project1',
+  { title: 'Cigarette smokers',
     url: require('@/assets/images/projects/original-project1.png'),
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    desc: "This is Photoshop art I made. I will post the website in the future."
   },
-  { title: 'My sample project2',
+  { title: 'Nightmare',
     url: require('@/assets/images/projects/original-project2.png'),
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    desc: "This is Photoshop art I made. I will post the website in the future."
   },
-  { title: 'My sample project3',
+  { title: "I don't know what's going to happen.",
     url: require('@/assets/images/projects/original-project3.png'),
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    desc: "This is Photoshop art I made. I will post the website in the future."
   },
 ]
 </script>
