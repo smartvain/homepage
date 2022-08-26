@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import colorModule from '@/assets/scss/module.scss'
 import ButtonTemplate from '~/components/items/ButtonTemplate.vue';
 import { NuxtError } from '@nuxt/types';
+import { useRouter } from '@nuxtjs/composition-api';
 
 const { error } = defineProps<{ error: NuxtError }>()
+
+const router = useRouter()
 
 let errorTitle  = ''
 let errorDetail = ''
@@ -17,7 +19,9 @@ switch (error.statusCode) {
     errorDetail = "If the error still occurs after some time,\nplease contact the administrator\nusing the Source button at the top of the screen."
 }
 
-const pageReload = (): void => (window.location.reload())
+const pageReload = (): void => { window.location.reload() }
+
+const returnHome = (): void => { router.push('/') }
 
 </script>
 
@@ -31,7 +35,8 @@ const pageReload = (): void => (window.location.reload())
       <v-col cols="6" align="center">
         <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" />
         <p v-text="errorDetail" style="white-space: pre-wrap" class="section-detail" />
-        <ButtonTemplate class="mt-4" :clickEvent="pageReload">Page Reload</ButtonTemplate>
+        <ButtonTemplate v-if="error.statusCode === 404" class="mt-4" :clickEvent="returnHome">Return Home</ButtonTemplate>
+        <ButtonTemplate v-else class="mt-4" :clickEvent="pageReload">Page Reload</ButtonTemplate>
       </v-col>
     </v-row>
   </v-container>
