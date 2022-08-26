@@ -14,7 +14,7 @@ if (!screenWidthSet) throw new Error('screenWidthSet is undefined')
 const { isSmMedia } = screenWidthSet
 
 const sectionTitle  = 'CONTACT'
-const sectionDetail = 'You can also contact us for work here.'
+const sectionDetail = 'You can contact me through this form.'
 
 const sendEmailForm = reactive({from: '', name: '', content: ''})
 </script>
