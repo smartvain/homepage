@@ -63,6 +63,10 @@ const headerButtons: HeaderButtonType[] = [
     },
     isIcon: true
   },
+  { text: 'Credit',
+    handleClick: (): void => { router.push('/credit') },
+    isIcon: true
+  },
   { text: 'Source',
     handleClick: (): void => { window.open(githubUrl, '_blank') },
     isIcon: true

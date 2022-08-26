@@ -25,6 +25,7 @@ const { githubLogoTheme } = darkModeProperties($vuetify)
             <v-icon v-if="button.text === 'Skills'">mdi-electron-framework</v-icon>
             <v-icon v-else-if="button.text === 'Projects'">mdi-folder-multiple-image</v-icon>
             <v-icon v-else-if="button.text === 'Contact'">mdi-contactless-payment-circle</v-icon>
+            <v-icon v-else-if="button.text === 'Credit'">mdi-copyright</v-icon>
             <v-img v-else-if="button.text === 'Source'" :src="githubLogoTheme" max-width="1.5rem" />
           </v-list-item-icon>
           <v-list-item-content>
