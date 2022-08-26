@@ -28,6 +28,7 @@ const {
   githubLogoTheme
 } = darkModeProperties($vuetify)
 const {
+  delaySeconds,
   moveSkillsSection,
   moveProjectsSection,
   moveContactSection
@@ -39,27 +40,35 @@ const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
 const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
 
-
-const isRoutePath = route.value.fullPath === '/'
+const routePath = '/'
 const headerButtons: HeaderButtonType[] = [
   { text: 'Skills',
     handleClick: (): void => {
-      if (!isRoutePath) router.push('/')
-      moveSkillsSection()
+      if (route.value.fullPath === routePath) moveSkillsSection()
+      else {
+        router.push(routePath)
+        setTimeout(() => { moveSkillsSection() }, delaySeconds)
+      }
     },
     isIcon: true
   },
   { text: 'Projects',
     handleClick: (): void => {
-      if (!isRoutePath) router.push('/')
-      moveProjectsSection()
+      if (route.value.fullPath === routePath) moveProjectsSection()
+      else {
+        router.push(routePath)
+        setTimeout(() => { moveProjectsSection() }, delaySeconds)
+      }
     },
     isIcon: true
   },
   { text: 'Contact',
     handleClick: (): void => {
-      if (!isRoutePath) router.push('/')
-      moveContactSection()
+      if (route.value.fullPath === routePath) moveContactSection()
+      else {
+        router.push(routePath)
+        setTimeout(() => { moveContactSection() }, delaySeconds)
+      }
     },
     isIcon: true
   },

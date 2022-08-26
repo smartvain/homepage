@@ -123,6 +123,7 @@ export const moveSectionsSet = ($vuetify: Framework) => {
   }
 
   return {
+    delaySeconds,
     moveSkillsSection,
     moveProjectsSection,
     moveContactSection,
