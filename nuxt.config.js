@@ -54,11 +54,11 @@ export default {
     // https://www.npmjs.com/package/nuxt-mail
     ['nuxt-mail', {
       message: {
-        to: process.env.MESSAGE_TO,
+        to: process.env.MAIL_SMTP_USER,
       },
       smtp: {
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
+        host: 'smtp.gmail.com',
+        port: 587,
         auth: {
           user: process.env.MAIL_SMTP_USER,
           pass: process.env.MAIL_SMTP_PASS
