@@ -3,6 +3,7 @@ import TopSection from '@/components/sections/Top.vue'
 import SkillsSection from '@/components/sections/Skills.vue'
 import ProjectsSection from '@/components/sections/Projects.vue'
 import ContactSection from '@/components/sections/Contact.vue'
+import MainContainer from '~/components/items/MainContainer.vue'
 import { ComponentPublicInstance, inject, onMounted, ref } from 'vue'
 import { topLengthsSetKey, openSectionsSetKey } from '~/store'
 
@@ -29,11 +30,11 @@ const setTopLengthsContact  = (): void => {
 
 const scrollAmountPlus = 650
 const onScroll = (): void => {
-  const scrollAmount = window.scrollY + scrollAmountPlus
   setTopLengthsSkills()
   setTopLengthsProjects()
   setTopLengthsContact()
   
+  const scrollAmount = window.scrollY + scrollAmountPlus
   if (scrollAmount >= topLengths.skills && !isOpenSections.skills)          switchSection('skills', true)
   else if (scrollAmount >= topLengths.projects && !isOpenSections.projects) switchSection('projects', true)
   else if (scrollAmount >= topLengths.contact && !isOpenSections.contact)   switchSection('contact', true)
@@ -53,10 +54,10 @@ export default {
 </script>
 
 <template>
-  <v-container fluid style="width: 93%; max-width: 102rem;">
+  <MainContainer>
     <TopSection :isOpen="isOpenSections.top" />
     <SkillsSection v-scroll="onScroll" :isOpen="isOpenSections.skills" ref="skillsSection" />
     <ProjectsSection v-scroll="onScroll" :isOpen="isOpenSections.projects" ref="projectsSection" />
     <ContactSection v-scroll="onScroll" :isOpen="isOpenSections.contact" ref="contactSection" />
-  </v-container>
+  </MainContainer>
 </template>

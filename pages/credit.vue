@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import MainContainer from '~/components/items/MainContainer.vue';
 import { inject } from 'vue';
 import { useContext } from '@nuxtjs/composition-api';
 import { darkModePropertiesKey } from '~/store';
@@ -51,7 +52,7 @@ export default {
 </script>
 
 <template>
-  <v-container fluid style="width: 93%; max-width: 102rem;">
+  <MainContainer>
     <h1 v-text="pageTitle" class="mb-5" />
     <v-row class="mb-5">
       <v-col cols="12" sm="6" md="4" v-for="(credit, index) of creditList" :key="`${index}-${credit.link}`">
@@ -63,5 +64,5 @@ export default {
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
+  </MainContainer>
 </template>
