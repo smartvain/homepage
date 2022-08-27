@@ -22,13 +22,17 @@ export interface ProjectType {
 }
 
 export interface SendEmailForm {
-  from:    string;
-  subject: string;
-  text:    string;
+  from:    string
+  subject: string
+  text:    string
 }
 
 export interface CreditList {
-  url:     NodeRequire,
-  link:    string,
+  url:     NodeRequire
+  link:    string
   service: string
+}
+
+export interface ButtonOptions {
+  type: string
 }

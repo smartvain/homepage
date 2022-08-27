@@ -2,8 +2,10 @@
 import colorModule from '@/assets/scss/module.scss';
 import { inject } from '@nuxtjs/composition-api';
 import { loadingKey, screenWidthSetKey } from '~/store';
+import { ButtonOptions } from '~/types/common';
 
-defineProps<{ clickEvent: Function }>()
+defineProps<{ clickEvent: Function, options?: ButtonOptions }>()
+
 const pulseCount = 3
 
 const screenWidthSet = inject(screenWidthSetKey)
@@ -20,7 +22,7 @@ const { isLoadingButton } = loading
     :class="!isSmMedia ? 'text-subtitle-1' : 'text-h5'"
     :color="colorModule.THIRD_COLOR"
     :loading="isLoadingButton"
-    light
+    :type="options ? options.type : 'button'"
     @click="clickEvent"
   >
     <slot />

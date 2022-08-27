@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import ButtonTemplate from '../items/ButtonTemplate.vue';
 import { inject, useContext, ContextWithMail } from '@nuxtjs/composition-api';
 import { loadingKey } from '~/store';
-import ButtonTemplate from '../items/ButtonTemplate.vue';
+import { ButtonOptions } from '~/types/common';
 
 const { sendEmailForm } = defineProps<{ sendEmailForm: any }>()
 
@@ -11,6 +12,8 @@ const { updateIsLoadingButton } = loading
 
 const context         = useContext()
 const contextWithMail = useContext() as ContextWithMail
+
+const buttonOptions: ButtonOptions = { type: 'submit' }
 
 const sendEmail = () => {
   updateIsLoadingButton(true)
@@ -35,5 +38,5 @@ const sendEmail = () => {
 </script>
 
 <template>
-  <ButtonTemplate :clickEvent="sendEmail">Send Email</ButtonTemplate>
+  <ButtonTemplate :options="buttonOptions" :clickEvent="sendEmail">Send Email</ButtonTemplate>
 </template>
