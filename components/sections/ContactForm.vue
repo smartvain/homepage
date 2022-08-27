@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { ComponentPublicInstanceWithValidate, reactive, ref } from 'vue';
 import SendEmailButton from '../items/SendEmailButton.vue';
 import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 
 defineProps<{ isOpen: boolean }>()
 
 const sendEmailForm = reactive({email: '', name: '', message: ''})
-const valid         = ref<boolean>(false)
+const contactForm   = ref<ComponentPublicInstanceWithValidate>()
 
 const nameLimit    = 20
 const emailLimit   = 50
@@ -24,11 +24,12 @@ const messageRules = [
   (input: string) => !!input || 'Message is required',
   (input: string) => input.length <= messageLimit || `Name must be less than ${messageLimit} characters`,
 ]
+const validate = (): boolean => contactForm.value!.validate()
 </script>
 
 <template>
   <SectionContentAnimation>
-    <v-form v-show="isOpen" v-model="valid">
+    <v-form v-show="isOpen" ref="contactForm">
       <v-text-field
         v-model="sendEmailForm.name"
         type="text"
@@ -36,8 +37,8 @@ const messageRules = [
         height="80"
         placeholder="Your full name"
         :rules="nameRules"
-        solo flat required
         validate-on-blur
+        solo flat required
       />
       <v-text-field
         v-model="sendEmailForm.email"
@@ -46,8 +47,8 @@ const messageRules = [
         height="80"
         placeholder="Your Email"
         :rules="fromRules"
-        solo flat required
         validate-on-blur
+        solo flat required
       />
       <v-textarea
         v-model="sendEmailForm.message"
@@ -57,10 +58,10 @@ const messageRules = [
         placeholder="Your message"
         :rules="messageRules"
         :counter="messageLimit"
-        solo flat no-resize required
         validate-on-blur
+        solo flat no-resize required
       />
-      <SendEmailButton :disabled="!valid" :sendEmailForm="sendEmailForm" />
+      <SendEmailButton :validate="validate" :sendEmailForm="sendEmailForm" />
     </v-form>
   </SectionContentAnimation>
 </template>

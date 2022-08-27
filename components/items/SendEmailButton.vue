@@ -4,7 +4,7 @@ import { inject, useContext, ContextWithMail } from '@nuxtjs/composition-api';
 import { loadingKey } from '~/store';
 import { ButtonOptions, SendEmailForm, InputEmailForm } from '~/types/common';
 
-const { sendEmailForm } = defineProps<{ sendEmailForm: InputEmailForm }>()
+const { sendEmailForm, validate } = defineProps<{ sendEmailForm: InputEmailForm, validate: () => boolean }>()
 
 const loading = inject(loadingKey)
 if (!loading) throw new Error('loading is undefined')
@@ -15,7 +15,9 @@ const contextWithMail = useContext() as ContextWithMail
 
 const buttonOptions: ButtonOptions = { type: 'submit' }
 
-const sendEmail = () => {
+const sendEmail = (): void => {
+  if (!validate()) return
+  
   updateIsLoadingButton(true)
 
   const emailDetail: SendEmailForm = {
