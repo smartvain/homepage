@@ -94,7 +94,7 @@ onMounted(() => window.addEventListener('resize', () => screenWidthSet.updateScr
 
 <template>
   <v-app :style="{ '--font-color': fontColorTheme }" style="overflow: hidden">
-    <v-app-bar color="transparent" flat fixed app>
+    <v-app-bar color="transparent" flat fixed app style="backdrop-filter: blur(1.5px);">
       <v-btn plain class="px-1" href="/">
         <v-icon class="mr-2">mdi-space-invaders</v-icon>
         <v-app-bar-title class="font-weight-bold" :class="!isSmMedia ? 'text-subtitle-1' : 'text-h5'" v-text="logoTitle" />
