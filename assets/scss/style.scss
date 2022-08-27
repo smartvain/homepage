@@ -21,6 +21,11 @@
   overflow-wrap: break-word;
 }
 
+.error--text * {
+  color: #ff5252 !important;
+  caret-color: #ff5252 !important;
+}
+
 .section-area {
   position: relative;
   margin-bottom: 12rem;
