@@ -105,7 +105,8 @@ onMounted(() => window.addEventListener('resize', () => screenWidthSet.updateScr
         :key="`${index}-${item.text}`"
         class="mr-10 rounded-lg d-none d-md-flex"
         outlined
-        @click.stop="item.handleClick">
+        @click.stop="item.handleClick"
+      >
         <div v-if="item.isIcon">
           <v-img v-if="item.text === 'Source'" class="mr-2" max-width="1.5rem" :src="githubLogoTheme" eager />
         </div>

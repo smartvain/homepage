@@ -4,11 +4,9 @@ import { NuxtError } from '@nuxt/types';
 import { useRouter } from '@nuxtjs/composition-api';
 import { screenWidthSet } from '~/store';
 
-const { error } = defineProps<{ error: NuxtError }>()
-
-const { isMdMedia } = screenWidthSet
-
 const router = useRouter()
+const { error } = defineProps<{ error: NuxtError }>()
+const { isMdMedia } = screenWidthSet
 
 let errorTitle  = ''
 let errorDetail = ''
@@ -23,9 +21,7 @@ switch (error.statusCode) {
 }
 
 const pageReload = (): void => { window.location.reload() }
-
 const returnHome = (): void => { router.push('/') }
-
 </script>
 
 <template>
