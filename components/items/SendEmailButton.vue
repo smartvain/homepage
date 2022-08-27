@@ -15,7 +15,7 @@ const contextWithMail = useContext() as ContextWithMail
 
 const buttonOptions: ButtonOptions = { type: 'submit' }
 
-const sendEmail = (): void => {
+const sendEmail = async (): Promise<void> => {
   if (!validate()) return
   
   updateIsLoadingButton(true)
@@ -26,16 +26,13 @@ const sendEmail = (): void => {
     text:    sendEmailForm.message
   }
   try {
-    contextWithMail.$mail.send(emailDetail)
-    setTimeout(() => {
-      context.$toast.show('Email successfully sent!')
-      updateIsLoadingButton(false)
-    }, 1000)
+    await contextWithMail.$mail.send(emailDetail)
+    context.$toast.show('Email successfully sent!')
   } catch (e: Error) {
     console.log(e.message)
     context.$toast.error('Failed to send email. Please contact the administrator using the Source button at the top of the screen.')
-    updateIsLoadingButton(false)
   }
+  updateIsLoadingButton(false)
 }
 </script>
 
