@@ -1,3 +1,5 @@
+import githubIconLight from '@/assets/images/icons/GitHub-Mark-Light-64px.png'
+import githubIconDark from '@/assets/images/icons/GitHub-Mark-64px.png'
 import colorModule from "@/assets/scss/module.scss"
 import { computed, InjectionKey, reactive, ref } from "vue"
 import { Framework } from "vuetify"
@@ -33,8 +35,8 @@ export const darkModeProperties = ($vuetify: Framework) => {
   })
   const githubLogoTheme     = computed((): string => {
     return $vuetify.theme.dark
-      ? '/icons/Github-Mark-Light-64px.png'
-      : '/icons/Github-Mark-64px.png'
+      ? githubIconLight
+      : githubIconDark
   })
   const cardBackGroundTheme = computed((): string => {
     return $vuetify.theme.dark
