@@ -40,7 +40,9 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     // https://composition-api.nuxtjs.org/
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
+    // https://pwa.nuxtjs.org/
+    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
