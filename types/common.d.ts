@@ -21,6 +21,12 @@ export interface ProjectType {
   url:   NodeRequire
 }
 
+export interface InputEmailForm {
+  name:    string
+  email:   string
+  message: string
+}
+
 export interface SendEmailForm {
   from:    string
   subject: string

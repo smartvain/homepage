@@ -2,9 +2,9 @@
 import ButtonTemplate from '../items/ButtonTemplate.vue';
 import { inject, useContext, ContextWithMail } from '@nuxtjs/composition-api';
 import { loadingKey } from '~/store';
-import { ButtonOptions } from '~/types/common';
+import { ButtonOptions, SendEmailForm, InputEmailForm } from '~/types/common';
 
-const { sendEmailForm } = defineProps<{ sendEmailForm: any }>()
+const { sendEmailForm } = defineProps<{ sendEmailForm: InputEmailForm }>()
 
 const loading = inject(loadingKey)
 if (!loading) throw new Error('loading is undefined')
@@ -18,10 +18,10 @@ const buttonOptions: ButtonOptions = { type: 'submit' }
 const sendEmail = () => {
   updateIsLoadingButton(true)
 
-  const emailDetail = {
-    from:    sendEmailForm.from,
-    subject: `Receive Email from ${sendEmailForm.name}(${sendEmailForm.from})!`,
-    text:    sendEmailForm.content
+  const emailDetail: SendEmailForm = {
+    from:    sendEmailForm.email,
+    subject: `Receive Email from ${sendEmailForm.name}(${sendEmailForm.email})!`,
+    text:    sendEmailForm.message
   }
   try {
     contextWithMail.$mail.send(emailDetail)

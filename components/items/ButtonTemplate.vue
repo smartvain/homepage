@@ -23,7 +23,7 @@ const { isLoadingButton } = loading
     :color="colorModule.THIRD_COLOR"
     :loading="isLoadingButton"
     :type="options ? options.type : 'button'"
-    @click="clickEvent"
+    @click.prevent="clickEvent"
   >
     <slot />
     <template #loader>
