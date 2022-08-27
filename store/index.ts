@@ -31,10 +31,10 @@ export const darkModeProperties = ($vuetify: Framework) => {
       ? 'mdi-weather-sunny'
       : 'mdi-weather-night'
   })
-  const githubLogoTheme     = computed((): NodeRequire => {
+  const githubLogoTheme     = computed((): string => {
     return $vuetify.theme.dark
-      ? require('@/assets/images/icons/Github-Mark-Light-64px.png')
-      : require('@/assets/images/icons/Github-Mark-64px.png')
+      ? '@/assets/images/icons/Github-Mark-Light-64px.png'
+      : '@/assets/images/icons/Github-Mark-64px.png'
   })
   const cardBackGroundTheme = computed((): string => {
     return $vuetify.theme.dark
