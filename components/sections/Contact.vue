@@ -72,6 +72,7 @@ const messageRules = [
               placeholder="Your full name"
               :rules="nameRules"
               solo flat required
+              validate-on-blur
             />
             <v-text-field
               v-model="sendEmailForm.from"
@@ -81,6 +82,7 @@ const messageRules = [
               placeholder="Your Email"
               :rules="fromRules"
               solo flat required
+              validate-on-blur
             />
             <v-textarea
               v-model="sendEmailForm.message"
@@ -91,6 +93,7 @@ const messageRules = [
               :rules="messageRules"
               :counter="500"
               solo flat no-resize required
+              validate-on-blur
             />
             <SendEmailButton :disabled="!valid" :sendEmailForm="sendEmailForm" />
           </v-form>
