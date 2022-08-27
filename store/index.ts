@@ -33,8 +33,8 @@ export const darkModeProperties = ($vuetify: Framework) => {
   })
   const githubLogoTheme     = computed((): NodeRequire => {
     return $vuetify.theme.dark
-      ? require('@/assets/images/icons/Github-Mark-Light-64px.png')
-      : require('@/assets/images/icons/Github-Mark-64px.png')
+      ? require('~/assets/images/icons/Github-Mark-Light-64px.png')
+      : require('~/assets/images/icons/Github-Mark-64px.png')
   })
   const cardBackGroundTheme = computed((): string => {
     return $vuetify.theme.dark
