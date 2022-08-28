@@ -3,7 +3,6 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-  target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Home page',
@@ -49,35 +48,13 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
     // https://www.npmjs.com/package/@nuxtjs/toast
     '@nuxtjs/toast',
-    // https://www.npmjs.com/package/nuxt-mail
-    ['nuxt-mail', {
-      message: {
-        to: process.env.MAIL_SMTP_USER,
-      },
-      smtp: {
-        host: 'smtp.gmail.com',
-        port: 587,
-        auth: {
-          user: process.env.MAIL_SMTP_USER,
-          pass: process.env.MAIL_SMTP_PASS
-        },
-      },
-    }],
   ],
 
   // @aceforth/nuxt-optimized-images configuration
   optimizedImages: {
     optimizeImages: true
-  },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.BASE_URL,
   },
 
   // Toast module configuration: // https://www.npmjs.com/package/@nuxtjs/toast
