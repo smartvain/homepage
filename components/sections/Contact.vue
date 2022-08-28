@@ -20,19 +20,21 @@ const sectionDetail = 'You can contact me through this form.'
   <div class="section-area" id="contact-area">
     <v-row justify="center" align="center" :class="{ 'contact-area-wrapper-res': !isSmMedia }">
       <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'contact-area-image-position-res': !isSmMedia }">
-        <MainImageLeftAnimation>
-          <img
-            v-show="isOpen"
-            class="contact-area-background-image"
-            :class="{ 'd-none': !isSmMedia }"
-            :src="require('@/assets/images/sections/contact/contact-background.png')"
-            rel="preload"
-          >
-        </MainImageLeftAnimation>
-        <div v-show="isOpen" class="animation-image-appear">
-          <img :src="require('@/assets/images/sections/contact/contact-planet.png')" class="contact-area-planet-image" rel="preload">
-          <img :src="require('@/assets/images/sections/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
-        </div>
+        <picture>
+          <MainImageLeftAnimation>
+            <img
+              v-show="isOpen"
+              class="contact-area-background-image"
+              :class="{ 'd-none': !isSmMedia }"
+              :src="require('@/assets/images/sections/contact/contact-background.png?webp')"
+              rel="preload"
+            >
+          </MainImageLeftAnimation>
+          <div v-show="isOpen" class="animation-image-appear">
+            <img :src="require('@/assets/images/sections/contact/contact-planet.png?webp')" class="contact-area-planet-image" rel="preload">
+            <img :src="require('@/assets/images/sections/contact/contact-astronaut.png?webp')" class="contact-area-astronaut-image" rel="preload">
+          </div>
+        </picture>
       </v-col>
       <v-col cols="12" sm="8" md="6" align="center" :class="{ 'contact-area-main-position-res': !isSmMedia }">
         <SectionTitleAnimation>

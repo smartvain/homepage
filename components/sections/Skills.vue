@@ -21,26 +21,28 @@ const sectionDetail = 'This section is lined with skills I can handle.'
   <div class="section-area" id="skills-area">
     <v-row justify="center" align="center">
       <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'skills-area-image-position-res': !isSmMedia }">
-        <MainImageLeftAnimation>
-          <img
-            v-show="isOpen"
-            class="skills-area-background-image"
-            :class="{ 'd-none': !isSmMedia }"
-            :src="require('@/assets/images/sections/skills/skills-background.png')"
-            rel="preload"
-          >
-        </MainImageLeftAnimation>
-        <div v-show="isOpen" class="animation-image-appear">
-          <img :src="require('@/assets/images/sections/skills/skills-planet-main.png')" class="skills-area-planet-main-image" rel="preload">
-          <img :src="require('@/assets/images/sections/skills/skills-asteroid.png')" class="skills-area-asteroid-image" rel="preload">
-          <div class="planets-wrapper">
-            <img :src="require('@/assets/images/sections/skills/skills-planet1.png')" class="skills-area-planet-image" rel="preload">
-            <img :src="require('@/assets/images/sections/skills/skills-planet2.png')" class="skills-area-planet-image" rel="preload">
-            <img :src="require('@/assets/images/sections/skills/skills-planet3.png')" class="skills-area-planet-image" rel="preload">
-            <img :src="require('@/assets/images/sections/skills/skills-planet4.png')" class="skills-area-planet-image" rel="preload">
+        <picture>
+          <MainImageLeftAnimation>
+            <img
+              v-show="isOpen"
+              class="skills-area-background-image"
+              :class="{ 'd-none': !isSmMedia }"
+              :src="require('@/assets/images/sections/skills/skills-background.png?webp')"
+              rel="preload"
+            >
+          </MainImageLeftAnimation>
+          <div v-show="isOpen" class="animation-image-appear">
+            <img :src="require('@/assets/images/sections/skills/skills-planet-main.png?webp')" class="skills-area-planet-main-image" rel="preload">
+            <img :src="require('@/assets/images/sections/skills/skills-asteroid.png?webp')" class="skills-area-asteroid-image" rel="preload">
+            <div class="planets-wrapper">
+              <img :src="require('@/assets/images/sections/skills/skills-planet1.png?webp')" class="skills-area-planet-image" rel="preload">
+              <img :src="require('@/assets/images/sections/skills/skills-planet2.png?webp')" class="skills-area-planet-image" rel="preload">
+              <img :src="require('@/assets/images/sections/skills/skills-planet3.png?webp')" class="skills-area-planet-image" rel="preload">
+              <img :src="require('@/assets/images/sections/skills/skills-planet4.png?webp')" class="skills-area-planet-image" rel="preload">
+            </div>
+            <img :src="require('@/assets/images/sections/skills/skills-astronaut.png?webp')" class="skills-area-astronaut-image" rel="preload">
           </div>
-          <img :src="require('@/assets/images/sections/skills/skills-astronaut.png')" class="skills-area-astronaut-image" rel="preload">
-        </div>
+        </picture>
       </v-col>
       <v-col cols="12" sm="8" md="6" align="center">
         <SectionTitleAnimation>

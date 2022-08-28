@@ -44,42 +44,45 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
         </SectionContentAnimation>
       </v-col>
       <v-col cols="12" sm="7" align-self="start" style="position: relative">
-        <MainImageRightAnimation>
-          <img
-            v-show="isOpen"
-            :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
-            :src="require('@/assets/images/sections/top/top-background.png')"
-            rel="preload"
-          >
-        </MainImageRightAnimation>
-        <div v-show="isOpen" class="animation-image-appear">
-          <img
-            class="top-area-earth-image"
-            :src="require('@/assets/images/sections/top/top-earth.png')"
-            rel="preload"
-          >
-        </div>
-        <MainImageRightAnimation>
-          <img
-            v-show="isOpen"
-            :class="!isSmMedia ? 'top-area-images-position-res filter-brightness' : 'top-area-images-position'"
-            :src="require('@/assets/images/sections/top/top-astronaut.png')"
-            rel="preload"
-          >
-        </MainImageRightAnimation>
-        <div v-show="isOpen" class="animation-image-appear">
-          <img
-            class="top-area-satellite-image"
-            :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
-            :src="require('@/assets/images/sections/top/top-satellite.png')"
-            rel="preload"
-          >
-          <img
-            class="top-area-shine-image"
-            :src="require('@/assets/images/sections/top/top-shine.png')"
-            rel="preload"
-          >
-        </div>
+        <picture>
+          <MainImageRightAnimation>
+            <!-- <source :srcset="require('@/assets/images/sections/top/top-background.png?webp')" type="image/webp" /> -->
+            <img
+              v-show="isOpen"
+              :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
+              :src="require('@/assets/images/sections/top/top-background.png?webp')"
+              rel="preload"
+            >
+          </MainImageRightAnimation>
+          <div v-show="isOpen" class="animation-image-appear">
+            <img
+              class="top-area-earth-image"
+              :src="require('@/assets/images/sections/top/top-earth.png?webp')"
+              rel="preload"
+            >
+          </div>
+          <MainImageRightAnimation>
+            <img
+              v-show="isOpen"
+              :class="!isSmMedia ? 'top-area-images-position-res filter-brightness' : 'top-area-images-position'"
+              :src="require('@/assets/images/sections/top/top-astronaut.png?webp')"
+              rel="preload"
+            >
+          </MainImageRightAnimation>
+          <div v-show="isOpen" class="animation-image-appear">
+            <img
+              class="top-area-satellite-image"
+              :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
+              :src="require('@/assets/images/sections/top/top-satellite.png?webp')"
+              rel="preload"
+            >
+            <img
+              class="top-area-shine-image"
+              :src="require('@/assets/images/sections/top/top-shine.png?webp')"
+              rel="preload"
+            >
+          </div>
+        </picture>
       </v-col>
     </v-row>
   </div>

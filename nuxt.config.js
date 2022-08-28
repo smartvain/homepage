@@ -42,6 +42,8 @@ export default {
     '@nuxtjs/composition-api/module',
     // https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
+    // https://www.npmjs.com/package/@aceforth/nuxt-optimized-images
+    '@aceforth/nuxt-optimized-images',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -65,6 +67,11 @@ export default {
       },
     }],
   ],
+
+  // @aceforth/nuxt-optimized-images configuration
+  optimizedImages: {
+    optimizeImages: true
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
