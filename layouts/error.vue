@@ -28,8 +28,10 @@ const returnHome = (): void => { router.push('/') }
   <v-container fluid style="width: 93%; max-width: 102rem;">
     <v-row justify="center" align="center">
       <v-col cols="12" md="5" style="position: relative" :class="{ 'filter-brightness': !isMdMedia }">
-        <img :src="require('@/assets/images/error/error-background.png')" :class="!isMdMedia ? 'error-area-background-image-res' : 'error-area-background-image'" rel="preload">
-        <img :src="require('@/assets/images/error/error-astronaut.png')" :class="!isMdMedia ? 'error-area-astronaut-image-res' : 'error-area-astronaut-image'" rel="preload">
+        <picture>
+          <img :src="require('@/assets/images/error/error-background.png?webp')" :class="!isMdMedia ? 'error-area-background-image-res' : 'error-area-background-image'" rel="preload">
+          <img :src="require('@/assets/images/error/error-astronaut.png?webp')" :class="!isMdMedia ? 'error-area-astronaut-image-res' : 'error-area-astronaut-image'" rel="preload">
+        </picture>
       </v-col>
       <v-col cols="12" md="5" align="center" :class="{ 'error-left-position-res': !isMdMedia }">
         <h1 v-text="errorTitle" style="white-space: pre-wrap" class="section-title" :class="{ 'font-color-fix': !isMdMedia }" />
