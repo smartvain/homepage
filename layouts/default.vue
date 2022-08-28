@@ -38,7 +38,7 @@ const isOpenSideBar = ref<boolean>(false)
 
 const logoTitle     = 'Ryuichi Amejima'
 const footerMessage = 'Ryuichi Amejima. All Rights Reserved.'
-const githubUrl     = 'https://github.com/smartvain/personal-portfolio'
+const githubUrl     = 'https://github.com/smartvain/homepage'
 
 const routePath = '/'
 const headerButtons: HeaderButtonType[] = [
