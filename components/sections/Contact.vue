@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import SectionTitleAnimation from '../animations/SectionTitleAnimation.vue';
 import SectionDetailAnimation from '../animations/SectionDetailAnimation.vue';
+import SectionContentAnimation from '../animations/SectionContentAnimation.vue';
 import MainImageLeftAnimation from '../animations/MainImageLeftAnimation.vue';
 import { screenWidthSetKey } from '~/store';
 import { inject } from 'vue';
-import ContactForm from './ContactForm.vue';
 
 defineProps<{ isOpen: boolean }>()
 
@@ -41,7 +41,18 @@ const sectionDetail = 'You can contact me through this form.'
         <SectionDetailAnimation>
           <p v-show="isOpen" v-text="sectionDetail" class="section-detail" />
         </SectionDetailAnimation>
-        <ContactForm :isOpen="isOpen" />
+        <SectionContentAnimation>
+          <iframe
+            v-show="isOpen"
+            src="https://docs.google.com/forms/d/e/1FAIpQLScUVQBTmQ8j6GcndcIn87kbA3RJsHgz74_56XCexn6XhDPjWw/viewform?embedded=true"
+            width="100%"
+            height="550"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >Loading…
+          </iframe>
+        </SectionContentAnimation>
       </v-col>
     </v-row>
   </div>
