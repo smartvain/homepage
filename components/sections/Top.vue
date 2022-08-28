@@ -46,7 +46,6 @@ onMounted(() => setTimeout(() => switchSection('top', true), 300))
       <v-col cols="12" sm="7" align-self="start" style="position: relative">
         <picture>
           <MainImageRightAnimation>
-            <!-- <source :srcset="require('@/assets/images/sections/top/top-background.png?webp')" type="image/webp" /> -->
             <img
               v-show="isOpen"
               :class="!isSmMedia ? 'top-area-images-position-res' : 'top-area-images-position'"
