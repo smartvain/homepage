@@ -1,7 +1,7 @@
-# Ryuichi Amejima Homepage in Nuxt.js × Composition API × TypeScript
+# Ryuichi Amejima homepage
+## Nuxt.js × Composition API × TypeScript
 
-<img width="1440" alt="homepage-top" src="https://user-images.githubusercontent.com/86460930/187066387-23c65701-3519-4319-953e-c2f83ab7b4da.png">
-
+<img width="1440" alt="homepage-top" src="https://user-images.githubusercontent.com/86460930/187066498-6bad1e42-40c4-460a-9a1d-3299fd241b38.png">
 
 ## Build using
 
