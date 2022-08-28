@@ -18,7 +18,7 @@ const sectionDetail = 'You can contact me through this form.'
 
 <template>
   <div class="section-area" id="contact-area">
-    <v-row justify="center" align="center">
+    <v-row justify="center" align="center" :class="{ 'contact-area-wrapper-res': !isSmMedia }">
       <v-col cols="12" sm="4" md="6" align-self="start" style="position: relative" :class="{ 'contact-area-image-position-res': !isSmMedia }">
         <MainImageLeftAnimation>
           <img
@@ -34,7 +34,7 @@ const sectionDetail = 'You can contact me through this form.'
           <img :src="require('@/assets/images/sections/contact/contact-astronaut.png')" class="contact-area-astronaut-image" rel="preload">
         </div>
       </v-col>
-      <v-col cols="12" sm="8" md="6" align="center">
+      <v-col cols="12" sm="8" md="6" align="center" :class="{ 'contact-area-main-position-res': !isSmMedia }">
         <SectionTitleAnimation>
           <h1 v-show="isOpen" v-text="sectionTitle" class="section-title" />
         </SectionTitleAnimation>
@@ -84,7 +84,17 @@ const sectionDetail = 'You can contact me through this form.'
   animation: 6s float infinite;
 }
 
+// responsive
 .contact-area-image-position-res {
   transform: translate(5rem, -15rem);
+}
+
+.contact-area-main-position-res {
+  position: absolute;
+  top: 0;
+}
+
+.contact-area-wrapper-res {
+  height: 51rem;
 }
 </style>
